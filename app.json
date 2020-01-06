@@ -1,0 +1,58 @@
+{
+  "pages":[
+    "pages/index/loading",
+    "pages/index/allow",
+    "pages/home/index",
+    "pages/bill/index",
+    "pages/memo/index",
+    "pages/memo/detail",
+    "pages/bmi/index",
+    "pages/mine/index"
+  ],
+  "window":{
+    "navigationBarTextStyle":"white",
+    "navigationBarTitleText":"生活助手",
+    "navigationBarBackgroundColor": "#8DC53E",
+    "backgroundTextStyle":"dark",
+    "backgroundColor":"#fff"
+  },
+  "tabBar": {
+    "selectedColor": "#8DC53E",
+    "list": [
+      {
+        "pagePath": "pages/home/index",
+        "text": "首页",
+        "iconPath": "images/home-off.png",
+        "selectedIconPath": "images/home-on.png"
+      },
+      {
+        "pagePath": "pages/bill/index",
+        "text": "账单",
+        "iconPath": "images/cartoon-off.png",
+        "selectedIconPath": "images/cartoon-on.png"
+      },
+      {
+        "pagePath": "pages/memo/index",
+        "text": "备忘",
+        "iconPath": "images/book-off.png",
+        "selectedIconPath": "images/book-on.png"
+      },
+      {
+        "pagePath": "pages/bmi/index",
+        "text": "bmi",
+        "iconPath": "images/movie-off.png",
+        "selectedIconPath": "images/movie-on.png"
+      },
+      {
+        "pagePath": "pages/mine/index",
+        "text": "我的",
+        "iconPath": "images/collect-off.png",
+        "selectedIconPath": "images/collect-on.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "networkTimeout": {
+    "request": 10000
+  }
+}

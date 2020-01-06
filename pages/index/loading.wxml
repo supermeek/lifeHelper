@@ -1,0 +1,4 @@
+<!-- 加载页 -->
+<view class="content" style="{{theme.bgColor}}">
+		<image src="/images/loading555.gif" mode="aspectFit"></image>
+</view>

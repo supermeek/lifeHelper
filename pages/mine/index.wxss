@@ -1,0 +1,75 @@
+.top{
+  width: 100%;
+  height: 260rpx;
+  position: relative;
+}
+.user_avatar{
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 10px;
+  margin: 40rpx 0 20rpx 80rpx;
+}
+.user_name{
+  position: absolute;
+  top: 50rpx;
+  margin-left: 40rpx;
+  font-weight: bold;
+  /* background: red; */
+}
+.user_gender_icon{
+  position: absolute;
+  top: 140rpx;
+  margin-left: 40rpx;
+}
+.user_gender{
+  position: absolute;
+  top: 134rpx;
+  margin-left: 90rpx;
+  font-size: 32rpx;
+}
+.skin_btn{
+  background: #fff;
+  width: 160rpx;
+  height: 80rpx;
+  text-align: center;
+  position: absolute;
+  right: 0;
+  top: 90rpx;
+  border-radius: 200px 0 0 200px;
+  display: flex;
+  align-items: center;
+	flex-direction: row;
+  justify-content : center;
+}
+.skin_icon{
+  display: inline-block;
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+}
+.skin_text{
+  display: inline-block;
+  font-size: 28rpx;
+  margin-left: 20rpx;
+}
+.skin_wrapper{
+  background: #fff;
+  width: 120rpx;
+  min-height: 400rpx; 
+  position: absolute;
+  right: 0;
+  top: 170rpx;
+  padding-top: 20rpx;
+}
+.skin_wrapper>text{
+  display: inline-block;
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  /* background: blue; */
+  margin-left: 30rpx;
+
+}
+.selectedTheme{
+  border: 1px solid #666;
+}

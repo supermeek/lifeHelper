@@ -1,0 +1,14 @@
+<view class="container">
+  <view class="top" style="{{theme.bgColor}}">
+    <image class="user_avatar" src="{{userInfo.avatarUrl}}"></image>
+    <text class="user_name">{{userInfo.nickName}}</text>
+    <image class="icon user_gender_icon" src="/images/icon_gender.png"></image>
+    <view class="skin_btn" bindtap="toggleTheme">
+      <text class="skin_icon" style="{{theme.bgColor}}"></text>
+      <text class="dark skin_text">换肤</text>
+    </view>
+    <view class="skin_wrapper border_tint" wx:if="{{showTheme}}">
+      <text wx:for="{{colors}}" wx:key="index" class="{{index == colorIndex ? 'selectedTheme' : ''}}" style="background:{{item}}" bindtap="switchSkin" data-index="{{index}}"></text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,12 @@
+	<!-- 获取用户权限 -->
+<view class="content">
+	<view class="userinfo">
+		<image class="bgImg" src="/images/start.jpg"></image>
+		<view style="height:400rpx;width:100%"></view>
+		<button wx:if="{{canIUse}}" 
+			style="{{theme.bgColor}}" 
+			class="shadow_bottom" 
+			open-type="getUserInfo" 
+			bindgetuserinfo="getUserInfo"> 微信授权 </button>
+	</view>
+</view>

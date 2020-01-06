@@ -1,0 +1,4 @@
+<view class="container">  
+  <text>备忘</text>
+  <navigator url="/pages/memo/detail">备忘详情</navigator>
+</view>

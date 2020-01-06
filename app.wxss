@@ -1,0 +1,15 @@
+@import '/style/weui.wxss';
+@import '/style/main.wxss';
+@import '/style/icon.wxss';
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+} 
+.content{
+  height: 100%;
+  box-sizing: border-box;
+}
