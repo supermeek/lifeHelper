@@ -12,7 +12,7 @@
 		"autoAudits": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.0.4",
+	"libVersion": "2.10.0",
 	"appid": "wxec4740ec13f6519d",
 	"projectname": "%E7%94%9F%E6%B4%BB%E5%8A%A9%E6%89%8B",
 	"debugOptions": {
@@ -46,9 +46,9 @@
 			"current": -1,
 			"list": [
 				{
-					"id": -1,
-					"name": "授权页面",
-					"pathName": "pages/index/index",
+					"id": 0,
+					"name": "授权",
+					"pathName": "pages/index/allow",
 					"query": "",
 					"scene": null
 				},
@@ -63,6 +63,21 @@
 					"id": -1,
 					"name": "个人中心",
 					"pathName": "pages/mine/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "loading",
+					"pathName": "pages/index/loading",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "账单页面",
+					"pathName": "pages/bill/index",
+					"query": "",
 					"scene": null
 				}
 			]

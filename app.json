@@ -10,7 +10,7 @@
     "pages/mine/index"
   ],
   "window":{
-    "navigationBarTextStyle":"white",
+    "navigationBarTextStyle":"black",
     "navigationBarTitleText":"生活助手",
     "navigationBarBackgroundColor": "#8DC53E",
     "backgroundTextStyle":"dark",

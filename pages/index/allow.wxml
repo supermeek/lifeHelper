@@ -1,12 +1,14 @@
 	<!-- 获取用户权限 -->
 <view class="content">
 	<view class="userinfo">
-		<image class="bgImg" src="/images/start.jpg"></image>
-		<view style="height:400rpx;width:100%"></view>
+		<image class="bgImg" src="/images/loading8.gif" mode="aspectFit"></image>
+		<text class="text">
+            允许微信授权后，开启生活助手
+            <!-- 请确认一下操作授权 -->
+        </text>
 		<button wx:if="{{canIUse}}" 
-			style="{{theme.bgColor}}" 
-			class="shadow_bottom" 
+			class="bg_{{theme.mainColor}}"
 			open-type="getUserInfo" 
-			bindgetuserinfo="getUserInfo"> 微信授权 </button>
+			bindgetuserinfo="getUserInfo"> 授权登录 </button>
 	</view>
 </view>

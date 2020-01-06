@@ -100,11 +100,11 @@ button,button:after{
 .red{
   color: #FF6A6A;
 }
-.orange{
+.yellow{
   color: #FFD700;
 }
-.yellow{
-  color: #FFB90F;
+.orange{
+  color: #ff9800;
 }
 .blue{
   color: #1ad8ff;
@@ -131,10 +131,10 @@ button,button:after{
 .bg_red{
   background-color: #FF6A6A;
 }
-.bg_orange{
+.bg_yellow{
   background-color: #FFD700;
 }
-.bg_yellow{
+.bg_orange{
   background-color: #FFB90F;
 }
 .bg_blue{
