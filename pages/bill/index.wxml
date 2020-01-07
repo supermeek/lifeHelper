@@ -11,11 +11,11 @@
   <view class="total_wrapper shadow_bottom" style="z-index:2">
     <view class="left_total">
       <text class="gray">当月总支出</text>
-      <text class="red total_count">￥2560120</text>
+      <text class="total_count" style="color:red">￥2560120</text>
     </view>
     <view class="right_total">
       <text class="gray">当月总收入</text>
-      <text class="green total_count">2500.88</text>
+      <text class="total_count" style="color:#04B404">2500.88</text>
     </view>
   </view>
 
@@ -30,7 +30,7 @@
 
   <!-- 收支列表 -->
   <view class="list_wrapper">
-    <block wx:for="{{list}}" wx:key="index" wx:for-item="timeItem">
+    <view wx:for="{{list}}" wx:key="index" wx:for-item="timeItem">
       <text class="list_time bg_tint_{{theme.mainColor}} dark">2019年12月21日 周三</text>
       <view class="weui-media-box weui-media-box_appmsg" wx:for="{{timeItem.list}}" wx:key="id">
         <view class="weui-media-box__hd_in-appmsg">
@@ -40,11 +40,15 @@
           <view class="weui-media-box__title">标题一</view>
           <view class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</view>
         </view>
-        <view wx:if="{{item.income}}" class="weui-cell__ft red">-200</view>
-        <view wx:if="{{!item.income}}" class="weui-cell__ft green}}">+200</view>
+        <view wx:if="{{item.income}}" class="weui-cell__ft" style="color:red">-200</view>
+        <view wx:if="{{!item.income}}" class="weui-cell__ft" style="color:#04B404">+200</view>
       </view>
-    </block>
+    </view>
   </view>
+
+
+  <!-- 添加按钮 -->
+  <component-add id="add"></component-add>
 
 
 </view>

@@ -1,4 +1,7 @@
 <view class="container">  
   <text>备忘</text>
   <navigator url="/pages/memo/detail">备忘详情</navigator>
+  <button bindtouchmove="buttonMove" bindtouchstart="buttonStart" bindtouchend="buttonEnd" bindtap="clicks" style="top:{{buttonTop}}px;left:{{buttonLeft}}px;width: 100rpx;height:100rpx;border-radius:50%;position:fixed;padding:0;">
++
+</button>
 </view>

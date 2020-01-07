@@ -6,36 +6,46 @@ Page({
    */
   data: {
     typeList:[
-      { id: 2, icon: 'icon_cai.png', name: '餐饮', checked: true },
-      { id: 3, icon: 'icon_pika.png', name: '萌宠', checked: false },
-      { id: 10, icon: 'icon_other.png', name: '宝贝', checked: false },
-      { id: 4, icon: 'icon_car.png', name: '交通', checked: true },
-      { id: 5, icon: 'icon_home.png', name: '居家', checked: false },
-      { id: 6, icon: 'icon_snow.png', name: '娱乐', checked: true },
-      { id: 7, icon: 'icon_huazhuang.png', name: '衣装', checked: false },
-      { id: 1, icon: 'icon_shop.png', name: '社交', checked:true },
-      { id: 9, icon: 'icon_card.png', name: '还款', checked: false },
-      { id: 8, icon: 'icon_health.png', name: '其他', checked: true },
+      { id: 2, icon: 'icon-1.png', name: '餐饮', checked: true },
+      { id: 3, icon: 'icon-2.png', name: '萌宠', checked: false },
+      { id: 10, icon: 'icon-3.png', name: '宝贝', checked: false },
+      { id: 4, icon: 'icon-4.png', name: '交通', checked: true },
+      { id: 5, icon: 'icon-5.png', name: '居家', checked: false },
+      { id: 6, icon: 'icon-6.png', name: '娱乐', checked: true },
+      { id: 7, icon: 'icon-7.png', name: '衣装', checked: false },
+      { id: 1, icon: 'icon-8.png', name: '社交', checked:true },
+      { id: 9, icon: 'icon-9.png', name: '还款', checked: false },
+      { id: 8, icon: 'icon-10.png', name: '其他', checked: true },
     ],
     list:[
       {
         time: '2020年12月21日 周三',
         list:[
-          { id: 1, icon: 'icon_shop.png', type: '购物', name: '买衣服', desc: '过年了给全家都卖了新衣服', income: false },
-          { id: 2, icon: 'icon_cai.png', type: '购物', name: '买衣服', desc: '过年了给全家都卖了新衣服', income: true },
-          { id: 3, icon: 'icon_pika.png', type: '购物', name: '买衣服', desc: '过年了给全家都卖了新衣服', income: false },
-          { id: 4, icon: 'icon_home.png', type: '购物', name: '买衣服', desc: '过年了给全家都卖了新衣服', income: true },
-          { id: 5, icon: 'icon_health.png', type: '购物', name: '买衣服', desc: '过年了给全家都卖了新衣服', income: true }
+          { id: 1, icon: 'icon-1.png', type: '购物', name: '买衣服', desc: '过年了给全家都卖了新衣服', income: false },
+          { id: 2, icon: 'icon-2.png', type: '购物', name: '买衣服', desc: '过年了给全家都卖了新衣服', income: true },
+          { id: 3, icon: 'icon-3.png', type: '购物', name: '买衣服', desc: '过年了给全家都卖了新衣服', income: false },
+          { id: 4, icon: 'icon-3.png', type: '购物', name: '买衣服', desc: '过年了给全家都卖了新衣服', income: true },
+          { id: 5, icon: 'icon-4.png', type: '购物', name: '买衣服', desc: '过年了给全家都卖了新衣服', income: true }
         ]
       },
       {
         time: '2020年12月21日 周三',
         list: [
-          { id: 1, icon: 'icon_shop.png', type: '购物', name: '买衣服', desc: '过年了给全家都卖了新衣服', income: true },
-          { id: 2, icon: 'icon_cai.png', type: '购物', name: '买衣服', desc: '过年了给全家都卖了新衣服', income: false },
-          { id: 3, icon: 'icon_pika.png', type: '购物', name: '买衣服', desc: '过年了给全家都卖了新衣服', income: false },
-          { id: 4, icon: 'icon_home.png', type: '购物', name: '买衣服', desc: '过年了给全家都卖了新衣服', income: true },
-          { id: 5, icon: 'icon_health.png', type: '购物', name: '买衣服', desc: '过年了给全家都卖了新衣服', income: true }
+          { id: 1, icon: 'icon-5.png', type: '购物', name: '买衣服', desc: '过年了给全家都卖了新衣服', income: true },
+          { id: 2, icon: 'icon-6.png', type: '购物', name: '买衣服', desc: '过年了给全家都卖了新衣服', income: false },
+          { id: 3, icon: 'icon-7.png', type: '购物', name: '买衣服', desc: '过年了给全家都卖了新衣服', income: false },
+          { id: 4, icon: 'icon-7.png', type: '购物', name: '买衣服', desc: '过年了给全家都卖了新衣服', income: true },
+          { id: 5, icon: 'icon-8.png', type: '购物', name: '买衣服', desc: '过年了给全家都卖了新衣服', income: true }
+        ]
+      },
+      {
+        time: '2020年12月21日 周三',
+        list: [
+          { id: 1, icon: 'icon-9.png', type: '购物', name: '买衣服', desc: '过年了给全家都卖了新衣服', income: true },
+          { id: 2, icon: 'icon-9.png', type: '购物', name: '买衣服', desc: '过年了给全家都卖了新衣服', income: false },
+          { id: 3, icon: 'icon-9.png', type: '购物', name: '买衣服', desc: '过年了给全家都卖了新衣服', income: false },
+          { id: 4, icon: 'icon-9.png', type: '购物', name: '买衣服', desc: '过年了给全家都卖了新衣服', income: true },
+          { id: 5, icon: 'icon-10.png', type: '购物', name: '买衣服', desc: '过年了给全家都卖了新衣服', income: true }
         ]
       }
     ]
@@ -45,7 +55,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    this.add = this.selectComponent("#add")
   },
 
   /**
@@ -59,8 +69,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    app.setThemeColor(wx.getStorageSync('themeColor') || '#8DC53E')
+    app.setThemeColor()
     this.setData({ theme: app.globalData.theme })
+    this.add.updateData(app.globalData.theme)
   },
 
   /**

@@ -1,0 +1,14 @@
+@import '/style/main.wxss';
+.add{
+  display: block;
+  text-align: center;
+  width: 100rpx;
+  height:100rpx;
+  line-height: 90rpx;
+  border-radius:50%;
+  position:fixed;
+  padding:0;
+  color: #fff;
+  font-size: 80rpx;
+  /* border: 1rpx solid #999; */
+}

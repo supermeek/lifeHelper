@@ -1,16 +1,14 @@
 const app = getApp()
+import util from '../../utils/util.js'
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    radioItems: [
+      { name: 'cell standard', value: '0' },
+      { name: 'cell standard', value: '1', checked: true }
+    ],
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
     app.setThemeColor()
     this.setData({ theme: app.globalData.theme })
@@ -20,8 +18,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    console.log("onReady")
-    console.log(app.globalData)
+
   },
 
   /**

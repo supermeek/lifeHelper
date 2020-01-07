@@ -1,0 +1,22 @@
+.container>view{
+  width: 100%;
+  box-sizing: border-box;
+}
+.top_wrapper>image{
+  width: 100%;
+}
+.content_wrapper{
+  width: 86% !important;
+  min-height: 800rpx;
+  margin-top: -140rpx;
+  background: #fff;
+  border-top: 1rpx solid #666;
+  border-radius: 100px 100px 0 0;
+  padding: 100rpx 20rpx 20rpx 20rpx;
+}
+.center_wrapper{
+  border-radius: 20px 20px 0 0;
+  color: #999;
+  width: 80%;
+  margin: auto;
+}

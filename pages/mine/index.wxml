@@ -2,7 +2,7 @@
   <view class="top bg_{{theme.mainColor}}">
     <image class="user_avatar" src="{{userInfo.avatarUrl}}"></image>
     <text class="user_name">{{userInfo.nickName}}</text>
-    <image class="icon user_gender_icon" src="/images/icon_gender.png"></image>
+    <image class="icon user_gender_icon" src="/images/woman.png"></image>
     <view class="skin_btn" bindtap="toggleTheme">
       <text class="skin_icon bg_{{theme.mainColor}}"></text>
       <text class="dark skin_text">换肤</text>

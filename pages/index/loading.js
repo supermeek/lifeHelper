@@ -12,7 +12,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    app.setThemeColor(wx.getStorageSync('themeColor') || '#8DC53E')
+    app.setThemeColor()
     this.setData({ theme: app.globalData.theme })
   },
 

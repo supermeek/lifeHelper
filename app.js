@@ -3,27 +3,20 @@ App({
 
   service: new service(),
 
-  // 默认全局数据
   globalData: {
     userInfo: null,
-    theme: { color: '#8DC53E', minColor: 'green', subColor: 'yellow', name: '绿色' }
+    theme: { color: '#A4D165', minColor: 'green', subColor: 'yellow', name: '绿色' }
   },
 
-  // 启动
   onLaunch: function () {
-    // 展示本地存储能力
-    // var logs = wx.getStorageSync('logs') || []
-    // logs.unshift(Date.now())
-    // wx.setStorageSync('logs', logs)
-
-
     let that = this
     wx.login({
       success: res => {
-        that.service.wxlogin(res.code).then(res => {
-          that.service.setHeader(res.data)
-          that.toPage()
-        })
+        // that.service.wxlogin(res.code).then(res => {
+        //   that.service.setHeader(res.data)
+        //   that.toPage()
+        // })
+        that.toPage()
       }
     });
   },
@@ -58,13 +51,10 @@ App({
 
   // 切换主题颜色
   setThemeColor: function () {
-
-    let color = { color: '#8DC53E', minColor: 'green', subColor: 'yellow', name: '绿色' }
-
+    let color = { color: '#A4D165', mainColor: 'green', subColor: 'yellow', name: '绿色' }
     if (wx.getStorageSync('themeColor')){
       color = wx.getStorageSync('themeColor')
     }
-
     this.globalData.theme = {
       mainColor: color.mainColor,
       subColor: color.subColor,
@@ -75,10 +65,6 @@ App({
     wx.setNavigationBarColor({
       frontColor: '#000000', // 必写项
       backgroundColor: color.color, // 必写项
-      // animation: { // 可选项
-      //   duration: 400,
-      //   timingFunc: 'easeIn'
-      // }
     })
   }
 

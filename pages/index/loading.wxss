@@ -20,10 +20,8 @@ page {
   /* border: 1px solid blue; */
 }
 .loading{
-  /* background: red; */
   width: 90%;
   height: 200rpx;
-  /* border: 1px solid red; */
   z-index: 1;
 }
 

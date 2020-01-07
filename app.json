@@ -1,5 +1,5 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/loading",
     "pages/index/allow",
     "pages/home/index",
@@ -7,14 +7,25 @@
     "pages/memo/index",
     "pages/memo/detail",
     "pages/bmi/index",
-    "pages/mine/index"
+    "pages/mine/index",
+    "pages/creat/index"
   ],
-  "window":{
-    "navigationBarTextStyle":"black",
-    "navigationBarTitleText":"生活助手",
-    "navigationBarBackgroundColor": "#8DC53E",
-    "backgroundTextStyle":"dark",
-    "backgroundColor":"#fff"
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "生活助手",
+    "navigationBarBackgroundColor": "#A4D165",
+    "backgroundTextStyle": "dark",
+    "backgroundColor": "#fff"
+  },
+  "sitemapLocation": "sitemap.json",
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "usingComponents": {
+    "component-add": "components/add/add"
   },
   "tabBar": {
     "selectedColor": "#8DC53E",
@@ -32,14 +43,14 @@
         "selectedIconPath": "images/cartoon-on.png"
       },
       {
-        "pagePath": "pages/memo/index",
-        "text": "备忘",
-        "iconPath": "images/book-off.png",
-        "selectedIconPath": "images/book-on.png"
+        "pagePath": "pages/creat/index",
+        "text": "",
+        "iconPath": "images/add.png",
+        "selectedIconPath": "images/add.png"
       },
       {
-        "pagePath": "pages/bmi/index",
-        "text": "bmi",
+        "pagePath": "pages/memo/index",
+        "text": "备忘",
         "iconPath": "images/movie-off.png",
         "selectedIconPath": "images/movie-on.png"
       },
@@ -50,9 +61,5 @@
         "selectedIconPath": "images/collect-on.png"
       }
     ]
-  },
-  "sitemapLocation": "sitemap.json",
-  "networkTimeout": {
-    "request": 10000
   }
 }

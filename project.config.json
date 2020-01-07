@@ -79,6 +79,12 @@
 					"pathName": "pages/bill/index",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "新增",
+					"pathName": "pages/creat/index",
+					"scene": null
 				}
 			]
 		}

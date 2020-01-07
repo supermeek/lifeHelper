@@ -6,7 +6,7 @@ Page({
 	},
 
 	onLoad: function () {
-		app.setThemeColor(wx.getStorageSync('themeColor') || '#8DC53E')
+    app.setThemeColor()
     this.setData({ theme: app.globalData.theme })
 	},
 

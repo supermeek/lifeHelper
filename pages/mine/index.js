@@ -1,17 +1,11 @@
 const app = getApp()
+import util from '../../utils/util.js'
 Page({
 
   data: {
     theme: app.globalData.theme,
     userInfo: app.globalData.userInfo,
-    colors: [
-      { color: '#8DC53E', mainColor: 'green', subColor: 'yellow', name:'绿色' },
-      { color: '#FFB6C9', mainColor: 'pink', subColor: 'blue', name: '粉色' },
-      { color: '#FF6A6A', mainColor: 'red', subColor: 'blue', name: '红色' },
-      { color: '#FFD700', mainColor: 'yellow', subColor: 'blue', name: '黄色' },
-      { color: '#1ad8ff', mainColor: 'blue', subColor: 'pink', name: '蓝色' },
-      { color: '#A020F0', mainColor: 'purple', subColor: 'yellow', name: '紫色' }
-    ],
+    colors: util.colors,
     colorIndex: 0,
     showTheme:false
   },

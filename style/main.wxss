@@ -92,25 +92,25 @@ button,button:after{
   color: #ededed;
 }
 .green{
-  color: #8DC53E;
+  color: #A4D165;
 }
 .pink{
   color: #FFB6C9;
 }
 .red{
-  color: #FF6A6A;
+  color: #FF7979;
 }
 .yellow{
-  color: #FFD700;
+  color: #FFE133;
 }
 .orange{
   color: #ff9800;
 }
 .blue{
-  color: #1ad8ff;
+  color:#74DCFF;
 }
 .purple{
-  color: #A020F0;
+  color: #C679F6;
 }
 .gray{
   color: #999;
@@ -123,25 +123,25 @@ button,button:after{
 }
 /* 背景色 */
 .bg_green{
-  background-color: #8DC53E;
+  background-color: rgba(141, 197, 62, 0.8);
 }
 .bg_pink{
-  background-color: #FFB6C9;
+  background-color: rgba(255, 182, 202, 1);
 }
 .bg_red{
-  background-color: #FF6A6A;
+  background-color: rgba(255, 106, 106, 0.9);
 }
 .bg_yellow{
-  background-color: #FFD700;
+  background-color: rgba(255, 217, 0, 0.8);
 }
 .bg_orange{
-  background-color: #FFB90F;
+  background-color: rgba(255, 153, 0, 0.6)
 }
 .bg_blue{
-  background-color: #1ad8ff;
+  background-color: rgba(101, 216, 255, 0.9);
 }
 .bg_purple{
-  background-color: #A020F0;
+  background-color: rgba(160, 32, 240, 0.6);
 }
 .bg_white{
   background-color: #ffffff;
@@ -154,25 +154,25 @@ button,button:after{
 }
 /* 浅色背景 */
 .bg_tint_green{
-  background-color: #F0FFF0;
+  background-color: rgba(141, 197, 62, 0.1);
 }
 .bg_tint_pink{
-  background-color: #FFF0F5;
+  background-color: rgba(255, 182, 202, 0.1);
 }
 .bg_tint_red{
-  background-color: #FFE4E1;
+  background-color: rgba(255, 106, 106, 0.1);
 }
 .bg_tint_orange{
-  background-color: #FFFACD;
+  background-color: rgba(255, 153, 0, 0.1)
 }
 .bg_tint_yellow{
-  background-color: #FAEBD7;
+  background-color: rgba(255, 217, 0, 0.1);
 }
 .bg_tint_blue{
-  background-color: #F0FFFF;
+  background-color: rgba(101, 216, 255, 0.1);
 }
 .bg_tint_purple{
-  background-color: #E6E6FA;
+  background-color: rgba(160, 32, 240, 0.1);
 }
 /* 边框颜色 */
 .border_white{
