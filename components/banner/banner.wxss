@@ -1,0 +1,12 @@
+.item-image{
+  width: 100%;
+  height: 100%;
+}
+.learn-club{
+  margin-top: 10rpx;
+  font-size: 15px;
+  color: #666;
+}
+.weui-cell{
+  padding: 15rpx 0;
+}

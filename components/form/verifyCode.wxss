@@ -1,0 +1,26 @@
+@import '../../app.wxss';
+.weui-vcode-btn {
+  font-size: 30rpx;
+}
+.weui-cells{
+  border:none;
+  font-size: 30rpx;
+}
+.weui-cells:before,.weui-cells:after {
+  border:none;
+}
+.weui-cell__bd>input{
+  width: 85%;
+}
+.weui-cell{
+  padding: 20rpx 0;
+  height: 60rpx;
+  border-bottom: 1rpx solid #ededed;
+}
+.weui-cell:before {
+  border: none;
+  left: 0;
+}
+.phcolor{
+    color: #999;
+}

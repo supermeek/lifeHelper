@@ -1,0 +1,19 @@
+<view class='bill_item radius shadow' hover-class="hover">
+    <view class='bill_top _clearFloat'>
+        <text class='bill_title'>{{name}}</text>
+        <text wx:if="{{statusText}}" class='bill_tip {{statusText.color}}'>{{statusText.text}}</text>
+    </view>
+    <view class='bill_bottom _clearFloat'>
+        <view wx:if="{{time}}" class="bill_bottom_left gray">
+            <text class="iconfont icon-shijian1" style="font-size:30rpx"></text>\t\t
+            <text>{{time}}</text>
+        </view>
+        <view wx:if="{{num}}" class="bill_bottom_left gray">
+            <text>{{num}}</text>
+        </view>
+        <view wx:if="{{count}}" class='bill_bottom_right'>
+            <image src='../../images/goldbean.png'></image>
+            <text class="orange">{{count}}</text>
+        </view>
+    </view>
+</view>

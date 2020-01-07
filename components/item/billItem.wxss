@@ -1,0 +1,45 @@
+@import '../../app.wxss';
+
+.hover{
+    background: #eee !important;
+}
+.bill_item {
+    background-color: #fff;
+    margin: 20rpx;
+    font-size: 28rpx;
+    padding: 10rpx 30rpx;
+}
+.bill_top {
+    line-height: 80rpx;
+    height: 80rpx;
+    border-bottom: 1rpx solid #ededed;
+}
+.bill_title {
+    font-weight: bold;
+    font-size: 30rpx;
+}
+.bill_tip{
+    float: right;
+}
+.bill_bottom{
+    line-height: 80rpx;
+    height: 80rpx;
+}
+.bill_bottom_left{
+    display: inline-block;
+}
+.bill_bottom_right{
+    float: right;
+}
+.bill_bottom_right image{
+    width: 36rpx;
+    height: 36rpx;
+    vertical-align: middle;
+}
+.bill_bottom_right text {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 34rpx;
+    font-weight: bold;
+    margin-left: 20rpx;
+}

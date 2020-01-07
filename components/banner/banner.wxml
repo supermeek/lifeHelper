@@ -1,0 +1,10 @@
+<!-- banner -->
+<view class="banner-wrapper">
+    <swiper indicator-dots="true" autoplay="true" circular="true" class="swiper" style="height: {{height}}rpx;">
+        <block wx:for="{{banners}}" wx:key="index">
+            <swiper-item class="banner-item" bindtap="onProductsItemTap">
+                <image class="item-image" src="{{imageHttp ? imageHttp+item : item}}" mode="scaleToFill" />
+            </swiper-item>
+        </block>
+    </swiper>
+</view>

@@ -1,0 +1,29 @@
+@import '../../app.wxss';
+.load_more{
+    width: auto;
+    padding: 20rpx;
+    text-align: center;
+    margin: 30rpx 0; 
+    box-sizing: border-box;
+    color:#999;
+    font-size: 26rpx;
+}
+.load_more_line{
+    /* background: #eee; */
+    height: 50rpx;
+    text-align: center;
+    width: 70%;
+    margin: auto;
+    border-bottom: 1rpx solid rgba(0,0,0,.1);
+}
+.load_more_inline{
+    background: #f5f5f5;
+    display: inline-block;
+    padding: 0 20rpx;
+    margin: auto;
+    font-size: 26rpx;
+    color: #999;
+    box-sizing: border-box;
+    line-height: 100rpx;
+    /* background: blue; */
+}

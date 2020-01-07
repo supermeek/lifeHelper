@@ -1,0 +1,7 @@
+<view class="tab">
+  <block wx:for="{{list}}" wx:key="index">
+    <view class="{{index == active ? 'tab_select' : 'tab_unselect'}}" data-index='{{index}}' bindtap='switchTab'>
+      <text>{{item.name}}</text>
+    </view>
+  </block>
+</view>

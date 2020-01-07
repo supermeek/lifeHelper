@@ -16,7 +16,7 @@ App({
         //   that.service.setHeader(res.data)
         //   that.toPage()
         // })
-        that.toPage()
+        // that.toPage()
       }
     });
   },

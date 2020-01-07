@@ -1,0 +1,86 @@
+@import '../../app.wxss';
+
+.item {
+    background-color: #fff;
+    border-radius: 6px;
+    margin: 20rpx 30rpx;
+    padding: 10rpx 30rpx;
+    font-size: 26rpx;
+}
+
+.item__title {
+    padding: 20rpx 0;
+}
+
+.name {
+    font-size: 30rpx;
+    font-weight: bold;
+    color: #333;
+}
+
+.time {
+    font-size: 22rpx;
+    margin-left: 20rpx;
+    border-radius: 100px;
+    padding: 5rpx 10rpx;
+}
+
+.status {
+    float: right;
+    font-size: 28rpx;
+}
+
+.item__content {
+    border-top: 1rpx dashed #ededed;
+    border-bottom: 1rpx dashed #ededed;
+    padding: 15rpx 0;
+    line-height: 50rpx;
+}
+
+.item__content>view>text:first-child {
+    display: inline-block;
+    color: #999;
+    width: 20%;
+}
+
+.item__bottom {
+    padding: 20rpx 0;
+    min-height: 30rpx;
+}
+
+.numText .orange, .confirmNum .orange {
+    font-size: 32rpx;
+}
+
+.confirmNum {
+    float: right;
+}
+
+.confirmNum>image {
+    width: 35rpx;
+    height: 35rpx;
+    vertical-align: top;
+    margin: 10rpx 10rpx 0 10rpx;
+}
+
+.cardNum {
+    color: #999;
+}
+
+.btn {
+    float: right;
+    padding: 5rpx 10rpx;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.refuse {
+    display: block;
+    line-height: 50rpx;
+    float: right;
+    max-width: 48%;
+    text-align: right;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

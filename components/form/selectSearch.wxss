@@ -1,0 +1,42 @@
+@import '../../app.wxss';
+.iconfont{
+  margin-right: 10rpx;
+  font-weight: 500;
+  font-size: 36rpx;
+}
+.picker{
+    min-width: 200rpx;
+}
+view{
+  font-size: 28rpx;
+}
+.weui-cells:after {
+  border-bottom: none;
+}
+.weui-cell{
+  padding: 30rpx;
+}
+.weui-cell:before{
+  left: 30rpx;
+  right: 30rpx;
+  border-top: 1rpx solid #f2f2f2;
+}
+.weui-cell:first-child:before {
+    display: block;
+}
+
+/* 搜索 */
+.search-list__wrapper{
+    background: #F5F5F5;
+    padding: 0 30rpx !important;
+}
+.search-list__wrapper>view{
+    display: block;
+    padding: 15rpx 0;
+    font-size: 26rpx;
+    color: #666;
+    border-bottom: 1rpx solid #ddd;
+}
+.search-list__wrapper>view:last-child{
+    border-bottom:none;
+}

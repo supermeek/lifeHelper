@@ -1,0 +1,23 @@
+<block wx:for="{{listData}}" wx:key="index">
+    <!-- 下拉选项 -->
+    <view class="weui-cell weui-cell_example weui-cell_access" hover-class="weui-cell_active">
+        <view class="weui-cell__hd" wx:if="{{item.icon}}">
+            <text class="{{item.icon}} cyan"></text>
+        </view>
+        <view class="weui-cell__bd weui-cell_primary">
+            <view>{{item.name}}</view>
+        </view>
+        <picker 
+            class="picker" 
+            bindchange="bindPickerChange" 
+            range="{{item.arr}}" 
+            value="{{item.select}}" 
+            range-key="{{rangeKey}}" 
+            data-name="{{item.name}}">
+            <view class="weui-cell__ft {{isEdit ? 'weui-cell__ft_in-access' : ''}} picker">
+                <text class="gray" wx:if="{{item.select == null}}">请选择{{item.name}}</text>
+                <text class="dark" wx:if="{{item.select != null}}">{{ rangeKey ? item.arr[item.select][rangeKey] : item.arr[item.select] }}</text>
+            </view>
+        </picker>
+    </view>
+</block>

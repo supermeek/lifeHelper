@@ -1,0 +1,5 @@
+<!-- 上拉加载更多 -->
+<view class="loadmore" hidden='{{!showThis}}' animation="{{animationData}}">
+    <image class="icon" src='/images/loading3.gif' hidden='{{!showIcon}}'/>
+    <text>{{text}}</text>
+</view>

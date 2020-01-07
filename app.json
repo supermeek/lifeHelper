@@ -25,7 +25,8 @@
     "downloadFile": 10000
   },
   "usingComponents": {
-    "component-add": "components/add/add"
+    "component-add": "components/add/add",
+    "component-picker": "/components/form/selectPicker"
   },
   "tabBar": {
     "selectedColor": "#8DC53E",

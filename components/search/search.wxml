@@ -1,0 +1,12 @@
+<view>
+  <navigator class="search_page" hover-class="hover" url="/pages/search/index" open-type="navigate" style="padding:20rpx">
+    <view class="weui-search-bar">
+        <view class="weui-search-bar__form">
+            <view class="weui-search-bar__box">
+                <input type="text" disabled="true" class="weui-search-bar__input" placeholder="{{placeholder}}"/>
+                <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+            </view>
+        </view>
+    </view>
+  </navigator>
+</view>

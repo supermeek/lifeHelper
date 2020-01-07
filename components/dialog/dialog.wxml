@@ -1,0 +1,21 @@
+<!-- 模拟dialog -->
+<view class="page__bd">
+    <view class="weui-demo-dialog {{showDialog ? 'weui-demo-dialog_show' : ''}}">
+      <view class="weui-mask" bindtap="closeDialog"></view>
+      <view class="weui-dialog__wrp" bindtap="closeDialog">
+          <view class="weui-dialog" catchtap="stopEvent"  style="min-height:{{height + 220}}rpx">
+            <view class="weui-dialog__hd">
+              <view class="weui-dialog__title">标题</view>
+            </view>
+            <view class="weui-dialog__bd" style="min-height:{{height}}rpx">
+              <!-- 弹窗中间内容 -->
+              <slot name="content"></slot>
+            </view>
+            <view class="weui-dialog__ft">
+                <view class="weui-dialog__btn weui-dialog__btn_default" bindtap="closeDialog">取消</view>
+                <view class="weui-dialog__btn cyan" bindtap="confirmDialog">确定</view>
+            </view>
+          </view>
+      </view>
+    </view>
+</view>

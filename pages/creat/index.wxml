@@ -1,26 +1,30 @@
-<view class="container">
-  <view class="top_wrapper bg_{{theme.mainColor}}">
-    <image src="/images/miao.gif"></image>
-  </view>
-
-  <view class="content_wrapper">
-    <view class="center_wrapper">
-      <view>
-        <label>时间：</label>
-        <text>2020年12月12日</text>
-      </view>
-      <view>
-        <label>类型：</label>
-        <text>购物</text>
-      </view>
-      <view>
-        <label>金额：</label>
-        <text>1354.00</text>
-      </view>
-      <view>
-        <label>描述：</label>
-        <text>今天饿了吃了很多</text>
-      </view>
-    </view>
-  </view>
-</view>
+<form bindsubmit="submitConfirm">
+	<view class="container">
+		<!-- 头部设计 -->
+		<view class="top_wrapper bg_{{theme.mainColor}}">
+			<image src="/images/miao.gif"></image>
+		</view>
+		<!-- 内容填写 -->
+		<view class="content_wrapper">
+			<component-picker name="type" id="type" list="{{typeObject}}" isEdit="{{ true }}" rangeKey="name" bind:bindPickerChange="bindPickerChange" />
+			<component-picker name="type" id="type" list="{{typeObject}}" isEdit="{{ true }}" rangeKey="name" bind:bindPickerChange="bindPickerChange" />
+			<picker bindchange="bindPickerChange" value="{{index}}" range="{{typeList}}" rangeKey="name">
+				<button class="weui-btn" type="default">单列选择器{{typeList[index]}}</button>
+			</picker>
+			<view>
+				<view>{{year}}年{{month}}月{{day}}日</view>
+				<picker-view indicator-style="height: 50px;" style="width: 100%; height: 50px;" value="{{value}}" bindchange="bindChange">
+					<picker-view-column>
+						<view wx:for="{{years}}" style="line-height: 50px">{{item}}年</view>
+					</picker-view-column>
+					<picker-view-column>
+						<view wx:for="{{months}}" style="line-height: 50px">{{item}}月</view>
+					</picker-view-column>
+					<picker-view-column>
+						<view wx:for="{{days}}" style="line-height: 50px">{{item}}日</view>
+					</picker-view-column>
+				</picker-view>
+			</view>
+		</view>
+	</view>
+</form>

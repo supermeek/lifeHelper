@@ -1,0 +1,14 @@
+<!-- status = 0点击加载更多 1加载中 2已经全部加载 -->
+
+<!-- 点击加载更多 -->
+<view wx:if="{{status == 0}}" class="load_more radius" bindtap="loadMore">点击加载更多</view>
+
+<!-- 加载中 -->
+<view wx:if="{{status == 1}}" class="load_more radius weui-loading__wrp">
+    <view class="loading wx_dot_loading"></view>
+</view>
+
+<!-- 加载完毕 -->
+<view wx:if="{{status == 2}}" class="load_more_line">
+    <text class="load_more_inline">暂无更多数据</text>
+</view>

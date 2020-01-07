@@ -1,0 +1,38 @@
+<view class="weui-cells weui-cells_after-title">
+    <!-- 手机号 -->
+    <view class="weui-cell  weui-cell_vcode">
+        <view class="weui-cell__hd" wx:if="{{mobile.label}}">
+            <view class="weui-label gray">{{mobile.label}}</view>
+        </view>
+        <view class="weui-cell__bd">
+            <input 
+              class="weui-input" 
+              type="number"
+              value="{{mobile.mobile}}" 
+              placeholder-class="phcolor"
+              disabled="{{mobile.disabled || mobileDisabled}}" 
+              bindinput="watchMobile" 
+              placeholder="请输入手机号" />
+        </view>
+        <view class="weui-cell__ft">
+            <view class="weui-vcode-btn {{isMobileNone?'gray disabled':'cyan'}}" bindtap="getVerifyCode">{{codeLabel}}</view>
+        </view>
+    </view>
+
+    <!-- 验证码 -->
+    <view class="weui-cell  weui-cell_vcode">
+        <view class="weui-cell__hd" wx:if="{{code.label}}">
+            <view class="weui-label gray">{{code.label}}</view>
+        </view>
+        <view class="weui-cell__bd">
+            <input 
+              class="weui-input" 
+              placeholder-class="phcolor"
+              value="{{code.code}}" 
+              bindinput="watchCode"
+              placeholder="请输入验证码" />
+        </view>
+    </view>
+</view>
+
+ 
