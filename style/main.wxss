@@ -121,6 +121,29 @@ button,button:after{
 .black{
   color: #333;
 }
+
+/* 浅色 */
+.tint_green{
+  color: rgba(141, 197, 62, 0.8);
+}
+.tint_pink{
+  color: rgba(255, 182, 202, 1);
+}
+.tint_red{
+  color: rgba(255, 106, 106, 0.9);
+}
+.tint_yellow{
+  color: rgba(255, 217, 0, 0.8);
+}
+.tint_orange{
+  color: rgba(255, 153, 0, 0.6)
+}
+.tint_blue{
+  color: rgba(101, 216, 255, 0.9);
+}
+.tint_purple{
+  color: rgba(160, 32, 240, 0.6);
+}
 /* 背景色 */
 .bg_green{
   background-color: rgba(141, 197, 62, 0.8);
@@ -190,10 +213,10 @@ button,button:after{
 .border_red{
   border: 1rpx solid #FF6A6A;
 }
-.border_orange{
+.border_yellow{
   border: 1rpx solid #FFD700;
 }
-.border_yellow{
+.border_orange{
   border: 1rpx solid #FFB90F;
 }
 .border_blue{
@@ -201,6 +224,27 @@ button,button:after{
 }
 .border_purple{
   border: 1rpx solid #A020F0;
+}
+.border_tint_green{
+  border: 1rpx solid rgba(141, 197, 62, 0.1);
+}
+.border_tint_pink{
+  border: 1rpx solid rgba(255, 182, 202, 0.1);
+}
+.border_tint_red{
+  border: 1rpx solid rgba(255, 106, 106, 0.1);
+}
+.border_tint_orange{
+  border: 1rpx solid rgba(255, 153, 0, 0.1)
+}
+.border_tint_yellow{
+  border: 1rpx solid rgba(255, 217, 0, 0.1);
+}
+.border_tint_blue{
+  border: 1rpx solid rgba(101, 216, 255, 0.1);
+}
+.border_tint_purple{
+  border: 1rpx solid rgba(160, 32, 240, 0.1);
 }
 
 /* 底部边框颜色 */

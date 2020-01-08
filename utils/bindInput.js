@@ -8,6 +8,8 @@ module.exports = {
         bindinput="bindInputValue"
   */
   bindInputValue(e) {
+    console.log("***********")
+    console.log(e)
     let name = e.currentTarget.dataset.name;
    
     let nameMap = {}

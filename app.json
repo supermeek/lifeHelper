@@ -45,7 +45,7 @@
       },
       {
         "pagePath": "pages/creat/index",
-        "text": "",
+        "text": "新增",
         "iconPath": "images/add.png",
         "selectedIconPath": "images/add.png"
       },

@@ -14,7 +14,7 @@ Page({
       { id: 6, icon: 'icon-6.png', name: '娱乐', checked: true },
       { id: 7, icon: 'icon-7.png', name: '衣装', checked: false },
       { id: 1, icon: 'icon-8.png', name: '社交', checked:true },
-      { id: 9, icon: 'icon-9.png', name: '还款', checked: false },
+      { id: 9, icon: 'icon-9.png', name: '转账', checked: false },
       { id: 8, icon: 'icon-10.png', name: '其他', checked: true },
     ],
     list:[
