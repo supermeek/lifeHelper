@@ -1,1 +1,2 @@
-<view class="container">  体重 </view>
+<view class="container">  首页 </view>
+<button class="v-btn mt40" bindtap="requestMsg">发送订阅消息</button>

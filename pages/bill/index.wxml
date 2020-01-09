@@ -11,11 +11,11 @@
   <view class="total_wrapper shadow_bottom" style="z-index:2">
     <view class="left_total">
       <text class="gray">当月总支出</text>
-      <text class="total_count" style="color:red">￥2560120</text>
+      <text class="total_count oldRed">￥2560120</text>
     </view>
     <view class="right_total">
       <text class="gray">当月总收入</text>
-      <text class="total_count" style="color:#04B404">2500.88</text>
+      <text class="total_count oldGreen">2500.88</text>
     </view>
   </view>
 
@@ -40,8 +40,8 @@
           <view class="weui-media-box__title">标题一</view>
           <view class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</view>
         </view>
-        <view wx:if="{{item.income}}" class="weui-cell__ft" style="color:red">-200</view>
-        <view wx:if="{{!item.income}}" class="weui-cell__ft" style="color:#04B404">+200</view>
+        <view wx:if="{{item.income}}" class="weui-cell__ft oldRed">-200</view>
+        <view wx:if="{{!item.income}}" class="weui-cell__ft oldGreen">+200</view>
       </view>
     </view>
   </view>

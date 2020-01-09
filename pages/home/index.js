@@ -1,69 +1,60 @@
 const app = getApp()
+import util from '../../utils/util.js'
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    theme: app.globalData.theme,
+    userInfo: app.globalData.userInfo,
+    colors: util.colors,
+    colorIndex: 0,
+    showTheme: false,
+    typeList: util.typeList,
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-    
-    wx.getSetting({
-      success: res => {
-        console.log(res)
-      }
-    })
-    
-  },
-
-  requestMsg:function(){
-    wx.requestSubscribeMessage({
-      tmplIds: ['gyoswKcyvpTLvJa9OXy98bRSf7RbazL_7mlNaaDXcMs'],
-      success(res) {
-        console.log("6****6")
-        console.log(res)
-      },
-      fail(err) {
-        console.log(err)
-      }
+    // 获取userInfo
+    this.setData({
+      userInfo: wx.getStorageSync('userInfo') || app.globalData.userInfo,
     })
   },
 
+  toggleTheme: function () {
+    this.setData({
+      showTheme: !this.data.showTheme
+    })
+  },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
+  // 修改主题颜色
+  switchSkin: function (e) {
+    console.log(e)
+    if (!e.currentTarget.dataset.index){
+      this.setData({
+        showTheme: false
+      })
+      return
+    }
+    let index = e.currentTarget.dataset.index
+    let color = this.data.colors[index]
+    wx.setStorageSync('themeColor', color)
+    app.setThemeColor()
+    this.setData({
+      colorIndex: index,
+      theme: app.globalData.theme,
+      showTheme: false
+    })
+  },
+
   onReady: function () {
-    console.log("onReady")
-    console.log(app.globalData)
+
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function () {
     app.setThemeColor()
     this.setData({ theme: app.globalData.theme })
+    console.log(app.globalData.theme)
   },
 
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
   onShareAppMessage: function () {
 
-  },
-
+  }
 })

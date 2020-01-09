@@ -18,6 +18,10 @@ text{
   word-wrap: break-word;
   word-break: normal;
 }
+button{
+  font-size: 28rpx;
+  padding: 10rpx 0;
+}
 ._clearFloat{
   clear: both;
 }
@@ -36,7 +40,9 @@ text{
 .shadow_bottom{
   box-shadow: 0 5px 10px #ddd;
 }
+
 /* view禁用状态 */
+
 .disabled{
   pointer-events:none;
 }
@@ -83,13 +89,26 @@ button,button:after{
   border: none;
 }
 
+.oldRed{
+  color: red;
+}
+.oldBgRed{
+  background: red;
+}
+.oldGreen{
+  color: #04B404;
+}
+.oldBgGreen{
+  background: #04B404;
+}
+
 
 /* 字体及背景色使用 */
 .white{
   color: #fff;
 }
 .tint{
-  color: #ededed;
+  color: #ddd;
 }
 .green{
   color: #A4D165;

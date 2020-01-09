@@ -100,9 +100,9 @@ class request {
             wx.hideLoading()
           }
           if (200 <= res.statusCode && res.statusCode <= 300) { //服务端业务处理正常结束
-            if (res.data.code == 1024) { //报错处理
+            if (res.data.code == 1) { //报错处理
               wx.showToast({
-                title: res.data.message,
+                title: res.data.detail,
                 icon: 'none'
               })
             } else if (res.data.code == 0) { //成功提示

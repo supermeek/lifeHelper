@@ -29,13 +29,21 @@
 
 .tabs>text {
   display: inline-block;
-  width: 160rpx;
-  height: 60rpx;
+  width: 180rpx;
+  height: 70rpx;
+  line-height: 70rpx;
   text-align: center;
-  line-height: 60rpx;
-  border-radius: 10px 10px 0 0;
-  border: 1rpx solid #ededed;
+  
+  border: 1rpx solid #f8f8f8;
   border-bottom: none !important;
+}
+.tabs>text:first-child{
+  border-radius: 20px 0 0 0;
+  /* color: red; */
+}
+.tabs>text:last-child{
+  border-radius: 0 20px 0 0;
+  /* color: green; */
 }
 .borderNone{
   border: none !important;
@@ -71,22 +79,39 @@
   padding: 0;
   box-sizing: border-box;
   padding-right: 30rpx !important;
+  height: 30px;
+  line-height: 30px;
+  margin: 8px;
+  width: 240rpx;
+  float: right;
+}
+
+.weui-select>image {
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 5rpx;
+  vertical-align: top;
+  margin-top: 2px;
 }
 
 .weui-input {
-  height: 56px;
   text-align: right !important;
+  height: 30px;
+  margin: 8px;
+  font-size: 32rpx;
 }
 
 .weui-area {
+  /* background: red; */
+
   text-align: right !important;
   display: inline-block;
   width: 100%;
   font-size: 14px;
   box-sizing: border-box;
   min-height: 16px;
-  margin-top: 25px;
-  margin-bottom: 16px;
+  margin-top: 16px;
+  margin-bottom: 12px;
 }
 
 

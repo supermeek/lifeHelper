@@ -1,2 +1,69 @@
-<view class="container">  首页 </view>
-<button class="v-btn mt40" bindtap="requestMsg">发送订阅消息</button>
+<view class="container">
+
+  <view class="top_wrapper bg_{{theme.mainColor}}">
+    <image class="girl" mode="aspectFit" src="/images/girl.gif"></image>
+    <!-- <image class="cats" mode="aspectFit" src="/images/cats.gif"></image> -->
+
+    <image class="user_avatar" src="{{userInfo.avatarUrl}}"></image>
+    <text class="user_name">{{userInfo.nickName}}</text>
+    <view class="skin_btn" bindtap="toggleTheme">
+      <text class="skin_icon bg_{{theme.mainColor}}" style="box-shadow: 0 0 10px {{theme.color}};background: radial-gradient(circle at 15rpx 15rpx, #fff, {{theme.color}});"></text>
+      <text class="dark skin_text">  </text>
+    </view>
+
+    <!-- 皮肤 -->
+
+    <view class="dialog-bg" wx:if="{{showTheme}}" bindtap="switchSkin">
+      <view class="skin_wrapper border_tint">
+        <text wx:for="{{colors}}" wx:key="index" class="{{index == colorIndex ? 'selectedTheme' : ''}}" style="box-shadow: 0 0 10px {{item.color}};background: radial-gradient(circle at 15rpx 15rpx, #fff, {{item.color}});" bindtap="switchSkin" data-index="{{index}}"></text>
+      </view>
+    </view>
+  </view>
+
+
+  <!-- 内容 -->
+  <!-- <view class="title_wrapper"><text class="tint">— </text> 功能区域 <text class="tint"> —</text></view> -->
+  <view class="center_wrapper" style="margin-top:25rpx">
+    <view class="left_item">
+      <view style="margin-bottom:20rpx;">
+          <text>当月消费 2688</text>
+          <text class="gray">上限8888，注意合理消费</text>
+        </view>
+      <image src="/images/item1.png" mode="aspectFit"></image>
+    </view>
+    <view class="right_item">
+      <view class="top_item">
+        <view>
+          <text>待办事项 18</text>
+          <text class="gray">请及时完成待办</text>
+        </view>
+        <image src="/images/book-on.png" mode="aspectFit"></image>
+      </view>
+      <view class="bottom_item">
+        <view>
+          <text>当前BMI 88</text>
+          <text class="gray">当前体型稍胖哦</text>
+        </view>
+        <image src="/images/fat.png" mode="aspectFit"></image>
+      </view>
+    </view>
+  </view>
+
+  <view class="title_wrapper"><text class="tint">— </text> 当月消费 <text class="tint"> —</text></view>
+  <view class="bill_wrapper">
+    <view class="bill_item" wx:for="{{typeList}}" wx:key="index" wx:if="{{item.percent>0}}">
+      <image class="img" src="/images/{{item.icon}}"></image>
+      <text class="name dark">{{item.name}}</text>
+      <view class="progress">
+        <progress percent="{{item.percent}}" activeColor="{{item.color}}" stroke-width="8" border-radius="20" active backgroundColor="#f8f8f8" />
+      </view>
+      <text class="percent dark">{{item.percent}}%</text>
+    </view>
+  </view>
+
+  <view class="title_wrapper"><text class="tint">— </text> 备忘预览 <text class="tint"> —</text></view>
+  <view class="bill_wrapper"></view>
+
+  <view class="title_wrapper"><text class="tint">— </text> BMI预览 <text class="tint"> —</text></view>
+  <view class="bill_wrapper"></view>
+</view>

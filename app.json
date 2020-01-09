@@ -52,12 +52,12 @@
       {
         "pagePath": "pages/memo/index",
         "text": "备忘",
-        "iconPath": "images/movie-off.png",
-        "selectedIconPath": "images/movie-on.png"
+        "iconPath": "images/book-off.png",
+        "selectedIconPath": "images/book-on.png"
       },
       {
-        "pagePath": "pages/mine/index",
-        "text": "我的",
+        "pagePath": "pages/bmi/index",
+        "text": "BMI",
         "iconPath": "images/collect-off.png",
         "selectedIconPath": "images/collect-on.png"
       }

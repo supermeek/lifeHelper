@@ -7,6 +7,7 @@ class service {
     this._baseUrl = 'https://yueyatianchong.cn'
     this._defaultHeader = {
       'content-type': 'application/json; charset=UTF-8',
+      'Authorization': "Token " + wx.getStorageSync('token').data
     }
     this._request = new request
     this._request.setErrorHandler(this.errorHander)
@@ -86,18 +87,26 @@ class service {
 
 
   /**
-   * function: 获取手机验证码
-   * method: GET
-   * request: { mobile, sendMobileType: '验证方式'(UPDATE_PWD:修改密码 / REGISTER:注册,修改手机号码) }
-   * response: { code: 0, message: '成功' }
+   * function: 创建订单
+   * method: POST
+   * request: 
+   *        item_type: str, 类型
+            outcome: bool,是否是支出(default: True)
+            money: 金额
+            pay_datetime: datetime, 付款时间
+            desc: str(0-85), 备注
+   * response: { code: 0 }
    */
-  getVerifyCode(mobile, sendMobileType) {
+  creatBill(type, outcome, money, time, desc, info = null, message = null) {
     let data = {
-      mobile: mobile,
-      sendMobileType: sendMobileType
+      item_type: type,
+      outcome: outcome,
+      money: money,
+      pay_datetime: time,
+      desc: desc
     }
-    let url = this._baseUrl + apis.GET_VERIFY_CODE
-    return this._request.getRequest(url, data).then(res => res.data)
+    let url = this._baseUrl + apis.CREAT_BILL
+    return this._request.postRequest(url, data, info, message).then(res => res.data)
   }
 
 

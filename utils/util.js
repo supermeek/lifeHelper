@@ -1,3 +1,4 @@
+// 2020-8-8 12:00:00
 const formatTime = date => {
   const year = date.getFullYear()
   const month = date.getMonth() + 1
@@ -9,11 +10,20 @@ const formatTime = date => {
   return [year, month, day].map(formatNumber).join('-') + ' ' + [hour, minute, second].map(formatNumber).join(':')
 }
 
+// 2020-8-8
 const formatDate = date => {
   const year = date.getFullYear()
   const month = date.getMonth() + 1
   const day = date.getDate()
   return [year, month, day].map(formatNumber).join('-')
+}
+
+// 12:00:00
+const formaHouer = date => {
+  const hour = date.getHours()
+  const minute = date.getMinutes()
+  const second = date.getSeconds()
+  return [hour, minute, second].map(formatNumber).join(':')
 }
 
 const formatNumber = n => {
@@ -39,6 +49,20 @@ const colors = [
   { color: '#FFE133', mainColor: 'yellow', subColor: 'blue', name: '黄色' },
   { color: '#74DCFF', mainColor: 'blue', subColor: 'pink', name: '蓝色' },
   { color: '#C679F6', mainColor: 'purple', subColor: 'yellow', name: '紫色' }
+]
+
+// 浅色系
+const typeList = [
+  { id: 2, icon: 'icon-1.png', name: '餐饮', checked: true, percent: 32, color: '#FFAFA9' },
+  { id: 3, icon: 'icon-2.png', name: '萌宠', checked: false, percent: 15, color: '#CACACA' },
+  { id: 10, icon: 'icon-3.png', name: '宝贝', checked: false, percent: 5, color: '#937773' },
+  { id: 4, icon: 'icon-4.png', name: '出行', checked: true, percent: 8, color: '#FA746A' },
+  { id: 5, icon: 'icon-5.png', name: '居家', checked: false, percent: 10, color: '#87C05A' },
+  { id: 6, icon: 'icon-6.png', name: '娱乐', checked: true, percent: 3, color: '#49B7EA' },
+  { id: 7, icon: 'icon-7.png', name: '衣装', checked: false, percent: 21, color: '#A3D9BD' },
+  { id: 1, icon: 'icon-8.png', name: '社交', checked: true, percent: 42, color: '#FF5252' },
+  { id: 9, icon: 'icon-9.png', name: '还款', checked: false, percent: 21, color: '#A3D4FF' },
+  { id: 8, icon: 'icon-10.png', name: '其他', checked: true, percent: 5, color: '#FEF001' },
 ]
 
 /**
@@ -119,5 +143,7 @@ const regExp = {
 module.exports = {
   formatTime: formatTime,
   formatDate:formatDate,
-  colors: colors
+  formaHouer: formaHouer,
+  colors: colors,
+  typeList: typeList
 }

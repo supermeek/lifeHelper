@@ -11,10 +11,12 @@
     <!-- 内容填写 -->
 
     <view class="content_wrapper">
+
       <!-- tab -->
       <view class="tabs">
         <text class="{{outcome ? 'borderNone white bg_'+theme.mainColor : theme.mainColor}}" bindtap="tabClick" data-tab="1">支出</text>
         <text class="{{outcome ? theme.mainColor : 'borderNone white bg_'+theme.mainColor}}" bindtap="tabClick" data-tab="0">收入</text>
+
       </view>
 
       <view class="contents">
@@ -35,8 +37,11 @@
             <view class="weui-label">类型：</view>
           </view>
           <view class="weui-cell__bd">
-            <picker value="{{typeList[typeIndex].name}}" name="type" range="{{typeList}}" range-key="name" bindchange="bindTypeChange">
-              <view class="weui-select gray">{{typeList[typeIndex].name}}</view>
+            <picker value="{{typeIndex}}" name="type" range="{{typeList}}" range-key="name" bindchange="bindTypeChange">
+              <view class="weui-select gray">
+                <image src="/images/{{typeList[typeIndex].icon}}"></image>
+                <text>{{typeList[typeIndex].name}}</text>
+              </view>
             </picker>
           </view>
         </view>
@@ -46,7 +51,7 @@
             <view class="weui-label">金额：</view>
           </view>
           <view class="weui-cell__bd">
-            <input class="weui-input" type="digit" style="{{outcome ? 'color:red' : 'color:#04B404'}}" name="amount" value="{{outcome ? '-' : '+'}} {{amount}} ￥" data-name="amount" bindinput="bindInputAmount" />
+            <input class="weui-input {{outcome ? 'oldRed' : 'oldGreen'}}" type="digit" name="amount" value="{{outcome ? '-' : '+'}} {{amount}} (￥)" data-name="amount" bindinput="bindInputAmount" />
           </view>
         </view>
         <!-- 描述 -->
@@ -55,56 +60,10 @@
             <view class="weui-label">描述：</view>
           </view>
           <view class="weui-cell__bd">
-            <textarea class="weui-area gray" value="{{remark}}" name="textarea" auto-height maxlength="-1" placeholder="......" show-confirm-bar="{{false}}" disable-default-padding="{{true}}" placeholder-style="color:#999" />
+            <textarea class="weui-area gray" value="{{desc}}" name="desc" auto-height maxlength="85" placeholder="......" show-confirm-bar="{{false}}" disable-default-padding="{{true}}" placeholder-style="color:#999" />
           </view>
         </view>
       </view>
-
-
-
-
-      <!-- 其他样式  暂未使用 -->
-
-
-      <view hidden>
-        <!-- 时间 -->
-        <picker-view indicator-style="height: 50px;" style="width: 100%; height: 50px;" value="{{value}}" bindchange="bindChange">
-          <picker-view-column>
-            <view wx:for="{{years}}" wx:key="index" class="select_item">{{item}}年</view>
-          </picker-view-column>
-          <picker-view-column>
-            <view wx:for="{{months}}" wx:key="index" class="select_item">{{item}}月</view>
-          </picker-view-column>
-          <picker-view-column>
-            <view wx:for="{{days}}" wx:key="index" class="select_item">{{item}}日</view>
-          </picker-view-column>
-        </picker-view>
-
-
-        <!-- 类型 -->
-        <picker-view indicator-style="height: 50px;" indicator-class="line" style="width: 100%; height: 50px;" value="{{value}}" bindchange="bindChange">
-          <picker-view-column>
-            <view wx:for="{{typeList}}" wx:key="id" class="select_item">
-              <image src="/images/{{item.icon}}" mode="aspectFit"></image>
-              <!-- <text>{{item.name}}</text> -->
-            </view>
-          </picker-view-column>
-          <picker-view-column>
-            <view class="select_item" style="color:red">支出</view>
-            <view class="select_item" style="color:#04B404">收入</view>
-          </picker-view-column>
-          <picker-view-column>
-            <input class="weui-input" type="text" style="color:red" name="amount" value="-{{amount}}" placeholder="￥" />
-          </picker-view-column>
-        </picker-view>
-
-        <!-- 描述 -->
-        <label class="label">
-          <textarea class="weui-area" name="textarea" placeholder="描述..." auto-height/>
-        </label>
-      </view>
-
-
 
       <button class="bg_{{theme.mainColor}} white" style="margin-top:80rpx" form-type="submit">保存</button>
 
