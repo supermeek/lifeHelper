@@ -1,5 +1,5 @@
 // 2020-8-8 12:00:00
-const formatTime = date => {
+const formatDate = (date, type) => {
   const year = date.getFullYear()
   const month = date.getMonth() + 1
   const day = date.getDate()
@@ -7,23 +7,14 @@ const formatTime = date => {
   const minute = date.getMinutes()
   const second = date.getSeconds()
 
-  return [year, month, day].map(formatNumber).join('-') + ' ' + [hour, minute, second].map(formatNumber).join(':')
-}
-
-// 2020-8-8
-const formatDate = date => {
-  const year = date.getFullYear()
-  const month = date.getMonth() + 1
-  const day = date.getDate()
-  return [year, month, day].map(formatNumber).join('-')
-}
-
-// 12:00:00
-const formaHouer = date => {
-  const hour = date.getHours()
-  const minute = date.getMinutes()
-  const second = date.getSeconds()
-  return [hour, minute, second].map(formatNumber).join(':')
+  switch (type) {
+    case 'year': return year; break;
+    case 'month': return [year, month].map(formatNumber).join('-'); break;
+    case 'day': return [year, month, day].map(formatNumber).join('-'); break;
+    case 'houer': return [year, month, day].map(formatNumber).join('-') + ' ' + [hour, minute, second].map(formatNumber).join(':'); break;
+    case 'time': return [hour, minute, second].map(formatNumber).join(':'); break;
+    default: return [year, month, day].map(formatNumber).join('-'); break;
+  }
 }
 
 const formatNumber = n => {
@@ -51,18 +42,18 @@ const colors = [
   { color: '#C679F6', mainColor: 'purple', subColor: 'yellow', name: '紫色' }
 ]
 
-// 浅色系
+
 const typeList = [
-  { id: 2, icon: 'icon-1.png', name: '餐饮', checked: true, percent: 32, color: '#FFAFA9' },
-  { id: 3, icon: 'icon-2.png', name: '萌宠', checked: false, percent: 15, color: '#CACACA' },
-  { id: 10, icon: 'icon-3.png', name: '宝贝', checked: false, percent: 5, color: '#937773' },
+  { id: 1, icon: 'icon-1.png', name: '餐饮', checked: true, percent: 32, color: '#FFAFA9' },
+  { id: 2, icon: 'icon-2.png', name: '萌宠', checked: true, percent: 15, color: '#CACACA' },
+  { id: 3, icon: 'icon-3.png', name: '宝贝', checked: true, percent: 5, color: '#937773' },
   { id: 4, icon: 'icon-4.png', name: '出行', checked: true, percent: 8, color: '#FA746A' },
-  { id: 5, icon: 'icon-5.png', name: '居家', checked: false, percent: 10, color: '#87C05A' },
+  { id: 5, icon: 'icon-5.png', name: '居家', checked: true, percent: 10, color: '#87C05A' },
   { id: 6, icon: 'icon-6.png', name: '娱乐', checked: true, percent: 3, color: '#49B7EA' },
-  { id: 7, icon: 'icon-7.png', name: '衣装', checked: false, percent: 21, color: '#A3D9BD' },
-  { id: 1, icon: 'icon-8.png', name: '社交', checked: true, percent: 42, color: '#FF5252' },
-  { id: 9, icon: 'icon-9.png', name: '还款', checked: false, percent: 21, color: '#A3D4FF' },
-  { id: 8, icon: 'icon-10.png', name: '其他', checked: true, percent: 5, color: '#FEF001' },
+  { id: 7, icon: 'icon-7.png', name: '衣装', checked: true, percent: 21, color: '#A3D9BD' },
+  { id: 8, icon: 'icon-8.png', name: '社交', checked: true, percent: 42, color: '#FF5252' },
+  { id: 9, icon: 'icon-9.png', name: '还款', checked: true, percent: 21, color: '#A3D4FF' },
+  { id: 10, icon: 'icon-10.png', name: '其他', checked: true, percent: 5, color: '#FEF001' },
 ]
 
 /**
@@ -71,14 +62,14 @@ const typeList = [
 
 const showToast = (msg, icon, callback, scd) => {
   wx.showToast({
-      title: msg,
-      icon: icon || 'none',
-      duration: scd || 2000,
-      complete: function(res) {
-          if (typeof(callback) == "function") {
-              callback()
-          }
+    title: msg,
+    icon: icon || 'none',
+    duration: scd || 2000,
+    complete: function (res) {
+      if (typeof (callback) == "function") {
+        callback()
       }
+    }
   })
 }
 
@@ -87,20 +78,20 @@ const showToast = (msg, icon, callback, scd) => {
  */
 const showModal = (title, msg, callback, cancel = true) => {
   wx.showModal({
-      title: title,
-      content: msg,
-      showCancel: cancel,
-      confirmText: "确定",
-      cancelText: "取消",
-      confirmColor: '#00C3C0',
-      // cancelColor: '#808080',
-      success: function(res) {
-          if (res.confirm) {
-              if (typeof(callback) == 'function') {
-                  callback()
-              }
-          }
+    title: title,
+    content: msg,
+    showCancel: cancel,
+    confirmText: "确定",
+    cancelText: "取消",
+    confirmColor: '#00C3C0',
+    // cancelColor: '#808080',
+    success: function (res) {
+      if (res.confirm) {
+        if (typeof (callback) == 'function') {
+          callback()
+        }
       }
+    }
   });
 }
 
@@ -110,40 +101,38 @@ const showModal = (title, msg, callback, cancel = true) => {
 const regExp = {
   /* 手机号码 */
   validatePhoneNumber: (str) => {
-      const reg = /^[1][3,4,5,6,7,8,9][0-9]{9}$/
-      return reg.test(str)
+    const reg = /^[1][3,4,5,6,7,8,9][0-9]{9}$/
+    return reg.test(str)
   },
   /* 手机号码和固定电话 */
   validatePhTelNumber: (str) => {
-      const reg = /^((0\d{2,3}-\d{7,8})|(1[3456789]\d{9}))$/
-      return reg.test(str)
+    const reg = /^((0\d{2,3}-\d{7,8})|(1[3456789]\d{9}))$/
+    return reg.test(str)
   },
   /* 固定电话 */
   validateTelephone: (str) => {
-      const reg = /^(\(\d{3,4}\)|\d{3,4}-|\s)?\d{7,14}$/
-      return reg.test(str)
+    const reg = /^(\(\d{3,4}\)|\d{3,4}-|\s)?\d{7,14}$/
+    return reg.test(str)
   },
   /* 电子邮箱 */
   validateEmail: (str) => {
-      const reg = /^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/
-      return reg.test(str)
+    const reg = /^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/
+    return reg.test(str)
   },
   /* 身份证 */
   validateIDCard: (str) => {
-      const reg = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/
-      return reg.test(str)
+    const reg = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/
+    return reg.test(str)
   },
   /* 银行卡号 15位或者16位或者19位 */
   validateBank: (str) => {
-      const reg = /^([1-9]{1})(\d{14}|\d{18}|\d{15})$/
-      return reg.test(str)
+    const reg = /^([1-9]{1})(\d{14}|\d{18}|\d{15})$/
+    return reg.test(str)
   }
 }
 
 module.exports = {
-  formatTime: formatTime,
-  formatDate:formatDate,
-  formaHouer: formaHouer,
+  formatDate: formatDate,
   colors: colors,
   typeList: typeList
 }

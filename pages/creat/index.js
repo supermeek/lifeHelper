@@ -6,10 +6,10 @@ Page(Object.assign({
 
   data: {
     outcome: true,
-    date: util.formatDate(new Date()),
+    date: util.formatDate(new Date(), 'day'),
     typeIndex: 0,
     amount: '',
-    desc:'打车上班',
+    desc:'我和胖超的晚饭',
     typeList: util.typeList,
 
   },
@@ -77,7 +77,7 @@ Page(Object.assign({
     let type = that.data.typeList[value.type].name
     let outcome = that.data.outcome
     let money = parseFloat(that.data.amount).toFixed(2)
-    let time = value.date + " " + util.formaHouer(new Date())
+    let time = value.date + " " + util.formatDate(new Date(), 'time')
     let desc = value.desc
 
     app.service.creatBill(type, outcome, money, time, desc, '创建成功' )

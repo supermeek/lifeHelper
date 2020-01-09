@@ -111,20 +111,26 @@ class service {
 
 
   /**
-   * function: 身份证登录
-   * method: POST => formRequest
-   * content-type: (application/x-www-form-urlencoded;charset=UTF-8)
-   * request: {documentNumber,openId,passWord}
+   * function: 查询订单
+   * method: GET
+   * request: 
+   * start: date, 开始时间
+     end: date, 开始时间
+     outcome: bool, 是否支出
+     item_type_name: str, 类型名称
+     is_all: 是否返回全部
    * response: {个人信息}
    */
-  userLogin(parame, info = '登录成功', message = '') {
+  getBill(start, end, types, outcome, is_all = true, info = null, message = null) {
     let data = {
-      documentNumber: parame.documentNumber,
-      openId: parame.openId,
-      passWord: parame.passWord
+      start: start,
+      end: end,
+      // item_type_name: types,
+      is_all: is_all
     }
-    let url = this._baseUrl + apis.USER_LOGIN
-    return this._request.formRequest(url, data, info, message).then(res => res.data)
+    if(outcome)data['outcome'] = outcome
+    let url = this._baseUrl + apis.GET_BILL
+    return this._request.getRequest(url, data, info, message).then(res => res.data)
   }
 
   /**

@@ -1,16 +1,18 @@
 var common = {
 
-    //合同列表状态显示
-
-    contractStatused: function (_num) {
-        switch (_num) {
-            case 0: return { text: "进行中", color: 'cyan' }; break;
-            case 1: return { text: "已中止", color: 'cyan' }; break;
-            case 2: return { text: "已完成", color: 'cyan' }; break;
-            case 3: return { text: "已申请", color: 'cyan' }; break;
-            case 4: return { text: "待接", color: 'cyan' }; break;
-            case 5: return { text: "可申请", color: 'cyan' }; break;
-            case 6: return { text: "全部", color: 'cyan' }; break;
+    //类型图标
+    typeIcon: function (name) {
+        switch (name) {
+            case '餐饮': return { icon: 'icon-1.png', color: '#FFAFA9' }; break;
+            case '萌宠': return { icon: 'icon-2.png', color: '#CACACA' }; break;
+            case '宝贝': return { icon: 'icon-3.png', color: '#937773' }; break;
+            case '出行': return { icon: 'icon-4.png', color: '#FA746A' }; break;
+            case '居家': return { icon: 'icon-5.png', color: '#87C05A' }; break;
+            case '娱乐': return { icon: 'icon-6.png', color: '#49B7EA' }; break;
+            case '衣装': return { icon: 'icon-7.png', color: '#A3D9BD' }; break;
+            case '社交': return { icon: 'icon-8.png', color: '#FF5252' }; break;
+            case '还款': return { icon: 'icon-9.png', color: '#A3D4FF' }; break;
+            case '其他': return { icon: 'icon-10.png', color: '#FEF001' }; break;
             default: return ""; break;
         }
     },
@@ -70,7 +72,7 @@ var common = {
 }
 
 module.exports = {
-    contractStatus: common.contractStatused,
+    typeIcon: common.typeIcon,
     contractBtn: common.contractStatusedBtn,
     recordStatus: common.recordStatused,
     billStatus: common.billStatused,

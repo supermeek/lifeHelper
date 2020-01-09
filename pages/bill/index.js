@@ -6,11 +6,12 @@ Page({
    * 页面的初始数据
    */
   data: {
+    month: util.formatDate(new Date(), 'month'),
     typeList: util.typeList,
-    list:[
+    list: [
       {
         time: '2020年12月21日 周三',
-        list:[
+        list: [
           { id: 1, icon: 'icon-1.png', type: '购物', name: '买衣服', desc: '过年了给全家都卖了新衣服', income: false },
           { id: 2, icon: 'icon-2.png', type: '购物', name: '买衣服', desc: '过年了给全家都卖了新衣服', income: true },
           { id: 3, icon: 'icon-3.png', type: '购物', name: '买衣服', desc: '过年了给全家都卖了新衣服', income: false },
@@ -62,21 +63,10 @@ Page({
     app.setThemeColor()
     this.setData({ theme: app.globalData.theme })
     this.add.updateData(app.globalData.theme)
+
+    this.getBill()
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
@@ -99,9 +89,8 @@ Page({
 
   },
 
-
   // 单选变化
-  selectType: function(e){
+  selectType: function (e) {
     let index = e.currentTarget.dataset.index
     let that = this
     let typeList = that.data.typeList
@@ -109,12 +98,52 @@ Page({
     that.setData({
       ['typeList[' + index + ']']: typeList[index]
     })
+    this.getBill()
   },
 
   // 类型变化
-  checkboxChange: function(e){
+  checkboxChange: function (e) {
     console.log(e.detail.value)
-    
+  },
+
+  getBill: function () {
+    let that = this
+    let start = that.data.month + '-' + '01'
+    let arr = start.split('-');
+    let end = util.formatDate(new Date(arr[0], arr[1], '0'), 'day')
+    let typeList = that.data.typeList
+    let types = []
+    typeList.forEach(item => {
+      if (item.checked) {
+        types.push(item.name)
+      }
+    })
+    console.log(start)
+    console.log(end)
+    console.log(types)
+
+    app.service.getBill(start, end, types)
+      .then(res => {
+        console.log(res)
+        if (res.code == 0) {
+          let hash = {}
+          for(let i in res.data){
+            let date = util.formatDate(new Date(res.data[i].pay_datetime))
+            if(!hash[date]){
+              hash[date] = []
+              hash[date].push(res.data[i])
+            }else{
+              hash[date].push(res.data[i])
+            }
+          }
+          that.setData({
+            list: hash
+          })
+          console.log("****************")
+          console.log(hash)
+        }
+      })
+
   }
 
 

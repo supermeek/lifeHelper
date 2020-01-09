@@ -1,9 +1,10 @@
+<wxs module="Filter" src="../../utils/filter.wxs"></wxs>
 <view class="container">
 
   <!-- 月份筛选 -->
   <view class="month_wrapper bg_{{theme.mainColor}}">
     <text>上月</text>
-    <view class="month">2020年1月</view>
+    <view class="month">{{month}}</view>
     <text>下月</text>
   </view>
 
@@ -22,7 +23,7 @@
   <!-- 类型多选 -->
   <checkbox-group class="type_wrapper" bindchange="checkboxChange">
     <label class="type_item {{item.checked ? 'border_bottom_'+theme.mainColor : ''}}" wx:for="{{typeList}}" wx:key="id" data-index="{{index}}" bindtap="selectType" style="border-width:2px">
-      <checkbox class="weui-check" value="{{item.id}}" checked="{{item.checked}}" />
+      <checkbox class="weui-check" value="{{index}}" checked="{{item.checked}}" />
       <image src="/images/{{item.icon}}" mode="aspectFit"></image>
       <text class="gray">{{item.name}}</text>
     </label>
@@ -31,17 +32,17 @@
   <!-- 收支列表 -->
   <view class="list_wrapper">
     <view wx:for="{{list}}" wx:key="index" wx:for-item="timeItem">
-      <text class="list_time bg_tint_{{theme.mainColor}} dark">2019年12月21日 周三</text>
-      <view class="weui-media-box weui-media-box_appmsg" wx:for="{{timeItem.list}}" wx:key="id">
+      <text class="list_time bg_tint_{{theme.mainColor}} dark">{{index}} 周三</text>
+      <view class="weui-media-box weui-media-box_appmsg" wx:for="{{timeItem}}" wx:key="id">
         <view class="weui-media-box__hd_in-appmsg">
-          <image class="weui-media-box__thumb" src="/images/{{item.icon}}" mode="aspectFit" />
+          <image class="weui-media-box__thumb" src="/images/{{Filter.typeIcon(item.item_type_name).icon}}" mode="aspectFit" />
         </view>
         <view class="weui-media-box__bd_in-appmsg">
-          <view class="weui-media-box__title">标题一</view>
-          <view class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</view>
+          <view class="weui-media-box__title">{{item.item_type_name}}</view>
+          <view class="weui-media-box__desc">{{item.desc}}</view>
         </view>
-        <view wx:if="{{item.income}}" class="weui-cell__ft oldRed">-200</view>
-        <view wx:if="{{!item.income}}" class="weui-cell__ft oldGreen">+200</view>
+        <view wx:if="{{item.outcome}}" class="weui-cell__ft oldRed">-{{item.money}}</view>
+        <view wx:if="{{!item.outcome}}" class="weui-cell__ft oldGreen">+{{item.money}}</view>
       </view>
     </view>
   </view>
