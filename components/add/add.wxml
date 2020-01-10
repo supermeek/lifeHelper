@@ -1,5 +1,5 @@
 <navigator url="/pages/creat/index"
-  open-type="switchTab"
+  open-type="navigate"
   catchtouchmove="buttonMove"
   bindtouchstart="buttonStart"
   catchtouchend="buttonEnd"

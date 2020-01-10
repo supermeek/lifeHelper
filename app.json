@@ -44,10 +44,10 @@
         "selectedIconPath": "images/cartoon-on.png"
       },
       {
-        "pagePath": "pages/creat/index",
-        "text": "新增",
-        "iconPath": "images/add.png",
-        "selectedIconPath": "images/add.png"
+        "pagePath": "pages/mine/index",
+        "text": "其他",
+        "iconPath": "images/movie-off.png",
+        "selectedIconPath": "images/movie-on.png"
       },
       {
         "pagePath": "pages/memo/index",

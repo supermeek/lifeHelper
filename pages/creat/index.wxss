@@ -33,17 +33,15 @@
   height: 70rpx;
   line-height: 70rpx;
   text-align: center;
-  
+  font-weight: bold;
   border: 1rpx solid #f8f8f8;
   border-bottom: none !important;
 }
 .tabs>text:first-child{
   border-radius: 20px 0 0 0;
-  /* color: red; */
 }
 .tabs>text:last-child{
   border-radius: 0 20px 0 0;
-  /* color: green; */
 }
 .borderNone{
   border: none !important;
@@ -65,7 +63,7 @@
 }
 
 .weui-label {
-  width: 140rpx;
+  min-width: 180rpx;
   color: #333;
   font-weight: bold;
 }
@@ -82,7 +80,7 @@
   height: 30px;
   line-height: 30px;
   margin: 8px;
-  width: 240rpx;
+  min-width: 280rpx;
   float: right;
 }
 
@@ -95,6 +93,7 @@
 }
 
 .weui-input {
+  /* background: yellow; */
   text-align: right !important;
   height: 30px;
   margin: 8px;
@@ -102,12 +101,10 @@
 }
 
 .weui-area {
-  /* background: red; */
-
   text-align: right !important;
   display: inline-block;
   width: 100%;
-  font-size: 14px;
+  font-size: 28rpx;
   box-sizing: border-box;
   min-height: 16px;
   margin-top: 16px;
@@ -168,3 +165,8 @@
   padding: 25rpx 40rpx;
   box-sizing: border-box;
 } */
+
+
+.weui-media-box{
+  padding: 20rpx 0;
+}

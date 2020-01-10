@@ -134,5 +134,8 @@ const regExp = {
 module.exports = {
   formatDate: formatDate,
   colors: colors,
-  typeList: typeList
+  typeList: typeList,
+  showToast: showToast,
+  showModal: showModal,
+  regExp: regExp
 }

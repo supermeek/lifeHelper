@@ -9,6 +9,7 @@
   justify-content: space-between;
   box-sizing: border-box;
   font-size: 30rpx;
+  font-family: Monaco;
 } 
 .content{
   height: 100%;

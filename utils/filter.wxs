@@ -17,65 +17,9 @@ var common = {
         }
     },
 
-    // 合同列表按钮文字显示
 
-    contractStatusedBtn: function (_num) {
-        switch (_num) {
-            case 5: return "去申请"; break;
-            case 4: return "接合同"; break;
-            default: return ""; break;
-        }
-    },
-
-    // 我的提交列表状态
-
-    recordStatused: function (_num) {
-        switch (_num) {
-            case 0: return { text: "已取消", color: 'gray' }; break;
-            case 1: return { text: "待审核", color: 'orange' }; break;
-            case 2: return { text: "已确认", color: 'cyan' }; break;
-            case 3: return { text: "已拒绝", color: 'red' }; break;
-            case 4: return { text: "归档中", color: 'cyan' }; break;
-            case 5: return { text: "已归档", color: 'cyan' }; break;
-            default: return ""; break;
-        }
-    },
-
-    // 图片转数组
-
-    imageHttp: function (_str) {
-        var list = []
-        if (_str) list = _str.split(",")
-        return list
-    },
-
-    // 我的排款单状态
-
-    billStatused: function (_num) {
-        switch (_num) {
-            case 0: return { text: "未使用", color: 'cyan' }; break;
-            case 1: return { text: "已使用", color: 'gray' }; break;
-            default: return ""; break;
-        }
-    },
-
-
-    // 我的记录状态
-
-    myRecordStatused: function (_month) {
-        if (_month == undefined){
-            return { text: "未提交", color: 'orange', status: 0 };
-        }else{
-            return { text: "已提交", color: 'cyan', status: 1  }
-        }
-    },
 }
 
 module.exports = {
-    typeIcon: common.typeIcon,
-    contractBtn: common.contractStatusedBtn,
-    recordStatus: common.recordStatused,
-    billStatus: common.billStatused,
-    imageHttp: common.imageHttp,
-    myRecordStatus: common.myRecordStatused
+    typeIcon: common.typeIcon
 }
