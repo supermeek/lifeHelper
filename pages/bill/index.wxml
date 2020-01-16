@@ -19,12 +19,12 @@
   <!-- 当月总收支 -->
   <view class="total_wrapper shadow_bottom" style="z-index:2">
     <view class="left_total">
-      <text class="gray">当月总支出</text>
-      <text class="total_count oldRed">￥2560120</text>
+      <text class="gray">总支出</text>
+      <text class="total_count oldRed">￥{{outcomeTotal}}</text>
     </view>
     <view class="right_total">
-      <text class="gray">当月总收入</text>
-      <text class="total_count oldGreen">2500.88</text>
+      <text class="gray">总收入</text>
+      <text class="total_count oldGreen">￥{{incomeTotal}}</text>
     </view>
   </view>
 

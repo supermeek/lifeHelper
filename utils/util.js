@@ -44,16 +44,16 @@ const colors = [
 
 
 const typeList = [
-  { id: 1, icon: 'icon-1.png', name: '餐饮', checked: true, percent: 32, color: '#FFAFA9' },
-  { id: 2, icon: 'icon-2.png', name: '萌宠', checked: true, percent: 15, color: '#CACACA' },
-  { id: 3, icon: 'icon-3.png', name: '宝贝', checked: true, percent: 5, color: '#937773' },
-  { id: 4, icon: 'icon-4.png', name: '出行', checked: true, percent: 8, color: '#FA746A' },
-  { id: 5, icon: 'icon-5.png', name: '居家', checked: true, percent: 10, color: '#87C05A' },
-  { id: 6, icon: 'icon-6.png', name: '娱乐', checked: true, percent: 3, color: '#49B7EA' },
-  { id: 7, icon: 'icon-7.png', name: '衣装', checked: true, percent: 21, color: '#A3D9BD' },
-  { id: 8, icon: 'icon-8.png', name: '社交', checked: true, percent: 42, color: '#FF5252' },
-  { id: 9, icon: 'icon-9.png', name: '转账', checked: true, percent: 21, color: '#A3D4FF' },
-  { id: 10, icon: 'icon-10.png', name: '其他', checked: true, percent: 5, color: '#FEF001' },
+  { id: 1, icon: 'icon-1.png', name: '餐饮', checked: false, percent: 32, color: '#FFAFA9' },
+  { id: 2, icon: 'icon-2.png', name: '萌宠', checked: false, percent: 15, color: '#CACACA' },
+  { id: 3, icon: 'icon-3.png', name: '宝贝', checked: false, percent: 5, color: '#937773' },
+  { id: 4, icon: 'icon-4.png', name: '出行', checked: false, percent: 8, color: '#FA746A' },
+  { id: 5, icon: 'icon-5.png', name: '居家', checked: false, percent: 10, color: '#87C05A' },
+  { id: 6, icon: 'icon-6.png', name: '娱乐', checked: false, percent: 3, color: '#49B7EA' },
+  { id: 7, icon: 'icon-7.png', name: '衣装', checked: false, percent: 21, color: '#A3D9BD' },
+  { id: 8, icon: 'icon-8.png', name: '社交', checked: false, percent: 42, color: '#FF5252' },
+  { id: 9, icon: 'icon-9.png', name: '转账', checked: false, percent: 21, color: '#A3D4FF' },
+  { id: 10, icon: 'icon-10.png', name: '其他', checked: false, percent: 5, color: '#FEF001' },
 ]
 
 /**
@@ -93,6 +93,66 @@ const showModal = (title, msg, callback, cancel = true) => {
       }
     }
   });
+}
+
+// 解决运算丢失精度问题
+
+// 除法
+const div = (arg1, arg2) => {
+  var t1, t2, r1, r2;
+  try {
+    t1 = num1.toString().split('.')[1].length;
+  } catch (e) {
+    t1 = 0;
+  }
+  try {
+    t2 = num2.toString().split(".")[1].length;
+  } catch (e) {
+    t2 = 0;
+  }
+  r1 = Number(num1.toString().replace(".", ""));
+  r2 = Number(num2.toString().replace(".", ""));
+  return (r1 / r2) * Math.pow(10, t2 - t1);
+}
+//乘法
+const mul = (arg1, arg2) => {
+  var m = 0, s1 = num1.toString(), s2 = num2.toString();
+  try { m += s1.split(".")[1].length } catch (e) { };
+  try { m += s2.split(".")[1].length } catch (e) { };
+  return Number(s1.replace(".", "")) * Number(s2.replace(".", "")) / Math.pow(10, m)
+}
+//加法 
+const add = (num1, num2) => {
+  var r1, r2, m;
+  try {
+    r1 = num1.toString().split('.')[1].length;
+  } catch (e) {
+    r1 = 0;
+  }
+  try {
+    r2 = num2.toString().split(".")[1].length;
+  } catch (e) {
+    r2 = 0;
+  }
+  m = Math.pow(10, Math.max(r1, r2));
+  return Math.round(num1 * m + num2 * m) / m;
+}
+//减法 
+const sub = (num1, num2) => {
+  var r1, r2, m;
+  try {
+    r1 = num1.toString().split('.')[1].length;
+  } catch (e) {
+    r1 = 0;
+  }
+  try {
+    r2 = num2.toString().split(".")[1].length;
+  } catch (e) {
+    r2 = 0;
+  }
+  m = Math.pow(10, Math.max(r1, r2));
+  n = (r1 >= r2) ? r1 : r2;
+  return (Math.round(num1 * m - num2 * m) / m).toFixed(n);
 }
 
 /**
@@ -137,5 +197,9 @@ module.exports = {
   typeList: typeList,
   showToast: showToast,
   showModal: showModal,
-  regExp: regExp
+  regExp: regExp,
+  add: add,
+  sub: sub,
+  mul: mul,
+  div: div
 }

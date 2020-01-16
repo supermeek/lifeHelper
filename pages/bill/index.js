@@ -12,6 +12,8 @@ Page({
     maxData: util.formatDate(new Date(), 'month'),
     typeList: util.typeList,
     items: [],
+    outcomeTotal: 0,
+    incomeTotal: 0,
     startX: 0, //开始坐标
     startY: 0
   },
@@ -21,18 +23,6 @@ Page({
    */
   onLoad: function (options) {
     this.add = this.selectComponent("#add")
-  },
-
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-    // 页面渲染完成
-    var oDelList = app.globalData.delList;
-    this.setData({
-      list: oDelList
-    })
   },
 
   /**
@@ -147,8 +137,15 @@ Page({
     // 调取接口
     this.searchBill(start, end, types, res => {
       let hash = {}
+      let outcomeTotal = 0
+      let incomeTotal = 0
       var weekDay = ["星期天", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"]
       for (let i in res.data) {
+        if(res.data[i].outcome){
+          outcomeTotal = util.add(outcomeTotal, res.data[i].money)
+        }else{
+          incomeTotal = util.add(incomeTotal, res.data[i].money)
+        }
         let date = util.formatDate(new Date(res.data[i].pay_datetime))
         let newDate = new Date(date)
         if (!hash[date]) {
@@ -162,7 +159,11 @@ Page({
           hash[date].records.push(res.data[i])
         }
       }
-      this.setData({ list: hash })
+      this.setData({ 
+        list: hash,
+        outcomeTotal: outcomeTotal,
+        incomeTotal: incomeTotal,
+      })
       console.log(hash)
     })
   },
@@ -229,16 +230,17 @@ Page({
 
   touchstart: function (e) {
     //开始触摸时 重置所有删除
-    this.data.items.forEach(function (v, i) {
-      if (v.isTouchMove) //只操作为true的
-        v.isTouchMove = false;
-    })
+    // this.data.items.forEach(function (v, i) {
+    //   if (v.isTouchMove) //只操作为true的
+    //     v.isTouchMove = false;
+    // })
     this.setData({
       startX: e.changedTouches[0].clientX,
       startY: e.changedTouches[0].clientY,
-      items: this.data.items
+      // items: this.data.items
     })
   },
+
   //滑动事件处理
   touchmove: function (e) {
     var that = this,

@@ -119,7 +119,7 @@ class service {
      outcome: bool, 是否支出
      item_type_name: str, 类型名称
      is_all: 是否返回全部
-   * response: {个人信息}
+   * response: {}
    */
   getBill(start, end, types, outcome, is_all = true, info = null, message = null) {
     let data = {
@@ -138,12 +138,30 @@ class service {
    * function: 删除订单
    * method: DELETE
    * request: {id}
-   * response: {个人信息}
+   * response: {}
    */
   deleteBill(id, info = null, message = null) {
     let data = {}
     let url = this._baseUrl + apis.CREAT_BILL + id + "/"
     return this._request.deleteRequest(url, data, info, message).then(res => res.data)
+  }
+
+
+  /**
+   * function: 查询类型金额统计
+   * method: POST
+   * request: 
+   * start: date, 开始时间
+     end: date, 开始时间
+   * response: {}
+   */
+  getBillPie(start, end, info = null, message = null) {
+    let data = {
+      start: start,
+      end: end
+    }
+    let url = this._baseUrl + apis.GET_BILL_PIE
+    return this._request.postRequest(url, data, info, message).then(res => res.data)
   }
 
 

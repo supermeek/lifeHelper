@@ -1,3 +1,4 @@
+<wxs module="Filter" src="../../utils/filter.wxs"></wxs>
 <view class="container">
 
   <view class="top_wrapper bg_{{theme.mainColor}}">
@@ -26,7 +27,7 @@
   <view class="center_wrapper" style="margin-top:25rpx">
     <view class="left_item">
       <view style="margin-bottom:20rpx;">
-          <text>当月消费 2688</text>
+          <text>当月消费 {{outcomeTotal}}</text>
           <text class="gray">上限8888，注意合理消费</text>
         </view>
       <image src="/images/item1.png" mode="aspectFit"></image>
@@ -51,13 +52,13 @@
 
   <view class="title_wrapper"><text class="tint">— </text> 当月消费 <text class="tint"> —</text></view>
   <view class="bill_wrapper">
-    <view class="bill_item" wx:for="{{typeList}}" wx:key="index" wx:if="{{item.percent>0}}">
+    <view class="bill_item" wx:for="{{typeList}}" wx:key="index">
       <image class="img" src="/images/{{item.icon}}"></image>
       <text class="name dark">{{item.name}}</text>
       <view class="progress">
-        <progress percent="{{item.percent}}" activeColor="{{item.color}}" stroke-width="8" border-radius="20" active backgroundColor="#f8f8f8" />
+        <progress percent="{{item.value/outcomeTotal}}" activeColor="{{item.color}}" stroke-width="8" border-radius="20" active backgroundColor="#f8f8f8" />
       </view>
-      <text class="percent dark">{{item.percent}}%</text>
+      <text class="percent dark">{{Filter.div(item.value,outcomeTotal)}}%</text>
     </view>
   </view>
 
