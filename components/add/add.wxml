@@ -3,5 +3,5 @@
   catchtouchmove="buttonMove"
   bindtouchstart="buttonStart"
   catchtouchend="buttonEnd"
-  class="add bg_{{theme.mainColor}}"
-  style="top:{{buttonTop}}px;left:{{buttonLeft}}px;">+</navigator>
+  class="add"
+  style="top:{{buttonTop}}px;left:{{buttonLeft}}px;background:{{theme.color}}">+</navigator>

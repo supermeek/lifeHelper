@@ -4,7 +4,7 @@
   text-align: center;
   width: 100rpx;
   height:100rpx;
-  line-height: 90rpx;
+  line-height: 100rpx;
   border-radius:50%;
   position:fixed;
   padding:0;

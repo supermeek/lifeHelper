@@ -11,7 +11,7 @@ var common = {
             case '娱乐': return { icon: 'icon-6.png', color: '#49B7EA' }; break;
             case '衣装': return { icon: 'icon-7.png', color: '#A3D9BD' }; break;
             case '社交': return { icon: 'icon-8.png', color: '#FF5252' }; break;
-            case '还款': return { icon: 'icon-9.png', color: '#A3D4FF' }; break;
+            case '转账': return { icon: 'icon-9.png', color: '#A3D4FF' }; break;
             case '其他': return { icon: 'icon-10.png', color: '#FEF001' }; break;
             default: return ""; break;
         }

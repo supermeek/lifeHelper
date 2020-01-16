@@ -52,7 +52,7 @@ const typeList = [
   { id: 6, icon: 'icon-6.png', name: '娱乐', checked: true, percent: 3, color: '#49B7EA' },
   { id: 7, icon: 'icon-7.png', name: '衣装', checked: true, percent: 21, color: '#A3D9BD' },
   { id: 8, icon: 'icon-8.png', name: '社交', checked: true, percent: 42, color: '#FF5252' },
-  { id: 9, icon: 'icon-9.png', name: '还款', checked: true, percent: 21, color: '#A3D4FF' },
+  { id: 9, icon: 'icon-9.png', name: '转账', checked: true, percent: 21, color: '#A3D4FF' },
   { id: 10, icon: 'icon-10.png', name: '其他', checked: true, percent: 5, color: '#FEF001' },
 ]
 
