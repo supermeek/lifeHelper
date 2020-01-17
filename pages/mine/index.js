@@ -3,10 +3,7 @@ import util from '../../utils/util.js'
 import * as echarts from '../../ec-canvas/echarts';
 var Chart = null
 
-
-
 Page({
-
   data: {
     theme: app.globalData.theme,
     ec: {
@@ -17,13 +14,15 @@ Page({
     typeList: util.typeList,
     outcomeTotal: 0,
     incomeTotal: 0,
+    outcomeTime: 0,
+    incomeTime: 0,
     dataX: [],
     seriesData: []
   },
 
 
   onLoad: function (options) {
-    
+
   },
 
   onShow: function () {
@@ -33,7 +32,7 @@ Page({
   },
 
 
-  getLine: function(){
+  getLine: function () {
     let that = this
     let start = this.data.month + '-' + '01'
     let arr = start.split('-');
@@ -43,24 +42,29 @@ Page({
       console.log(res)
       let incomeTotal = 0
       let outcomeTotal = 0
+      let incomeTime = 0
+      let outcomeTime = 0
       let seriesData = []
       for (let i in res.data.series) {
         let item = res.data.series[i]
+        if (item.name == "收入") { //收入
+          for (let key in item.series) {
+            incomeTotal = util.add(incomeTotal, item.series[key])
+            incomeTime = incomeTime + 1
+          }
+        } else { //支出
+          item.series.forEach((outItem, key) => {
+            outcomeTotal = util.add(outcomeTotal, outItem)
+            outcomeTime = outcomeTime + 1
+          })
+        }
         seriesData.push({
           name: item.name,
           type: 'line',
           smooth: true,
+          // symbol: 'none',
           data: item.series
         })
-        if (item.name == "收入") {
-          for (let key in item.series) {
-            incomeTotal = util.add(incomeTotal, item.series[key])
-          }
-        } else {
-          for (let key in item.series) {
-            outcomeTotal = util.add(outcomeTotal, item.series[key])
-          }
-        }
       }
       that.setData({
         incomeTotal: incomeTotal,
@@ -68,21 +72,17 @@ Page({
         seriesData: seriesData,
         dataX: res.data.dates
       })
-
       // **** 初始化图表 ****
       that.echartsComponnet = that.selectComponent('#mychart-dom-line');
       if (!Chart) {
-        console.log("第一次")
         that.init_echarts(); //初始化图表
       } else {
-        console.log("第多次")
-
         that.setOption(Chart); //更新数据
       }
     })
   },
 
-  
+
   // 日期下拉
   getDateTime: function (e) {
     console.log(e.detail.value)
@@ -136,7 +136,7 @@ Page({
   },
 
   // 获取线型图数据
-  getBillLine: function (start, end, callback){
+  getBillLine: function (start, end, callback) {
     app.service.getBillLine(start, end)
       .then(res => {
         console.log(res)
@@ -189,34 +189,75 @@ Page({
       color: ["#04B404", "#ff0000"],
       legend: {
         data: ['收入', '支出'],
-        top: 10,
-        left: 'center',
         backgroundColor: '#eee',
       },
       tooltip: {
-        trigger: 'axis'
+        show: true,
+        trigger: 'axis',
+        // axisPointer: {
+        //   type: 'cross',
+        //   label: {
+        //     backgroundColor: '#6a7985'
+        //   }
+        // }
       },
       grid: {
         left: '3%',
         right: '4%',
-        bottom: '10%',
+        bottom: '12%',
         containLabel: true
       },
       xAxis: {
-        data: dataX
+        data: dataX,
+        axisTick: {
+          show: false
+        },
+        axisLabel: {
+          formatter: function (value, index) {
+            var date = new Date(value);
+            var texts = [(date.getMonth() + 1), date.getDate()];
+            return texts.join('月');
+          }
+        },
+        axisLine: {
+          lineStyle: {
+            color: "#666"
+          }
+        },
       },
       yAxis: {
-        splitLine: {
+        axisTick: {
           show: false
+        },
+        axisLine: {
+          lineStyle: {
+            color: "#666"
+          }
+        },
+        splitLine: {
+          lineStyle: {
+            width: 0.5,
+            type: 'dashed',
+            color: '#eee'
+          }
         }
       },
       dataZoom: [{  //缩放功能
         type: 'inside',
         startValue: 0,
-        endValue: 30,
+        endValue: 10,
       }, {
         bottom: 0,
-        handleSize: '80%'
+        fillerColor: 'rgba(4, 180, 4, 0.2)',
+        borderColor: '#eee',
+        handleIcon: 'M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4v1.3h1.3v-1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7V23h6.6V24.4z M13.3,19.6H6.7v-1.4h6.6V19.6z',
+        handleSize: '80%',
+        handleStyle: {
+          color: '#fff',
+          borderWidth: 0.5,
+          borderType: 'solid',
+          borderColor: 'rgba(0, 0, 0, 0.1)',
+        }
       }],
       series: seriesList
     }

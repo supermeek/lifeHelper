@@ -67,10 +67,26 @@
 }
 
 /* 统计图 */
-
+.switch{
+  /* float: right; */
+  position: absolute;
+  top: 163rpx;
+  right: 0;
+  text-align: center;
+  margin: 0 20rpx;
+  zoom: 0.6;
+}
+.switchText{
+  vertical-align: top;
+  display: inline-block;
+  font-weight: bold;
+  font-size: 40rpx;
+  margin-right: 15rpx;
+  margin-top: 3rpx;
+}
 ec-canvas {
   width: 100%;
-  height: 800rpx;
+  height: 640rpx;
   /* background: yellow; */
 }
 
@@ -83,5 +99,5 @@ ec-canvas {
   text-align: center;
   color: #666;
   border-top: 1rpx solid #f2f2f2;
-  border-bottom: 1rpx solid #f2f2f2;
+  /* border-bottom: 1rpx solid #f2f2f2; */
 }
