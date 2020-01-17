@@ -84,6 +84,20 @@
 					"id": -1,
 					"name": "新增",
 					"pathName": "pages/creat/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "统计页面",
+					"pathName": "pages/mine/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/bmi/index",
+					"pathName": "pages/bmi/index",
 					"scene": null
 				}
 			]

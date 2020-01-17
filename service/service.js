@@ -88,8 +88,9 @@ class service {
 
   /**
    * function: 创建订单
-   * method: POST
+   * method: POST/PUT 创建/编辑
    * request: 
+   *        id: 编辑时候需要id
    *        item_type: str, 类型
             outcome: bool,是否是支出(default: True)
             money: 金额
@@ -97,7 +98,7 @@ class service {
             desc: str(0-85), 备注
    * response: { code: 0 }
    */
-  creatBill(type, outcome, money, time, desc, info = null, message = null) {
+  creatBill(id, type, outcome, money, time, desc, info = null, message = null) {
     let data = {
       item_type: type,
       outcome: outcome,
@@ -105,8 +106,13 @@ class service {
       pay_datetime: time,
       desc: desc
     }
-    let url = this._baseUrl + apis.CREAT_BILL
-    return this._request.postRequest(url, data, info, message).then(res => res.data)
+    if(id == null){
+      let url = this._baseUrl + apis.CREAT_BILL.replace(/{id}\//, '')
+      return this._request.postRequest(url, data, info, message).then(res => res.data)
+    }else{
+      let url = this._baseUrl + apis.CREAT_BILL.replace(/{id}/, id)
+      return this._request.putRequest(url, data, info, message).then(res => res.data)
+    }
   }
 
 
@@ -142,8 +148,21 @@ class service {
    */
   deleteBill(id, info = null, message = null) {
     let data = {}
-    let url = this._baseUrl + apis.CREAT_BILL + id + "/"
+    let url = this._baseUrl + apis.GET_BILL_DELETE.replace(/{id}/, id)
     return this._request.deleteRequest(url, data, info, message).then(res => res.data)
+  }
+
+  /**
+   * function: 查看订单
+   * method: GET
+   * request: {id}
+   * response: {}
+   */
+  getBillDetail(id, info = null, message = null) {
+    let data = {}
+    let url = this._baseUrl + apis.GET_BILL_DETAIL.replace(/{id}/,id)
+    console.log(url)
+    return this._request.getRequest(url, data, info, message).then(res => res.data)
   }
 
 
@@ -161,6 +180,23 @@ class service {
       end: end
     }
     let url = this._baseUrl + apis.GET_BILL_PIE
+    return this._request.postRequest(url, data, info, message).then(res => res.data)
+  }
+
+  /**
+   * function: 消费趋势统计
+   * method: POST
+   * request: 
+   * start: date, 开始时间
+     end: date, 开始时间
+   * response: {}
+   */
+  getBillLine(start, end, info = null, message = null) {
+    let data = {
+      start: start,
+      end: end
+    }
+    let url = this._baseUrl + apis.GET_BILL_LINE
     return this._request.postRequest(url, data, info, message).then(res => res.data)
   }
 

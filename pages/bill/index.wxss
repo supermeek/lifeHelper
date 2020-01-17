@@ -2,6 +2,9 @@
   width: 100%;
   box-sizing: border-box;
 }
+.container{
+  padding-top: 240rpx;
+}
 
 /* 月份 */
 
@@ -9,6 +12,9 @@
   padding: 20rpx 0;
   /* background: red; */
   text-align: center;
+  position: fixed;
+  top: 0;
+  z-index: 99;
 }
 
 .month_wrapper>text {
@@ -26,7 +32,13 @@
 }
 
 /* 总计 */
-
+.total_wrapper{
+  /* margin-top: 100rpx; */
+  position: fixed;
+  top: 95rpx;
+  z-index: 99;
+  background: #fff;
+}
 .total_wrapper>view>text {
   display: block;
 }

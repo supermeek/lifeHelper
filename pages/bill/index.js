@@ -14,6 +14,8 @@ Page({
     items: [],
     outcomeTotal: 0,
     incomeTotal: 0,
+    outcomeTime: 0,
+    incomeTime: 0,
     startX: 0, //开始坐标
     startY: 0
   },
@@ -46,7 +48,7 @@ Page({
 
   },
 
-  // 日起下拉
+  // 日期下拉
   getDateTime: function (e) {
     console.log(e.detail.value)
     this.setData({
@@ -139,12 +141,16 @@ Page({
       let hash = {}
       let outcomeTotal = 0
       let incomeTotal = 0
+      let outcomeTime = 0
+      let incomeTime = 0
       var weekDay = ["星期天", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"]
       for (let i in res.data) {
         if(res.data[i].outcome){
           outcomeTotal = util.add(outcomeTotal, res.data[i].money)
+          outcomeTime = outcomeTime + 1
         }else{
           incomeTotal = util.add(incomeTotal, res.data[i].money)
+          incomeTime = incomeTime + 1
         }
         let date = util.formatDate(new Date(res.data[i].pay_datetime))
         let newDate = new Date(date)
@@ -163,6 +169,8 @@ Page({
         list: hash,
         outcomeTotal: outcomeTotal,
         incomeTotal: incomeTotal,
+        outcomeTime: outcomeTime,
+        incomeTime: incomeTime,
       })
       console.log(hash)
     })
@@ -171,7 +179,13 @@ Page({
 
   //编辑事件
   edit: function (e) {
-
+    console.log(e)
+    let id = e.currentTarget.id
+    let index = e.currentTarget.dataset.index
+    let date = e.currentTarget.dataset.key
+    wx.navigateTo({
+      url: '/pages/bill/creat?id='+id,
+    })
   },
 
   //删除事件

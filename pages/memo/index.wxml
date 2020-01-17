@@ -1,7 +1,7 @@
-<view class="container">  
-  <text>备忘</text>
-  <navigator url="/pages/memo/detail">备忘详情</navigator>
-  <button bindtouchmove="buttonMove" bindtouchstart="buttonStart" bindtouchend="buttonEnd" bindtap="clicks" style="top:{{buttonTop}}px;left:{{buttonLeft}}px;width: 100rpx;height:100rpx;border-radius:50%;position:fixed;padding:0;">
-+
-</button>
+<view class="container">
+  <image class="bg" src="/images/start.jpg"></image>
+  <image class="year" src="/images/newyear.png" mode="aspectFit"></image>
+  <text class='text'>努力研发中</text>
+  <text class="wait">敬请期待</text>
+<!-- <button class="v-btn mt40" bindtap="requestMsg">发送订阅消息</button> -->
 </view>

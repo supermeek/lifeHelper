@@ -22,16 +22,6 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
-// 深色系
-// const colors = [
-//   { color: '#8DC53E', mainColor: 'green', subColor: 'yellow', name: '绿色' },
-//   { color: '#FFB6C9', mainColor: 'pink', subColor: 'blue', name: '粉色' },
-//   { color: '#FF6A6A', mainColor: 'red', subColor: 'blue', name: '红色' },
-//   { color: '#FFD700', mainColor: 'yellow', subColor: 'blue', name: '黄色' },
-//   { color: '#65D8FF', mainColor: 'blue', subColor: 'pink', name: '蓝色' },
-//   { color: '#A020F0', mainColor: 'purple', subColor: 'yellow', name: '紫色' }
-// ]
-
 // 浅色系
 const colors = [
   { color: '#A4D165', mainColor: 'green', subColor: 'yellow', name: '绿色' },
@@ -55,6 +45,20 @@ const typeList = [
   { id: 9, icon: 'icon-9.png', name: '转账', checked: false, percent: 21, color: '#A3D4FF' },
   { id: 10, icon: 'icon-10.png', name: '其他', checked: false, percent: 5, color: '#FEF001' },
 ]
+
+// 返回类型的index
+const typeIndex = (name) => {
+  console.log("***************")
+  // console.log(this.typeList)
+  console.log(typeList)
+  let index = null
+  typeList.forEach((item,i) => {
+    if(item.name == name){
+      index = i
+    }
+  })
+  return index
+}
 
 /**
  * toast提示
@@ -98,7 +102,7 @@ const showModal = (title, msg, callback, cancel = true) => {
 // 解决运算丢失精度问题
 
 // 除法
-const div = (arg1, arg2) => {
+const div = (num1, num2) => {
   var t1, t2, r1, r2;
   try {
     t1 = num1.toString().split('.')[1].length;
@@ -112,10 +116,10 @@ const div = (arg1, arg2) => {
   }
   r1 = Number(num1.toString().replace(".", ""));
   r2 = Number(num2.toString().replace(".", ""));
-  return (r1 / r2) * Math.pow(10, t2 - t1);
+  return (r1 / r2) * Math.pow(10, t2 - t1)*100;
 }
 //乘法
-const mul = (arg1, arg2) => {
+const mul = (num1, num2) => {
   var m = 0, s1 = num1.toString(), s2 = num2.toString();
   try { m += s1.split(".")[1].length } catch (e) { };
   try { m += s2.split(".")[1].length } catch (e) { };
@@ -195,6 +199,7 @@ module.exports = {
   formatDate: formatDate,
   colors: colors,
   typeList: typeList,
+  typeIndex: typeIndex,
   showToast: showToast,
   showModal: showModal,
   regExp: regExp,

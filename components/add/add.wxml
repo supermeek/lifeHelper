@@ -1,4 +1,4 @@
-<navigator url="/pages/creat/index"
+<navigator url="{{url}}"
   open-type="navigate"
   catchtouchmove="buttonMove"
   bindtouchstart="buttonStart"

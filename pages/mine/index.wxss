@@ -1,75 +1,87 @@
-.top{
+.container>view {
   width: 100%;
-  height: 260rpx;
-  position: relative;
+  box-sizing: border-box;
 }
-.user_avatar{
-  width: 160rpx;
-  height: 160rpx;
-  border-radius: 10px;
-  margin: 40rpx 0 20rpx 80rpx;
-}
-.user_name{
-  position: absolute;
-  top: 50rpx;
-  margin-left: 40rpx;
-  font-weight: bold;
-  /* background: red; */
-}
-.user_gender_icon{
-  position: absolute;
-  top: 140rpx;
-  margin-left: 40rpx;
-}
-.user_gender{
-  position: absolute;
-  top: 134rpx;
-  margin-left: 90rpx;
-  font-size: 32rpx;
-}
-.skin_btn{
-  background: #fff;
-  width: 160rpx;
-  height: 80rpx;
-  text-align: center;
-  position: absolute;
-  right: 0;
-  top: 90rpx;
-  border-radius: 200px 0 0 200px;
-  display: flex;
-  align-items: center;
-	flex-direction: row;
-  justify-content : center;
-}
-.skin_icon{
-  display: inline-block;
-  width: 50rpx;
-  height: 50rpx;
-  border-radius: 50%;
-}
-.skin_text{
-  display: inline-block;
-  font-size: 28rpx;
-  margin-left: 20rpx;
-}
-.skin_wrapper{
-  background: #fff;
-  width: 120rpx;
-  min-height: 400rpx; 
-  position: absolute;
-  right: 0;
-  top: 170rpx;
-  padding-top: 20rpx;
-}
-.skin_wrapper>text{
-  display: inline-block;
-  width: 60rpx;
-  height: 60rpx;
-  border-radius: 50%;
-  /* background: blue; */
-  margin-left: 30rpx;
 
+.container {
+  padding-top: 300rpx;
 }
-.selectedTheme{
-  border: 1px solid #666;
+
+/* 月份 */
+
+.month_wrapper {
+  padding: 20rpx 0;
+  /* background: red; */
+  text-align: center;
+  position: fixed;
+  top: 0;
+  z-index: 99;
+}
+
+.month_wrapper>text {
+  display: inline-block;
+  /* background: yellow; */
+  width: 20%;
+}
+
+.month_wrapper>text .iconfont {
+  vertical-align: middle;
+}
+
+.month {
+  display: inline-block;
+  /* background: blue; */
+  width: 60%;
+}
+
+/* 总计 */
+
+.total_wrapper {
+  /* margin-top: 100rpx; */
+  position: fixed;
+  top: 95rpx;
+  z-index: 99;
+  background: #fff;
+}
+
+.total_wrapper>view>text {
+  display: block;
+}
+
+.left_total, .right_total {
+  width: 50%;
+  padding: 10rpx 0;
+  text-align: center;
+  display: inline-block;
+  box-sizing: border-box;
+  margin: 20rpx 0;
+}
+
+.right_total {
+  border-left: 1rpx solid #ededed;
+}
+
+.total_count {
+  font-weight: bold;
+  font-size: 40rpx;
+}
+
+/* 统计图 */
+
+ec-canvas {
+  width: 100%;
+  height: 800rpx;
+  /* background: yellow; */
+}
+
+
+/* 标题 */
+.title_wrapper{
+  background: #fff;
+  margin-top: 25rpx;
+  padding: 25rpx;
+  text-align: center;
+  color: #666;
+  border-top: 1rpx solid #f2f2f2;
+  border-bottom: 1rpx solid #f2f2f2;
 }

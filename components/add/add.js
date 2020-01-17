@@ -2,7 +2,7 @@ var startPoint;
 Component({
 
   properties: {
-
+    url: String
   },
 
   data: {

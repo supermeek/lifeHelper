@@ -1,14 +1,33 @@
+<wxs module="Filter" src="../../utils/filter.wxs"></wxs>
 <view class="container">
-  <view class="top bg_{{theme.mainColor}}">
-    <image class="user_avatar" src="{{userInfo.avatarUrl}}"></image>
-    <text class="user_name">{{userInfo.nickName}}</text>
-    <image class="icon user_gender_icon" src="/images/woman.png"></image>
-    <view class="skin_btn" bindtap="toggleTheme">
-      <text class="skin_icon bg_{{theme.mainColor}}"></text>
-      <text class="dark skin_text">换肤</text>
+  <!-- 月份筛选 -->
+  <view class="month_wrapper bg_{{theme.mainColor}}">
+    <text bindtap="getPreMonth"><text class="iconfont icon-changyongicon-"></text>上月</text>
+    <!-- 年月选择 -->
+    <view class="month">
+      <picker mode="date" fields="month" value="{{date}}" start="2000-01-01" end="{{maxData}}" bindchange="getDateTime">
+        <view class="selectDate">
+          <text style="font-weight:bold">{{Filter.month(month)}}</text>
+          <text class="iconfont icon-xia"></text>
+        </view>
+      </picker>
     </view>
-    <view class="skin_wrapper border_tint" wx:if="{{showTheme}}">
-      <text wx:for="{{colors}}" wx:key="index" class="{{index == colorIndex ? 'selectedTheme' : ''}}" style="background:{{item.color}}" bindtap="switchSkin" data-index="{{index}}"></text>
+    <text bindtap="getNextMonth">下月<text class="iconfont icon-you"></text></text>
+  </view>
+
+  <!-- 当月总收支 -->
+  <view class="total_wrapper shadow_bottom" style="z-index:2">
+    <view class="left_total">
+      <text class="gray">总支出 {{outcomeTime}} 比</text>
+      <text class="total_count oldRed">￥{{outcomeTotal}}</text>
+    </view>
+    <view class="right_total">
+      <text class="gray">总收入 {{incomeTime}} 比</text>
+      <text class="total_count oldGreen">￥{{incomeTotal}}</text>
     </view>
   </view>
+
+  <!-- <ec-canvas id="mychart-dom-line" canvas-id="mychart-line" ec="{{ ec }}"></ec-canvas> -->
+  <view class="title_wrapper"><text class="tint">— </text> {{Filter.month(month)}}消费曲线图 <text class="tint"> —</text></view>
+  <ec-canvas id="mychart-dom-line" canvas-id="mychart-line" ec="{{ ec }}"></ec-canvas>
 </view>

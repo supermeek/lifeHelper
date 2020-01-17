@@ -3,7 +3,6 @@
 
   <view class="top_wrapper bg_{{theme.mainColor}}">
     <image class="girl" mode="aspectFit" src="/images/girl.gif"></image>
-    <!-- <image class="cats" mode="aspectFit" src="/images/cats.gif"></image> -->
 
     <image class="user_avatar" src="{{userInfo.avatarUrl}}"></image>
     <text class="user_name">{{userInfo.nickName}}</text>
@@ -14,9 +13,9 @@
 
     <!-- 皮肤 -->
 
-    <view class="dialog-bg" wx:if="{{showTheme}}" bindtap="switchSkin">
+    <view class="dialog-bg" wx:if="{{showTheme}}" catchtap="toggleTheme">
       <view class="skin_wrapper border_tint">
-        <text wx:for="{{colors}}" wx:key="index" class="{{index == colorIndex ? 'selectedTheme' : ''}}" style="box-shadow: 0 0 10px {{item.color}};background: radial-gradient(circle at 15rpx 15rpx, #fff, {{item.color}});" bindtap="switchSkin" data-index="{{index}}"></text>
+        <text wx:for="{{colors}}" wx:key="index" class="{{index == colorIndex ? 'selectedTheme' : ''}}" style="box-shadow: 0 0 10px {{item.color}};background: radial-gradient(circle at 15rpx 15rpx, #fff, {{item.color}});" catchtap="switchSkin" data-index="{{index}}"></text>
       </view>
     </view>
   </view>
@@ -24,25 +23,25 @@
 
   <!-- 内容 -->
   <!-- <view class="title_wrapper"><text class="tint">— </text> 功能区域 <text class="tint"> —</text></view> -->
-  <view class="center_wrapper" style="margin-top:25rpx">
+  <view class="center_wrapper">
     <view class="left_item">
       <view style="margin-bottom:20rpx;">
-          <text>当月消费 {{outcomeTotal}}</text>
-          <text class="gray">上限8888，注意合理消费</text>
+          <text>当月消费 <text class="oldRed">￥{{outcomeTotal}}</text></text>
+          <text class="gray">注意理性消费</text>
         </view>
       <image src="/images/item1.png" mode="aspectFit"></image>
     </view>
     <view class="right_item">
       <view class="top_item">
         <view>
-          <text>待办事项 18</text>
+          <text>待办事项 <text class="oldRed">0</text></text>
           <text class="gray">请及时完成待办</text>
         </view>
         <image src="/images/book-on.png" mode="aspectFit"></image>
       </view>
       <view class="bottom_item">
         <view>
-          <text>当前BMI 88</text>
+          <text>当前BMI <text class="oldRed">0</text></text>
           <text class="gray">当前体型稍胖哦</text>
         </view>
         <image src="/images/fat.png" mode="aspectFit"></image>
@@ -53,12 +52,12 @@
   <view class="title_wrapper"><text class="tint">— </text> 当月消费 <text class="tint"> —</text></view>
   <view class="bill_wrapper">
     <view class="bill_item" wx:for="{{typeList}}" wx:key="index">
-      <image class="img" src="/images/{{item.icon}}"></image>
+      <image class="img" src="/images/{{Filter.typeIcon(item.name).icon}}"></image>
       <text class="name dark">{{item.name}}</text>
       <view class="progress">
-        <progress percent="{{item.value/outcomeTotal}}" activeColor="{{item.color}}" stroke-width="8" border-radius="20" active backgroundColor="#f8f8f8" />
+        <progress percent="{{item.percent}}" activeColor="{{Filter.typeIcon(item.name).color}}" stroke-width="8" border-radius="20" active backgroundColor="#f8f8f8" />
       </view>
-      <text class="percent dark">{{Filter.div(item.value,outcomeTotal)}}%</text>
+      <text class="percent dark">{{item.percent}}%</text>
     </view>
   </view>
 

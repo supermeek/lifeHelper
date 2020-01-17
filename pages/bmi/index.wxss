@@ -1,1 +1,37 @@
-/* pages/bmi/index.wxss */
+.bg{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.year{
+  position: absolute;
+  width: 140rpx;
+  height: 500rpx;
+  bottom: 400rpx;
+  left: 50rpx
+}
+.text{
+  display: inline-block;
+  position: absolute;
+  bottom: 500rpx;
+  left: 260rpx;
+  width: 50rpx;
+  text-align: center;
+  color: #666;
+  font-size: 30rpx;
+  padding: 5rpx;
+  border: 1rpx solid #bbb;
+}
+.wait{
+  display: inline-block;
+  position: absolute;
+  bottom: 400rpx;
+  left: 380rpx;
+  width: 60rpx;
+  text-align: center;
+  letter-spacing: 2px;
+  font-weight: 500;
+  color: #D53855;
+  font-size: 40rpx;
+  background: #ddd;
+}

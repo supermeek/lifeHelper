@@ -165,25 +165,25 @@ button,button:after{
 }
 /* 背景色 */
 .bg_green{
-  background-color: rgba(141, 197, 62, 0.8);
+  background-color: #A4D165;
 }
 .bg_pink{
-  background-color: rgba(255, 182, 202, 1);
+  background-color: #FFB6C9;
 }
 .bg_red{
-  background-color: rgba(255, 106, 106, 0.9);
+  background-color: #FF7979;
 }
 .bg_yellow{
-  background-color: rgba(255, 217, 0, 0.8);
+  background-color: #FFE133;
 }
 .bg_orange{
-  background-color: rgba(255, 153, 0, 0.6)
+  background-color: #ff9800;
 }
 .bg_blue{
-  background-color: rgba(101, 216, 255, 0.9);
+  background-color: #74DCFF;
 }
 .bg_purple{
-  background-color: rgba(160, 32, 240, 0.6);
+  background-color: #C679F6;
 }
 .bg_white{
   background-color: #ffffff;

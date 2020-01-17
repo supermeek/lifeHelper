@@ -8,7 +8,7 @@
     <view class="month">
       <picker mode="date" fields="month" value="{{date}}" start="2000-01-01" end="{{maxData}}" bindchange="getDateTime">
         <view class="selectDate">
-          <text style="font-weight:bold">{{month}}</text>
+          <text style="font-weight:bold">{{Filter.month(month)}}</text>
           <text class="iconfont icon-xia"></text>
         </view>
       </picker>
@@ -19,11 +19,11 @@
   <!-- 当月总收支 -->
   <view class="total_wrapper shadow_bottom" style="z-index:2">
     <view class="left_total">
-      <text class="gray">总支出</text>
+      <text class="gray">总支出 {{outcomeTime}} 比</text>
       <text class="total_count oldRed">￥{{outcomeTotal}}</text>
     </view>
     <view class="right_total">
-      <text class="gray">总收入</text>
+      <text class="gray">总收入 {{incomeTime}} 比</text>
       <text class="total_count oldGreen">￥{{incomeTotal}}</text>
     </view>
   </view>
@@ -90,7 +90,7 @@
   </view>
 
   <!-- 添加按钮 -->
-  <component-add id="add"></component-add>
+  <component-add id="add" url="/pages/bill/creat"></component-add>
 
 
 </view>

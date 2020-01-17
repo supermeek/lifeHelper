@@ -193,6 +193,10 @@ page{
   align-items: center;
   justify-content: center;
 }
+.center_wrapper .oldRed{
+  display: inline-block;
+  font-weight: bold;
+}
 .left_item image{
   width: 50%;
   height: 40%;
