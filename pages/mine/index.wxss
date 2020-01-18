@@ -6,6 +6,7 @@
 /* 月份 */
 .top_wrapper{
   height: 200rpx;
+  color: #555;
 }
 .left{
   width: 30%;
@@ -25,7 +26,7 @@
   line-height: 60rpx;
   text-align: center;
   box-sizing: border-box;
-  border: 1rpx solid #fff;
+  vertical-align: top;
 }
 .month {
   display: inline-block;
@@ -59,7 +60,7 @@
 }
 .right .text{
   height: 60rpx;
-  line-height: 60rpx;
+  line-height: 80rpx;
 }
 .total_count {
   font-weight: bold;

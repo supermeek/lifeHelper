@@ -204,7 +204,8 @@ Page({
         text: date + '收支情况',
         left: '3%',
         textStyle:{
-          fontSize: 16,
+          fontSize: 14,
+          color: '#666',
           fontWeight: 'bold'
         }
       },
