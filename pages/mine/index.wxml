@@ -1,39 +1,38 @@
 <wxs module="Filter" src="../../utils/filter.wxs"></wxs>
 <view class="container">
 	<!-- 月份筛选 -->
-	<view class="month_wrapper bg_{{theme.mainColor}}">
-		<text bindtap="getPreMonth"><text class="iconfont icon-changyongicon-"></text>上月</text>
-		<!-- 年月选择 -->
-		<view class="month">
-			<picker mode="date" fields="month" value="{{date}}" start="2000-01-01" end="{{maxData}}" bindchange="getDateTime">
-				<view class="selectDate">
-					<text style="font-weight:bold">{{Filter.month(month)}}</text>
-					<text class="iconfont icon-xia"></text>
-				</view>
-			</picker>
+	<view class="top_wrapper bg_{{theme.mainColor}}">
+		<view class="left">
+			<view class="switch">
+				<text>年</text>
+				<text class="bg_white">月</text>
+			</view>
+			<view class="month">
+				<picker mode="date" fields="month" value="{{date}}" start="2000-01-01" end="{{maxData}}" bindchange="getDateTime">
+					<view class="selectDate">
+						<text style="font-weight:bold">{{Filter.month(month)}}</text>
+						<text class="iconfont icon-xia"></text>
+					</view>
+				</picker>
+			</view>
 		</view>
-		<text bindtap="getNextMonth">下月<text class="iconfont icon-you"></text></text>
+
+		<view class="right">
+			<view class="left_total">
+				<text class="text">总支出</text>
+				<text class="total_count">￥{{outcomeTotal}}</text>
+			</view>
+			<view class="right_total">
+				<text class="text">总收入</text>
+				<text class="total_count">￥{{incomeTotal}}</text>
+			</view>
+		</view>
 	</view>
 
-	<!-- 当月总收支 -->
-	<view class="total_wrapper shadow_bottom" style="z-index:2">
-		<view class="left_total">
-			<text class="gray">总支出 {{outcomeTime}} 比</text>
-			<text class="total_count oldRed">￥{{outcomeTotal}}</text>
-		</view>
-		<view class="right_total">
-			<text class="gray">总收入 {{incomeTime}} 比</text>
-			<text class="total_count oldGreen">￥{{incomeTotal}}</text>
-		</view>
-	</view>
-
-	<!-- <ec-canvas id="mychart-dom-line" canvas-id="mychart-line" ec="{{ ec }}"></ec-canvas> -->
-	<view class="title_wrapper" style="position: relative;">
-		<text class="tint">— </text> {{Filter.month(month)}} 收支情况<text class="tint"> —</text>
-    <view class="switch">
-      <text class="switchText">年份统计</text>
-			<switch checked />
-		</view>
-	</view>
+	<!-- 折线图 -->
+	<view class="line"></view>
 	<ec-canvas id="mychart-dom-line" canvas-id="mychart-line" ec="{{ ec }}"></ec-canvas>
-</view>
+
+	<view class="line"></view>
+
+</view><!-- container -->

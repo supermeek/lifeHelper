@@ -224,25 +224,25 @@ button,button:after{
   border: 1rpx solid #ededed;
 }
 .border_green{
-  border: 1rpx solid #8DC53E;
+  border: 1rpx solid #A4D165;
 }
 .border_pink{
   border: 1rpx solid #FFB6C9;
 }
 .border_red{
-  border: 1rpx solid #FF6A6A;
+  border: 1rpx solid #FF7979;
 }
 .border_yellow{
-  border: 1rpx solid #FFD700;
+  border: 1rpx solid #FFE133;
 }
 .border_orange{
-  border: 1rpx solid #FFB90F;
+  border: 1rpx solid #ff9800;
 }
 .border_blue{
-  border: 1rpx solid #1ad8ff;
+  border: 1rpx solid #74DCFF;
 }
 .border_purple{
-  border: 1rpx solid #A020F0;
+  border: 1rpx solid #C679F6;
 }
 .border_tint_green{
   border: 1rpx solid rgba(141, 197, 62, 0.1);
