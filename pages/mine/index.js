@@ -1,12 +1,14 @@
 const app = getApp()
 import util from '../../utils/util.js'
 import * as echarts from '../../ec-canvas/echarts';
-var Chart = null
+var lineChart = null
+var pieChart = null
 
 Page({
   data: {
     theme: app.globalData.theme,
     lineColor: ["#04B404", "#ff0000"],
+    pieColor: [],
     ec: {
       lazyLoad: true
     },
@@ -15,7 +17,8 @@ Page({
     typeList: util.typeList,
     outcomeTotal: 0,
     incomeTotal: 0,
-    dataX: [],
+    lineDataX: [],
+    pieDataX: [],
     seriesData: [],
     groupType: 'date'
   },
@@ -29,6 +32,7 @@ Page({
     app.setThemeColor()
     this.setData({ theme: app.globalData.theme })
     this.getLine()
+    this.getPie()
   },
 
   // 切换年月
@@ -36,7 +40,7 @@ Page({
     if (this.data.groupType == 'date') {
       this.setData({
         groupType: 'month',
-        date: util.formatDate(new Date(), 'year'),
+        date: JSON.stringify(util.formatDate(new Date(), 'year')),
         maxData: util.formatDate(new Date(), 'year'),
       })
       console.log(util.formatDate(new Date(), 'year'))
@@ -48,8 +52,10 @@ Page({
       })
     }
     this.getLine()
+    this.getPie()
   },
 
+  // 获取线型图数据
   getLine: function () {
     let that = this
     let start = this.data.date + '-' + '01'
@@ -99,14 +105,52 @@ Page({
         incomeTotal: incomeTotal,
         outcomeTotal: outcomeTotal,
         seriesData: seriesData,
-        dataX: res.data.dates
+        lineDataX: res.data.dates
       })
       // **** 初始化图表 ****
-      that.echartsComponnet = that.selectComponent('#mychart-dom-line');
-      if (!Chart) {
-        that.init_echarts(); //初始化图表
+      that.echartsComponnetLine = that.selectComponent('#mychart-dom-line');
+      if (!lineChart) {
+        that.init_line_echarts(); //初始化图表
       } else {
-        that.setOption(Chart); //更新数据
+        that.setLineOption(lineChart); //更新数据
+      }
+    })
+  },
+
+  // 获取饼形图数据
+  getPie: function () {
+    let that = this
+    if (this.data.groupType == 'date') {
+      var start = this.data.date + '-' + '01'
+    } else {
+      var start = this.data.date + '-' + '01' + '-' + '01'
+    }
+    let arr = start.split('-');
+    let end = util.formatDate(new Date(arr[0], arr[1], '0'), 'day')
+    this.getBillPie(start, end, (res) => {
+      console.log(res)
+      let outcomeTotal = 0
+      let colors = []
+      let datax = []
+      for (let i in res.data.outcome) {
+        outcomeTotal = util.add(outcomeTotal, res.data.outcome[i].value)
+        let typeIndex = util.typeIndex(res.data.outcome[i].name)
+        colors.push(util.typeList[typeIndex].color)
+        datax.push(util.typeList[typeIndex].name)
+      }
+      for (let i in res.data.outcome) {
+        res.data.outcome[i].percent = util.div(res.data.outcome[i].value, outcomeTotal).toFixed(2)
+      }
+      that.setData({
+        typeList: res.data.outcome,
+        pieColor: colors,
+        pieDataX: datax
+      })
+      that.echartsComponnetPie = that.selectComponent('#mychart-dom-pie');
+      if (!pieChart) {
+        that.init_pie_echarts(); //初始化图表
+      } else {
+        that.setPieOption(pieChart); //更新数据
       }
     })
   },
@@ -119,6 +163,7 @@ Page({
       date: e.detail.value
     })
     this.getLine()
+    this.getPie()
   },
 
 
@@ -151,33 +196,47 @@ Page({
 
 
   //初始化图表
-  init_echarts: function () {
-    this.echartsComponnet.init((canvas, width, height) => {
-      Chart = echarts.init(canvas, null, {
+  init_line_echarts: function () {
+    this.echartsComponnetLine.init((canvas, width, height) => {
+      lineChart = echarts.init(canvas, null, {
         width: width,
         height: height
       });
-      // Chart.setOption(this.getOption());
-      this.setOption(Chart);
-      return Chart;
+      this.setLineOption(lineChart);
+      return lineChart;
+    })
+  },
+  init_pie_echarts: function () {
+    this.echartsComponnetPie.init((canvas, width, height) => {
+      pieChart = echarts.init(canvas, null, {
+        width: width,
+        height: height
+      });
+      this.setPieOption(pieChart);
+      return pieChart;
     })
   },
 
-  setOption: function (Chart) {
+  setLineOption: function (Chart) {
     Chart.clear();  // 清除
-    Chart.setOption(this.getOption());  //获取新数据
+    Chart.setOption(this.getLineOption());  //获取新数据
   },
 
+  setPieOption: function (Chart) {
+    Chart.clear();  // 清除
+    Chart.setOption(this.getPieOption());  //获取新数据
+  },
 
-  getOption: function () {
+  // 线型图配置
+  getLineOption: function () {
     var type = this.data.groupType
-    if (type == 'date'){
+    if (type == 'date') {
       var arr = this.data.date.split('-')
       var date = arr[0] + '年' + arr[1] + '月'
-    }else{
+    } else {
       var date = this.data.date + '年'
     }
-    var dataX = this.data.dataX
+    var lineDataX = this.data.lineDataX
     var seriesList = this.data.seriesData
     var colors = this.data.lineColor
 
@@ -186,7 +245,7 @@ Page({
       title: {
         text: date + '收支情况',
         left: '3%',
-        textStyle:{
+        textStyle: {
           fontSize: 14,
           color: '#666',
           fontWeight: 'bold'
@@ -200,12 +259,6 @@ Page({
       tooltip: {
         show: true,
         trigger: 'axis',
-        // axisPointer: {
-        //   type: 'cross',
-        //   label: {
-        //     backgroundColor: '#6a7985'
-        //   }
-        // }
       },
       grid: {
         left: '3%',
@@ -214,7 +267,7 @@ Page({
         containLabel: true
       },
       xAxis: {
-        data: dataX,
+        data: lineDataX,
         axisTick: {
           show: false
         },
@@ -224,8 +277,8 @@ Page({
             if (type == 'date') {
               var texts = [(date.getMonth() + 1), date.getDate()];
               return texts.join('月');
-            }else{
-              return value+'月'
+            } else {
+              return value + '月'
             }
           }
         },
@@ -253,25 +306,65 @@ Page({
           }
         }
       },
-      // dataZoom: [{  //缩放功能
-      //   type: 'inside',
-      //   startValue: 0,
-      //   endValue: 31,
-      // }, {
-      //   bottom: 0,
-      //   fillerColor: 'rgba(4, 180, 4, 0.2)',
-      //   borderColor: '#eee',
-      //   handleIcon: 'M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4v1.3h1.3v-1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7V23h6.6V24.4z M13.3,19.6H6.7v-1.4h6.6V19.6z',
-      //   handleSize: '80%',
-      //   handleStyle: {
-      //     color: '#fff',
-      //     borderWidth: 0.5,
-      //     borderType: 'solid',
-      //     borderColor: 'rgba(0, 0, 0, 0.1)',
-      //   }
-      // }],
       series: seriesList
     }
+    return option;
+  },
+
+  // 饼形图配置
+  getPieOption: function () {
+    var type = this.data.groupType
+    if (type == 'date') {
+      var arr = this.data.date.split('-')
+      var date = arr[0] + '年' + arr[1] + '月'
+    } else {
+      var date = this.data.date + '年'
+    }
+    var pieDataX = this.data.pieDataX
+    var dataList = this.data.typeList
+    var colors = this.data.pieColor
+
+    var option = {
+      color: colors,
+      tooltip: {
+        trigger: 'item'
+      },
+      title: {
+        text: date + '消费占比',
+        left: '3%',
+        textStyle: {
+          fontSize: 14,
+          color: '#666',
+          fontWeight: 'bold'
+        }
+      },
+      legend: {
+        right: '5%',
+        top: 'center',
+        orient: 'vertical',
+        data: pieDataX
+      },
+      toolbox: {
+        show: true,
+        feature: {
+          mark: { show: true },
+          dataView: { show: true, readOnly: false },
+          magicType: {
+            show: true,
+            type: ['pie', 'funnel']
+          },
+          restore: { show: true },
+          saveAsImage: { show: true }
+        }
+      },
+      series: [{
+        type: 'pie',
+        radius: [0, 80],
+        center: ['40%', '50%'],
+        data: dataList
+      }]
+    };
+
     return option;
   },
 
@@ -279,6 +372,7 @@ Page({
   // 下拉刷新
   onPullDownRefresh: function () {
     this.getLine()
+    this.getPie()
   },
 
   onShareAppMessage: function () {

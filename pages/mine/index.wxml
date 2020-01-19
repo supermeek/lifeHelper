@@ -8,7 +8,7 @@
 				<text class="{{groupType == 'date' ? 'checkedSwitch bg_'+theme.mainColor : 'dark'}}">月</text>
 			</view>
 			<view class="month">
-				<picker mode="date" fields="{{groupType == 'date' ? month : 'year'}}" value="{{date}}" start="2000-01-01" end="{{maxData}}" bindchange="getDateTime">
+				<picker mode="date" fields="{{groupType == 'date' ? 'month' : 'year'}}" value="{{date}}" start="2000-01-01" end="{{maxData}}" bindchange="getDateTime">
 					<view class="selectDate">
 						<text style="font-weight:bold">{{groupType == 'date' ? Filter.month(date) : date+'年'}}</text>
 						<text class="iconfont icon-xia"></text>
@@ -33,8 +33,14 @@
 	<view style="width:100%;height:50rpx"></view>
 	<ec-canvas id="mychart-dom-line" canvas-id="mychart-line" ec="{{ ec }}"></ec-canvas>
 
+	<!-- 饼形图 -->
 	<view class="line"></view>
-  <view class="title_wrapper"><text class="tint">— </text> 当月消费 <text class="tint"> —</text></view>
+	<view class="no-data__list" wx:if="{{typeList.length <= 0}}">暂无数据</view>
+	<ec-canvas id="mychart-dom-pie" canvas-id="mychart-pie" ec="{{ ec }}"></ec-canvas>
+
+	<!-- 进度条 -->
+	<view class="line"></view>
+  <view class="title_wrapper">{{groupType == 'date' ? Filter.month(date) : date+'年'}}消费排行</view>
   <view class="bill_wrapper">
     <view class="no-data__list" wx:if="{{typeList.length <= 0}}">暂无数据</view>
     <component-progress list="{{typeList}}"></component-progress>

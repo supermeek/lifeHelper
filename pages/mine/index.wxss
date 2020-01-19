@@ -35,15 +35,15 @@
   border-radius: 2px;
   color: #fff;
   font-weight: bold;
-  box-shadow: 0 0 5rpx #aaa;
+  box-shadow: 0 0 5rpx #bbb;
 }
 .month {
   display: inline-block;
   height: 60rpx;
   line-height: 60rpx;
   margin-top: 20rpx;
-  border-right: 1rpx solid #fff;
-  padding: 0 20rpx;
+  border-right: 2rpx solid #ededed;
+  padding: 0 30rpx;
 }
 
 .right{
@@ -69,7 +69,7 @@
 }
 .right .text{
   height: 60rpx;
-  line-height: 80rpx;
+  line-height: 70rpx;
 }
 .total_count {
   font-weight: bold;
@@ -86,7 +86,12 @@
 }
 
 /* 统计图 */
-
+.title_wrapper{
+  color: #666;
+  font-size: 14px;
+  font-weight: bold;
+  text-indent: 3%;
+}
 ec-canvas {
   width: 100%;
   height: 640rpx;

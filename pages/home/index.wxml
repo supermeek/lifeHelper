@@ -42,7 +42,7 @@
       <view class="bottom_item">
         <view>
           <text>当前BMI <text class="oldRed">0</text></text>
-          <text class="gray">当前体型稍胖哦</text>
+          <text class="gray">当前体型刚好哦</text>
         </view>
         <image src="/images/fat.png" mode="aspectFit"></image>
       </view>

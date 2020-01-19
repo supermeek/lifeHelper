@@ -10,7 +10,6 @@ Page({
     showTheme: false,
     typeList: util.typeList,
     outcomeTotal: 0,
-
   },
 
   onLoad: function (options) {
