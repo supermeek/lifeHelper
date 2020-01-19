@@ -43,7 +43,6 @@ Page({
         date: JSON.stringify(util.formatDate(new Date(), 'year')),
         maxData: util.formatDate(new Date(), 'year'),
       })
-      console.log(util.formatDate(new Date(), 'year'))
     } else {
       this.setData({
         groupType: 'date',

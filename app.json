@@ -49,8 +49,8 @@
       {
         "pagePath": "pages/mine/index",
         "text": "统计",
-        "iconPath": "images/movie-off.png",
-        "selectedIconPath": "images/movie-on.png"
+        "iconPath": "images/diagram-off.png",
+        "selectedIconPath": "images/diagram-on.png"
       },
       {
         "pagePath": "pages/memo/index",
@@ -61,8 +61,8 @@
       {
         "pagePath": "pages/bmi/index",
         "text": "BMI",
-        "iconPath": "images/collect-off.png",
-        "selectedIconPath": "images/collect-on.png"
+        "iconPath": "images/fat-off.png",
+        "selectedIconPath": "images/fat-on.png"
       }
     ]
   }

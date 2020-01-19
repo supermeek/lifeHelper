@@ -48,9 +48,6 @@ const typeList = [
 
 // 返回类型的index
 const typeIndex = (name) => {
-  console.log("***************")
-  // console.log(this.typeList)
-  console.log(typeList)
   let index = null
   typeList.forEach((item,i) => {
     if(item.name == name){
