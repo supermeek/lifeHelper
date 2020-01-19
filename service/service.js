@@ -184,10 +184,19 @@ class service {
      end: date, 开始时间
    * response: {}
    */
-  getBillLine(start, end, info = null, message = null) {
-    let data = {
-      start: start,
-      end: end
+  getBillLine(start, end, type, year, info = null, message = null) {
+    console.log(type)
+    if (type == 'date'){
+      var data = {
+        start: start,
+        end: end,
+        group_by: type
+      }
+    }else{
+      var data = {
+        year: year,
+        group_by: type
+      }
     }
     let url = this._baseUrl + apis.GET_BILL_LINE
     return this._request.postRequest(url, data, info, message).then(res => res.data)

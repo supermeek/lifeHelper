@@ -8,6 +8,7 @@ Page({
    * startX: 收支触摸开始滑动的位置
    */
   data: {
+    test:'2020-02-03',
     month: util.formatDate(new Date(), 'month'),
     maxData: util.formatDate(new Date(), 'month'),
     typeList: util.typeList,
@@ -152,12 +153,14 @@ Page({
           incomeTotal = util.add(incomeTotal, res.data[i].money)
           incomeTime = incomeTime + 1
         }
-        let date = util.formatDate(new Date(res.data[i].pay_datetime))
+        let date = /\d{4}-\d{1,2}-\d{1,2}/g.exec(res.data[i].pay_datetime)
         let newDate = new Date(date)
+        
         if (!hash[date]) {
           hash[date] = {
             records: [],
-            newDate: weekDay[newDate.getDay()]
+            date: date,
+            weekDay: weekDay[newDate.getDay()]
           }
           hash[date].records.push(res.data[i])
           res.data[i]

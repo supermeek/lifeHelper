@@ -1,7 +1,4 @@
 <view class="container">
-  <image class="bg" src="/images/start.jpg"></image>
-  <image class="year" src="/images/newyear.png" mode="aspectFit"></image>
-  <text class='text'>努力研发中</text>
-  <text class="wait">敬请期待</text>
-<!-- <button class="v-btn mt40" bindtap="requestMsg">发送订阅消息</button> -->
+  <image class="bg" src="/images/waiting.gif"></image>
+  <text class='text'>努力研发中 敬请期待...</text>
 </view>

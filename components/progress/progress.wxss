@@ -1,0 +1,27 @@
+@import '/style/main.wxss';
+.bill_wrapper{
+  background: #fff;
+  min-height: 200rpx;
+  padding: 25rpx;
+  box-sizing: border-box;
+}
+.bill_item{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 20rpx 0;
+  height: 50rpx;
+}
+.progress{
+  margin: 0 20rpx;
+  flex: 2;
+}
+.img{
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 20rpx;
+}
+.percent{
+  font-size: 26rpx;
+}

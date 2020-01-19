@@ -39,8 +39,10 @@
 
   <!-- 收支列表 -->
   <view class="list_wrapper">
+    <view class="no-data__list" wx:if="{{list.length <= 0}}">暂无数据</view>
     <view wx:for="{{list}}" wx:for-item="timeItem" wx:for-index="key" wx:key="key">
-      <text class="list_time bg_tint_{{theme.mainColor}} dark">{{key}} {{timeItem.newDate}}</text>
+      <text class="list_time bg_tint_{{theme.mainColor}} dark">{{timeItem.date}} {{timeItem.weekDay}}</text>
+      <!-- <component-listItem list="{{timeItem.records}}"></component-listItem> -->
       <block wx:for="{{timeItem.records}}" wx:key="index">
         <movable-area class='movable-area'>
           <movable-view direction="horizontal" class='movable-view'>

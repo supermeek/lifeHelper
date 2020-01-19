@@ -1,0 +1,10 @@
+<wxs module="Filter" src="../../utils/filter.wxs"></wxs>
+
+  <view class="bill_item" wx:for="{{list}}" wx:key="index">
+    <image class="img" src="/images/{{Filter.typeIcon(item.name).icon}}"></image>
+    <text class="name dark">{{item.name}}</text>
+    <view class="progress">
+      <progress percent="{{item.percent}}" activeColor="{{Filter.typeIcon(item.name).color}}" stroke-width="8" border-radius="20" active backgroundColor="#f8f8f8" />
+    </view>
+    <text class="percent dark">{{item.percent}}%</text>
+  </view>

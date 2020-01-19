@@ -51,19 +51,18 @@
 
   <view class="title_wrapper"><text class="tint">— </text> 当月消费 <text class="tint"> —</text></view>
   <view class="bill_wrapper">
-    <view class="bill_item" wx:for="{{typeList}}" wx:key="index">
-      <image class="img" src="/images/{{Filter.typeIcon(item.name).icon}}"></image>
-      <text class="name dark">{{item.name}}</text>
-      <view class="progress">
-        <progress percent="{{item.percent}}" activeColor="{{Filter.typeIcon(item.name).color}}" stroke-width="8" border-radius="20" active backgroundColor="#f8f8f8" />
-      </view>
-      <text class="percent dark">{{item.percent}}%</text>
-    </view>
+    <view class="no-data__list" wx:if="{{typeList.length <= 0}}">暂无数据</view>
+    <component-progress list="{{typeList}}"></component-progress>
   </view>
 
   <view class="title_wrapper"><text class="tint">— </text> 备忘预览 <text class="tint"> —</text></view>
-  <view class="bill_wrapper"></view>
+  <view class="bill_wrapper">
+    <view class="no-data__list">暂无数据</view>
+  </view>
 
   <view class="title_wrapper"><text class="tint">— </text> BMI预览 <text class="tint"> —</text></view>
-  <view class="bill_wrapper"></view>
+  <view class="bill_wrapper">
+    <view class="no-data__list">暂无数据</view>
+  </view>
+
 </view>

@@ -6,17 +6,18 @@ var Chart = null
 Page({
   data: {
     theme: app.globalData.theme,
+    lineColor: ["#04B404", "#ff0000"],
     ec: {
       lazyLoad: true
     },
-    month: util.formatDate(new Date(), 'month'),
+    date: util.formatDate(new Date(), 'month'),
     maxData: util.formatDate(new Date(), 'month'),
     typeList: util.typeList,
     outcomeTotal: 0,
     incomeTotal: 0,
     dataX: [],
     seriesData: [],
-    lineType: 'date'
+    groupType: 'date'
   },
 
 
@@ -32,24 +33,32 @@ Page({
 
   // 切换年月
   switchTab: function (e) {
-    if (e.detail.value) {
+    if (this.data.groupType == 'date') {
       this.setData({
-        lineType: 'month'
+        groupType: 'month',
+        date: util.formatDate(new Date(), 'year'),
+        maxData: util.formatDate(new Date(), 'year'),
       })
+      console.log(util.formatDate(new Date(), 'year'))
     } else {
       this.setData({
-        lineType: 'date'
+        groupType: 'date',
+        date: util.formatDate(new Date(), 'month'),
+        maxData: util.formatDate(new Date(), 'month'),
       })
     }
+    this.getLine()
   },
 
   getLine: function () {
     let that = this
-    let start = this.data.month + '-' + '01'
+    let start = this.data.date + '-' + '01'
     let arr = start.split('-');
     let end = util.formatDate(new Date(arr[0], arr[1], '0'), 'day')
-
-    this.getBillLine(start, end, res => {
+    let type = this.data.groupType
+    let year = this.data.date
+    let colors = this.data.lineColor
+    this.getBillLine(start, end, type, year, res => {
       console.log(res)
       let incomeTotal = 0
       let outcomeTotal = 0
@@ -74,6 +83,15 @@ Page({
           type: 'line',
           smooth: true,
           symbol: 'none',
+          areaStyle: {
+            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+              offset: 0,
+              color: colors[i]
+            }, {
+              offset: 1,
+              color: '#ffe'
+            }])
+          },
           data: item.series
         })
       }
@@ -98,57 +116,15 @@ Page({
   getDateTime: function (e) {
     console.log(e.detail.value)
     this.setData({
-      month: e.detail.value
+      date: e.detail.value
     })
     this.getLine()
   },
 
-  // 上个月
-  getPreMonth: function () {
-    var arr = this.data.month.split('-');
-    var year = arr[0]; //获取当前日期的年份
-    var month = arr[1]; //获取当前日期的月份
-    var days = new Date(year, month, 0);
-    days = days.getDate(); //获取当前日期中月的天数
-    var year2 = year;
-    var month2 = parseInt(month) - 1;
-    if (month2 == 0) {
-      year = parseInt(year) - 1;
-      month2 = 12;
-    }
-    if (month2 < 10) {
-      month2 = '0' + month2;
-    }
-    var lastMonth = year + '-' + month2
-    this.setData({ month: lastMonth })
-    this.getLine()
-  },
-
-
-  // 下个月
-  getNextMonth: function () {
-    var arr = this.data.month.split('-');
-    var year = arr[0];
-    var month = arr[1];
-    var days = new Date(year, month, 0);
-    days = days.getDate();
-    var year2 = year;
-    var month2 = parseInt(month) + 1;
-    if (month2 == 13) {
-      year2 = parseInt(year2) + 1;
-      month2 = 1;
-    }
-    if (month2 < 10) {
-      month2 = '0' + month2;
-    }
-    var nextMonth = year2 + '-' + month2
-    this.setData({ month: nextMonth })
-    this.getLine()
-  },
 
   // 获取线型图数据
-  getBillLine: function (start, end, callback) {
-    app.service.getBillLine(start, end)
+  getBillLine: function (start, end, type, year, callback) {
+    app.service.getBillLine(start, end, type, year)
       .then(res => {
         console.log(res)
         if (res.code == 0) {
@@ -194,12 +170,19 @@ Page({
 
 
   getOption: function () {
-    let arr = this.data.month.split('-')
-    let date = arr[0] + '年' + arr[1] + '月'
-    let dataX = this.data.dataX
-    let seriesList = this.data.seriesData
+    var type = this.data.groupType
+    if (type == 'date'){
+      var arr = this.data.date.split('-')
+      var date = arr[0] + '年' + arr[1] + '月'
+    }else{
+      var date = this.data.date + '年'
+    }
+    var dataX = this.data.dataX
+    var seriesList = this.data.seriesData
+    var colors = this.data.lineColor
+
     var option = {
-      color: ["#04B404", "#ff0000"],
+      color: colors,
       title: {
         text: date + '收支情况',
         left: '3%',
@@ -211,7 +194,7 @@ Page({
       },
       legend: {
         data: ['收入', '支出'],
-        backgroundColor: '#eee',
+        // backgroundColor: '#eee',
         right: '5%'
       },
       tooltip: {
@@ -238,8 +221,12 @@ Page({
         axisLabel: {
           formatter: function (value, index) {
             var date = new Date(value);
-            var texts = [(date.getMonth() + 1), date.getDate()];
-            return texts.join('月');
+            if (type == 'date') {
+              var texts = [(date.getMonth() + 1), date.getDate()];
+              return texts.join('月');
+            }else{
+              return value+'月'
+            }
           }
         },
         axisLine: {
@@ -269,7 +256,7 @@ Page({
       // dataZoom: [{  //缩放功能
       //   type: 'inside',
       //   startValue: 0,
-      //   endValue: 30,
+      //   endValue: 31,
       // }, {
       //   bottom: 0,
       //   fillerColor: 'rgba(4, 180, 4, 0.2)',

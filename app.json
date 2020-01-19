@@ -27,7 +27,9 @@
   },
   "usingComponents": {
     "component-add": "components/add/add",
-    "component-picker": "/components/form/selectPicker"
+    "component-picker": "/components/form/selectPicker",
+    "component-progress": "/components/progress/progress",
+    "component-listItem": "/components/item/listItem"
   },
   "tabBar": {
     "selectedColor": "#8DC53E",
