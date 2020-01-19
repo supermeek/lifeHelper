@@ -3,85 +3,83 @@
   box-sizing: border-box;
 }
 
-.container {
-  padding-top: 300rpx;
-}
-
 /* 月份 */
-
-.month_wrapper {
-  padding: 20rpx 0;
-  /* background: red; */
-  text-align: center;
-  position: fixed;
-  top: 0;
-  z-index: 99;
+.top_wrapper{
+  height: 200rpx;
+  color: #555;
 }
-
-.month_wrapper>text {
-  display: inline-block;
-  /* background: yellow; */
-  width: 20%;
+.left{
+  width: 30%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
-
-.month_wrapper>text .iconfont {
-  vertical-align: middle;
-}
-
-.month {
-  display: inline-block;
-  /* background: blue; */
+.switch{
   width: 60%;
 }
-
-/* 总计 */
-
-.total_wrapper {
-  /* margin-top: 100rpx; */
-  position: fixed;
-  top: 95rpx;
-  z-index: 99;
-  background: #fff;
+.switch>text{
+  display: inline-block;
+  width: 50%;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  box-sizing: border-box;
+  vertical-align: top;
+}
+.month {
+  display: inline-block;
+  height: 60rpx;
+  line-height: 60rpx;
+  margin-top: 20rpx;
+  border-right: 1rpx solid #fff;
+  padding: 0 20rpx;
 }
 
-.total_wrapper>view>text {
-  display: block;
+.right{
+  width: 70%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .left_total, .right_total {
   width: 50%;
-  padding: 10rpx 0;
+  height: 100%;
   text-align: center;
-  display: inline-block;
+  /* display: inline-block; */
   box-sizing: border-box;
-  margin: 20rpx 0;
-}
 
-.right_total {
-  border-left: 1rpx solid #ededed;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
-
+.right .text{
+  height: 60rpx;
+  line-height: 80rpx;
+}
 .total_count {
   font-weight: bold;
-  font-size: 40rpx;
+  font-size: 32rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  margin-top: 20rpx;
+}
+
+.line{
+  height: 20rpx;
+  background: #ededed;
+  margin-bottom: 50rpx;
 }
 
 /* 统计图 */
 
 ec-canvas {
   width: 100%;
-  height: 800rpx;
-  /* background: yellow; */
-}
-
-
-/* 标题 */
-.title_wrapper{
-  background: #fff;
-  margin-top: 25rpx;
-  padding: 25rpx;
-  text-align: center;
-  color: #666;
-  border-top: 1rpx solid #f2f2f2;
-  border-bottom: 1rpx solid #f2f2f2;
+  height: 640rpx;
+  z-index: 0;
 }

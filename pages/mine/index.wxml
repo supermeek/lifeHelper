@@ -1,33 +1,38 @@
 <wxs module="Filter" src="../../utils/filter.wxs"></wxs>
 <view class="container">
-  <!-- 月份筛选 -->
-  <view class="month_wrapper bg_{{theme.mainColor}}">
-    <text bindtap="getPreMonth"><text class="iconfont icon-changyongicon-"></text>上月</text>
-    <!-- 年月选择 -->
-    <view class="month">
-      <picker mode="date" fields="month" value="{{date}}" start="2000-01-01" end="{{maxData}}" bindchange="getDateTime">
-        <view class="selectDate">
-          <text style="font-weight:bold">{{Filter.month(month)}}</text>
-          <text class="iconfont icon-xia"></text>
-        </view>
-      </picker>
-    </view>
-    <text bindtap="getNextMonth">下月<text class="iconfont icon-you"></text></text>
-  </view>
+	<!-- 月份筛选 -->
+	<view class="top_wrapper bg_{{theme.mainColor}}">
+		<view class="left">
+			<view class="switch">
+				<text style="border: 1rpx solid rgba(255,255,255,0.6);">年</text>
+				<text style="background:rgba(255,255,255,0.6)">月</text>
+			</view>
+			<view class="month">
+				<picker mode="date" fields="month" value="{{date}}" start="2000-01-01" end="{{maxData}}" bindchange="getDateTime">
+					<view class="selectDate">
+						<text style="font-weight:bold">{{Filter.month(month)}}</text>
+						<text class="iconfont icon-xia"></text>
+					</view>
+				</picker>
+			</view>
+		</view>
 
-  <!-- 当月总收支 -->
-  <view class="total_wrapper shadow_bottom" style="z-index:2">
-    <view class="left_total">
-      <text class="gray">总支出 {{outcomeTime}} 比</text>
-      <text class="total_count oldRed">￥{{outcomeTotal}}</text>
-    </view>
-    <view class="right_total">
-      <text class="gray">总收入 {{incomeTime}} 比</text>
-      <text class="total_count oldGreen">￥{{incomeTotal}}</text>
-    </view>
-  </view>
+		<view class="right">
+			<view class="left_total">
+				<text class="text">总支出</text>
+				<text class="total_count">￥{{outcomeTotal}}</text>
+			</view>
+			<view class="right_total">
+				<text class="text">总收入</text>
+				<text class="total_count">￥{{incomeTotal}}</text>
+			</view>
+		</view>
+	</view>
 
-  <!-- <ec-canvas id="mychart-dom-line" canvas-id="mychart-line" ec="{{ ec }}"></ec-canvas> -->
-  <view class="title_wrapper"><text class="tint">— </text> {{Filter.month(month)}}消费曲线图 <text class="tint"> —</text></view>
-  <ec-canvas id="mychart-dom-line" canvas-id="mychart-line" ec="{{ ec }}"></ec-canvas>
-</view>
+	<!-- 折线图 -->
+	<view style="width:100%;height:50rpx"></view>
+	<ec-canvas id="mychart-dom-line" canvas-id="mychart-line" ec="{{ ec }}"></ec-canvas>
+
+	<view class="line"></view>
+
+</view><!-- container -->
