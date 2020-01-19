@@ -28,16 +28,9 @@ class service {
     console.error(res)
     console.log(res)
     var that = this;
-    if (res.statusCode == 403) {
-      wx.showModal({
-        title: '提示',
-        content: '您的账号信息已过期，请退出重新进入',
-        success: function () {
-          if (res.confirm) {
-          } else if (res.cancel) {
-          } else {
-          }
-        },
+    if (res.statusCode == 401) {
+      wx.redirectTo({
+        url: '/pages/index/loading',
       })
     } else {
       wx.stopPullDownRefresh()
