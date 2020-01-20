@@ -46,7 +46,7 @@ App({
       selectedColor: color.color
     })
     wx.setNavigationBarColor({
-      frontColor: '#000000', // 必写项
+      frontColor: '#ffffff', // 必写项
       backgroundColor: color.color, // 必写项
     })
   }

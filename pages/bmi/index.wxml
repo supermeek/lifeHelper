@@ -1,4 +1,32 @@
+<wxs module="Filter" src="../../utils/filter.wxs"></wxs>
 <view class="container">
-  <image class="bg" src="/images/waiting.gif"></image>
-  <text class='text'>努力研发中 敬请期待...</text>
+  <!-- 月份筛选 -->
+  <view class="top_wrapper white bg_{{theme.mainColor}}">
+    <view class="left">
+      <view class="switch" bindtap="switchTab">
+        <image src="/images/woman.png"></image>
+      </view>
+      <view class="name">
+        <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+          <view class="_clearFloat">
+            <text type="default" style="margin:0 15rpx">{{array[index]}}</text>
+            <text class="iconfont icon-xia"></text>
+          </view>
+        </picker>
+      </view>
+    </view>
+
+    <view class="right">
+      <view class="left_total">
+        <view class="text">身高</view>
+        <text class="total_count">165 cm</text>
+      </view>
+      <view class="right_total">
+        <view class="text">体重</view>
+        <text class="total_count">55 kg</text>
+      </view>
+    </view>
+  </view>
+  <image class="fly" src="/images/fly.png" mode="aspectFit"></image>
+
 </view>

@@ -6,7 +6,6 @@
 /* 月份 */
 .top_wrapper{
   height: 200rpx;
-  color: #555;
 }
 .left{
   width: 35%;
@@ -42,7 +41,7 @@
   height: 60rpx;
   line-height: 60rpx;
   margin-top: 20rpx;
-  border-right: 2rpx solid #ededed;
+  border-right: 2rpx solid #fff;
   padding: 0 30rpx;
 }
 

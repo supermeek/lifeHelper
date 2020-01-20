@@ -2,7 +2,7 @@
 <view class="container">
 
   <!-- 月份筛选 -->
-  <view class="month_wrapper bg_{{theme.mainColor}}">
+  <view class="month_wrapper white bg_{{theme.mainColor}}">
     <text bindtap="getPreMonth"><text class="iconfont icon-changyongicon-"></text>上月</text>
     <!-- 年月选择 -->
     <view class="month">
