@@ -1,7 +1,7 @@
 	<!-- 获取用户权限 -->
 <view class="content">
 	<view class="userinfo">
-		<image class="bgImg" src="/images/loading4.gif" mode="aspectFit"></image>
+		<image class="bgImg border_{{theme.mainColor}}" src="/images/loading4.gif" mode="aspectFit"></image>
 		<text class="text">
             允许微信授权后，开启生活助手
             <!-- 请确认一下操作授权 -->

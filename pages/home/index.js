@@ -29,9 +29,6 @@ Page({
       for(let i in res.data.outcome){
         outcomeTotal = util.add(outcomeTotal,res.data.outcome[i].value) 
       }
-      for (let i in res.data.outcome) {
-        res.data.outcome[i].percent = util.div(res.data.outcome[i].value, outcomeTotal).toFixed(2)
-      }
       that.setData({
         typeList:res.data.outcome,
         outcomeTotal: outcomeTotal

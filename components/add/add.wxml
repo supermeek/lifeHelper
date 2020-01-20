@@ -4,4 +4,6 @@
   bindtouchstart="buttonStart"
   catchtouchend="buttonEnd"
   class="add"
-  style="top:{{buttonTop}}px;left:{{buttonLeft}}px;background:{{theme.color}}">+</navigator>
+  style="top:{{buttonTop}}px;left:{{buttonLeft}}px;background:{{theme.color}}">
+    <image src="/images/add.png" class="img" />
+  </navigator>

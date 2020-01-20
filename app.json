@@ -55,12 +55,12 @@
       {
         "pagePath": "pages/memo/index",
         "text": "备忘",
-        "iconPath": "images/book-off.png",
-        "selectedIconPath": "images/book-on.png"
+        "iconPath": "images/order-off.png",
+        "selectedIconPath": "images/order-on.png"
       },
       {
         "pagePath": "pages/bmi/index",
-        "text": "BMI",
+        "text": "体重",
         "iconPath": "images/fat-off.png",
         "selectedIconPath": "images/fat-on.png"
       }

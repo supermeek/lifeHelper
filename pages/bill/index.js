@@ -12,7 +12,7 @@ Page({
     month: util.formatDate(new Date(), 'month'),
     maxData: util.formatDate(new Date(), 'month'),
     typeList: util.typeList,
-    items: [],
+    noneList: 0, //0加载中 1加载成功 -1没有数据
     outcomeTotal: 0,
     incomeTotal: 0,
     outcomeTime: 0,
@@ -126,6 +126,7 @@ Page({
 
   // 获取查询账单参数
   getBill: function () {
+    let that = this
     let start = this.data.month + '-' + '01'
     let arr = start.split('-');
     let end = util.formatDate(new Date(arr[0], arr[1], '0'), 'day')
@@ -145,6 +146,7 @@ Page({
       let outcomeTime = 0
       let incomeTime = 0
       var weekDay = ["星期天", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"]
+  
       for (let i in res.data) {
         if(res.data[i].outcome){
           outcomeTotal = util.add(outcomeTotal, res.data[i].money)
@@ -168,6 +170,13 @@ Page({
           hash[date].records.push(res.data[i])
         }
       }
+
+      if (res.data.length > 0) {
+        that.setData({ noneList: 1 })
+      } else {
+        that.setData({ noneList: -1 })
+      }
+
       this.setData({ 
         list: hash,
         outcomeTotal: outcomeTotal,
@@ -224,7 +233,11 @@ Page({
           if (typeof (callback == 'function')) {
             callback(res)
           }
+        }else{
+          that.setData({ noneList: -1 })
         }
+      }).catch(res => {
+        that.setData({ noneList: -1 })
       })
   },
 
@@ -247,14 +260,9 @@ Page({
 
   touchstart: function (e) {
     //开始触摸时 重置所有删除
-    // this.data.items.forEach(function (v, i) {
-    //   if (v.isTouchMove) //只操作为true的
-    //     v.isTouchMove = false;
-    // })
     this.setData({
       startX: e.changedTouches[0].clientX,
       startY: e.changedTouches[0].clientY,
-      // items: this.data.items
     })
   },
 

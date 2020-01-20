@@ -35,14 +35,12 @@
 
 	<!-- 饼形图 -->
 	<view class="line"></view>
-	<view class="no-data__list" wx:if="{{typeList.length <= 0}}">暂无数据</view>
 	<ec-canvas id="mychart-dom-pie" canvas-id="mychart-pie" ec="{{ ec }}"></ec-canvas>
 
 	<!-- 进度条 -->
 	<view class="line"></view>
   <view class="title_wrapper">{{groupType == 'date' ? Filter.month(date) : date+'年'}}消费排行</view>
   <view class="bill_wrapper">
-    <view class="no-data__list" wx:if="{{typeList.length <= 0}}">暂无数据</view>
     <component-progress list="{{typeList}}"></component-progress>
   </view>
 

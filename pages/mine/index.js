@@ -18,7 +18,7 @@ Page({
     outcomeTotal: 0,
     incomeTotal: 0,
     lineDataX: [],
-    pieDataX: [],
+    pieDataX: util.types,
     seriesData: [],
     groupType: 'date'
   },
@@ -128,23 +128,31 @@ Page({
     let end = util.formatDate(new Date(arr[0], arr[1], '0'), 'day')
     this.getBillPie(start, end, (res) => {
       console.log(res)
-      let outcomeTotal = 0
       let colors = []
       let datax = []
-      for (let i in res.data.outcome) {
-        outcomeTotal = util.add(outcomeTotal, res.data.outcome[i].value)
-        let typeIndex = util.typeIndex(res.data.outcome[i].name)
-        colors.push(util.typeList[typeIndex].color)
-        datax.push(util.typeList[typeIndex].name)
+      if (res.data.outcome.length > 0){
+        for (let i in res.data.outcome) {
+          let typeIndex = util.typeIndex(res.data.outcome[i].name)
+          colors.push(util.typeList[typeIndex].color)
+          datax.push(util.typeList[typeIndex].name)
+        }
+        that.setData({
+          typeList: res.data.outcome,
+          pieColor: colors,
+          pieDataX: datax
+        })
+      }else{
+        for (let i in util.typeList) {
+          colors.push(util.typeList[i].color)
+          datax.push(util.typeList[i].name)
+        }
+        that.setData({
+          pieColor: colors,
+          pieDataX: datax
+        })
       }
-      for (let i in res.data.outcome) {
-        res.data.outcome[i].percent = util.div(res.data.outcome[i].value, outcomeTotal).toFixed(2)
-      }
-      that.setData({
-        typeList: res.data.outcome,
-        pieColor: colors,
-        pieDataX: datax
-      })
+
+    
       that.echartsComponnetPie = that.selectComponent('#mychart-dom-pie');
       if (!pieChart) {
         that.init_pie_echarts(); //初始化图表

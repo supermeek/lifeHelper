@@ -26,9 +26,9 @@
   <view class="center_wrapper">
     <view class="left_item">
       <view style="margin-bottom:20rpx;">
-          <text>当月消费 <text class="oldRed">￥{{outcomeTotal}}</text></text>
-          <text class="gray">注意理性消费</text>
-        </view>
+        <text>当月消费 <text class="oldRed">￥{{outcomeTotal}}</text></text>
+        <text class="gray">注意理性消费</text>
+      </view>
       <image src="/images/item1.png" mode="aspectFit"></image>
     </view>
     <view class="right_item">
@@ -49,20 +49,38 @@
     </view>
   </view>
 
-  <view class="title_wrapper"><text class="tint">— </text> 当月消费 <text class="tint"> —</text></view>
+  <view class="title_wrapper">
+    <text class="tint">— </text> 当月消费
+    <text class="tint"> —</text>
+  </view>
   <view class="bill_wrapper">
-    <view class="no-data__list" wx:if="{{typeList.length <= 0}}">暂无数据</view>
+    <view class="no-data__list" wx:if="{{typeList.length <= 0}}">
+      <image src="/images/none.png" mode="aspectFit"></image>
+      <!-- <text>还没有数据哦 (๑• . •๑)</text> -->
+    </view>
     <component-progress list="{{typeList}}"></component-progress>
   </view>
 
-  <view class="title_wrapper"><text class="tint">— </text> 备忘预览 <text class="tint"> —</text></view>
+  <view class="title_wrapper">
+    <text class="tint">— </text> 备忘预览
+    <text class="tint"> —</text>
+  </view>
   <view class="bill_wrapper">
-    <view class="no-data__list">暂无数据</view>
+    <view class="no-data__list">
+      <image src="/images/none.png" mode="aspectFit"></image>
+      <!-- <text>还没有数据哦 (๑• . •๑)</text> -->
+    </view>
   </view>
 
-  <view class="title_wrapper"><text class="tint">— </text> BMI预览 <text class="tint"> —</text></view>
+  <view class="title_wrapper">
+    <text class="tint">— </text> BMI预览
+    <text class="tint"> —</text>
+  </view>
   <view class="bill_wrapper">
-    <view class="no-data__list">暂无数据</view>
+    <view class="no-data__list">
+      <image src="/images/none.png" mode="aspectFit"></image>
+      <!-- <text>还没有数据哦 (๑• . •๑)</text> -->
+    </view>
   </view>
 
 </view>
