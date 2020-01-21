@@ -1,9 +1,8 @@
 <wxs module="Filter" src="../../utils/filter.wxs"></wxs>
 <view class="container">
-  <!-- 月份筛选 -->
   <view class="top_wrapper white bg_{{theme.mainColor}}">
     <view class="left">
-      <view class="switch" bindtap="switchTab">
+      <view class="header" bindtap="openDialog">
         <image src="/images/woman.png"></image>
       </view>
       <view class="name">
@@ -17,16 +16,154 @@
     </view>
 
     <view class="right">
-      <view class="left_total">
-        <view class="text">身高</view>
-        <text class="total_count">165 cm</text>
+      <view class="switch" bindtap="switchTab">
+        <text class="{{groupType == 'list' ? 'checkedSwitch bg_'+theme.mainColor : 'gray'}}">数据</text>
+        <text class="{{groupType == 'canvas' ? 'checkedSwitch bg_'+theme.mainColor : 'gray'}}">图表</text>
       </view>
-      <view class="right_total">
-        <view class="text">体重</view>
-        <text class="total_count">55 kg</text>
+      <view class="weight_wrapper">
+        <view class="left_total">
+          <view class="text">身高</view>
+          <text class="total_count">165 <text style="font-size:24rpx">cm</text></text>
+        </view>
+        <view class="center_total">
+          <view class="text">体重</view>
+          <text class="total_count">55 <text style="font-size:24rpx">kg</text></text>
+        </view>
+        <view class="right_total">
+          <view class="text">BMI</view>
+          <text class="total_count">55 <text style="font-size:24rpx">bmi</text></text>
+        </view>
       </view>
     </view>
   </view>
-  <image class="fly" src="/images/fly.png" mode="aspectFit"></image>
+
+  <!-- 提示 -->
+  <view class="info">
+    <image class="tip" src="/images/fly.png" mode="aspectFit"></image>
+    <view class="gray">
+      您当前体型
+      <text class="oldGreen">刚好</text>、请注意保持哦，距离您的目标体重还有
+      <text class="oldRed">0.3kg</text>，请继续加油！
+    </view>
+  </view>
+
+  <!-- <view class="btn_wrapper shadow_bottom">
+    <button class="list_btn">数据</button>
+    <button class="canv_btn">图表</button>
+  </view> -->
+
+  <!-- 列表 -->
+  <view class="list_wrapper">
+    <view class="weui-loading__wrp" wx:if="{{noneList == 0}}">
+      <view class="loading wx_dot_loading"></view>
+    </view>
+    <view class="no-data__list" wx:if="{{noneList == -1}}" style='height:300rpx'>
+      <image src="/images/none.png" mode="aspectFit"></image>
+      <text>先去添加哦 (๑• . •๑)</text>
+    </view>
+    <view wx:for="{{list}}" wx:for-item="timeItem" wx:for-index="key" wx:key="key">
+      <text class="list_time gray">{{timeItem.date}} {{timeItem.weekDay}}</text>
+      <component-movable class="movable" listArr="{{timeItem}}" type="bmi" key="{{key}}" bind:edit="edit" bind:del="del"></component-movable>
+    </view>
+  </view>
+
+
+  <!-- 模拟弹窗 -->
+  <!-- <component-dialog id="dialog" height="200" title="添加供应商" bind:confirmBtn="confirmAddCode">
+    <view slot="content" class="user_wrapper">
+      <view class="input_item">
+        <view class="gander">
+          <view>男<icon class="weui-icon-radio" type="success_no_circle" size="16"></icon></view>
+          <view>女<icon class="weui-icon-radio" type="success_no_circle" size="16"></icon></view>
+        </view>
+      </view>
+      <view class="input_item">
+        <input bindinput="inputCoding" placeholder="姓名..." />
+        <input bindinput="inputCoding" placeholder="年龄..." />
+      </view>
+      <view class="input_item">
+        <input bindinput="inputCoding" placeholder="身高..." />
+        <input bindinput="inputCoding" placeholder="体重..." />
+      </view>
+    </view>
+  </component-dialog> -->
+
+  <view class="weui-demo-dialog {{istrue ? 'weui-demo-dialog_show' : ''}}">
+    <view class="weui-mask" bindtap="closeDialog"></view>
+    <view class="weui-actionsheet {{istrue ? 'weui-actionsheet_toggle' : ''}}" catchtap="stopEvent">
+      <view class="weui-actionsheet__title">
+        <view class="weui-actionsheet__title-text">创建体重记录对象</view>
+      </view>
+      <view class="weui-actionsheet__content">
+        <view class="user_top">
+          <view class="user_left">
+            <image class="avatar" src="/images/man.png"></image>
+          </view>
+          <view class="user_right">
+            <label>
+              <text>姓名</text>
+              <input bindinput="" />
+            </label>
+            <label>
+              <text>性别</text>
+              <view class="gander">
+                <view>男
+                  <icon class="weui-icon-radio" type="success_no_circle" size="16"></icon>
+                </view>
+                <view>女
+                  <icon class="weui-icon-radio" type="success_no_circle" size="16"></icon>
+                </view>
+              </view>
+            </label>
+          </view>
+        </view>
+        <view class="user_bottom">
+        <view>
+            <label>
+              <text>关系</text>
+              <input bindinput="" />
+            </label>
+            <label>
+              <text>年龄</text>
+              <input bindinput="" />
+            </label>
+          </view>
+          <view>
+            <label>
+              <text>身高(cm)</text>
+              <input bindinput="" />
+            </label>
+            <label>
+              <text>体重(kg)</text>
+              <input bindinput="" />
+            </label>
+          </view>
+<view>
+            <label>
+              <text>目标体重</text>
+              <input bindinput="" />
+            </label>
+            <label>
+              <text>目标bmi</text>
+              <input bindinput="" />
+            </label>
+          </view>
+        </view>
+      </view>
+      <!-- <view class="weui-actionsheet__menu">
+              <view class="weui-actionsheet__cell">我自己</view>
+              <view class="weui-actionsheet__cell">他人</view>
+              <view class="weui-actionsheet__cell weui-actionsheet__cell_warn">宠物</view>
+          </view> -->
+      <view class="weui-actionsheet__action">
+        <view class="weui-actionsheet__cell" bindtap="closeDialog">取消</view>
+        <view class="weui-actionsheet__cell oldGreen" bindtap="closeDialog">确定</view>
+      </view>
+    </view>
+  </view>
+
+
+  <!-- 添加按钮 -->
+  <component-add id="add" url="/pages/bmi/creat"></component-add>
 
 </view>

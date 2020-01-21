@@ -9,7 +9,8 @@
     "pages/bmi/index",
     "pages/mine/index",
     "pages/creat/index",
-    "pages/bill/creat"
+    "pages/bill/creat",
+    "pages/bmi/creat"
   ],
   "window": {
     "navigationBarTextStyle": "black",
@@ -26,10 +27,13 @@
     "downloadFile": 10000
   },
   "usingComponents": {
+    "component-dialog": "components/dialog/dialog",
     "component-add": "components/add/add",
     "component-picker": "/components/form/selectPicker",
     "component-progress": "/components/progress/progress",
-    "component-listItem": "/components/item/listItem"
+    "component-billItem": "/components/item/billItem",
+    "component-blockItem": "/components/item/blockItem",
+    "component-movable": "/components/item/movable"
   },
   "tabBar": {
     "selectedColor": "#8DC53E",

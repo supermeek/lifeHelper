@@ -95,9 +95,17 @@
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "pages/bmi/index",
+					"id": 7,
+					"name": "体重",
 					"pathName": "pages/bmi/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "创建对象",
+					"pathName": "pages/bmi/creat",
+					"query": "",
 					"scene": null
 				}
 			]

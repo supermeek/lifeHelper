@@ -43,22 +43,22 @@ class service {
   }
 
 
-/**
- * name: http.js
- * description: request服务 
- * date: 2019-12-3
- * 统一的request请求归纳
- * 统一接收参数
- *      message: 请求中是否展示loading提示信息
- *      info: 成功提示信息
- *      api: 请求接口（包含域名）
- * 请求方式 （如需其他方式需在request中另加）
- *      getRequest
- *      postRequest
- *      deleteRequest
- *      putRequest
- *      formRequest
- */
+  /**
+   * name: http.js
+   * description: request服务 
+   * date: 2019-12-3
+   * 统一的request请求归纳
+   * 统一接收参数
+   *      message: 请求中是否展示loading提示信息
+   *      info: 成功提示信息
+   *      api: 请求接口（包含域名）
+   * 请求方式 （如需其他方式需在request中另加）
+   *      getRequest
+   *      postRequest
+   *      deleteRequest
+   *      putRequest
+   *      formRequest
+   */
 
   /**  *********************** 登陆模块 *************************** */
 
@@ -99,10 +99,10 @@ class service {
       pay_datetime: time,
       desc: desc
     }
-    if(id == null){
+    if (id == null) {
       let url = this._baseUrl + apis.CREAT_BILL.replace(/{id}\//, '')
       return this._request.postRequest(url, data, info, message).then(res => res.data)
-    }else{
+    } else {
       let url = this._baseUrl + apis.CREAT_BILL.replace(/{id}/, id)
       return this._request.putRequest(url, data, info, message).then(res => res.data)
     }
@@ -127,7 +127,7 @@ class service {
       item_type_name: types,
       is_all: is_all
     }
-    if(outcome) data['outcome'] = outcome
+    if (outcome) data['outcome'] = outcome
     let url = this._baseUrl + apis.GET_BILL
     return this._request.postRequest(url, data, info, message).then(res => res.data)
   }
@@ -153,7 +153,7 @@ class service {
    */
   getBillDetail(id, info = null, message = null) {
     let data = {}
-    let url = this._baseUrl + apis.GET_BILL_DETAIL.replace(/{id}/,id)
+    let url = this._baseUrl + apis.GET_BILL_DETAIL.replace(/{id}/, id)
     console.log(url)
     return this._request.getRequest(url, data, info, message).then(res => res.data)
   }
@@ -186,13 +186,13 @@ class service {
    */
   getBillLine(start, end, type, year, info = null, message = null) {
     console.log(type)
-    if (type == 'date'){
+    if (type == 'date') {
       var data = {
         start: start,
         end: end,
         group_by: type
       }
-    }else{
+    } else {
       var data = {
         year: year,
         group_by: type
@@ -202,6 +202,17 @@ class service {
     return this._request.postRequest(url, data, info, message).then(res => res.data)
   }
 
+
+  /********************** 体重模块 *********************** */
+  /**
+  * function: 查询对象
+  * method: GET
+  */
+  getTarget(info = null, message = null) {
+    var data = {}
+    let url = this._baseUrl + apis.GET_TARGET
+    return this._request.getRequest(url, data, info, message).then(res => res.data)
+  }
 
 }
 

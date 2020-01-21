@@ -2,35 +2,25 @@ const app = getApp()
 import util from '../../utils/util.js'
 Page({
 
-  /**
-   * delBtnWidth: 删除按钮的宽度单位
-   * list: 循环的mock数据
-   * startX: 收支触摸开始滑动的位置
-   */
   data: {
     test:'2020-02-03',
     month: util.formatDate(new Date(), 'month'),
     maxData: util.formatDate(new Date(), 'month'),
+    list:[],
     typeList: util.typeList,
     noneList: 0, //0加载中 1加载成功 -1没有数据
     outcomeTotal: 0,
     incomeTotal: 0,
     outcomeTime: 0,
     incomeTime: 0,
-    startX: 0, //开始坐标
-    startY: 0
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
+
   onLoad: function (options) {
     this.add = this.selectComponent("#add")
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
+
   onShow: function () {
     app.setThemeColor()
     this.setData({
@@ -41,6 +31,7 @@ Page({
     this.getBill()
   },
 
+  // 下拉刷新
   onPullDownRefresh: function () {
     this.getBill()
   },
@@ -117,11 +108,9 @@ Page({
 
 
   // 类型变化
-
   checkboxChange: function (e) {
     console.log(e.detail.value)
   },
-
 
 
   // 获取查询账单参数
@@ -184,6 +173,8 @@ Page({
         outcomeTime: outcomeTime,
         incomeTime: incomeTime,
       })
+
+      this.selectComponent(".movable").updateData()
       console.log(hash)
     })
   },
@@ -191,10 +182,8 @@ Page({
 
   //编辑事件
   edit: function (e) {
-    console.log(e)
-    let id = e.currentTarget.id
-    let index = e.currentTarget.dataset.index
-    let date = e.currentTarget.dataset.key
+    console.log(e.detail.id)
+    let id = e.detail.id
     wx.navigateTo({
       url: '/pages/bill/creat?id='+id,
     })
@@ -203,24 +192,21 @@ Page({
   //删除事件
   del: function (e) {
     let that = this
-    let key = e.currentTarget.dataset.key
-    let index = e.currentTarget.dataset.index
-    let id = e.currentTarget.id
     console.log(e)
-    util.showModal('确定删除该选项吗？', '', () => {
-      // 调取接口
-      that.deleteBill(id, '删除成功', res => {
-        this.data.list[key].records.splice(index, 1)
-        if (this.data.list[key].records.length <= 0) {
-          delete this.data.list[key]
-        }
-        this.setData({
-          list: this.data.list
-        })
+    let id = e.detail.id
+    let index = e.detail.index
+    let key = e.detail.key
+    that.deleteBill(id, '删除成功', res => {
+      this.data.list[key].records.splice(index, 1)
+      if (this.data.list[key].records.length <= 0) {
+        delete this.data.list[key]
+      }
+      this.setData({
+        list: this.data.list
       })
+      this.selectComponent(".movable").updateData()
     })
   },
-
 
 
   // 查询列表
@@ -251,67 +237,7 @@ Page({
           callback(res)
         }
       })
-  },
-
-
-  /** ******** 左滑删除 ********** */
-
-  //手指触摸动作开始 记录起点X坐标
-
-  touchstart: function (e) {
-    //开始触摸时 重置所有删除
-    this.setData({
-      startX: e.changedTouches[0].clientX,
-      startY: e.changedTouches[0].clientY,
-    })
-  },
-
-  //滑动事件处理
-  touchmove: function (e) {
-    var that = this,
-      key = e.currentTarget.dataset.key, //当前日期索引
-      index = e.currentTarget.dataset.index, //当前列表索引
-      startX = that.data.startX, //开始X坐标
-      startY = that.data.startY, //开始Y坐标
-      touchMoveX = e.changedTouches[0].clientX, //滑动变化坐标
-      touchMoveY = e.changedTouches[0].clientY, //滑动变化坐标
-      //获取滑动角度
-      angle = that.angle({
-        X: startX,
-        Y: startY
-      }, {
-          X: touchMoveX,
-          Y: touchMoveY
-        });
-
-    that.data.list[key].records.forEach(function (v, i) {
-      v.isTouchMove = false
-      //滑动超过30度角 return
-      if (Math.abs(angle) > 30) return;
-      if (i == index) {
-        if (touchMoveX > startX) //右滑
-          v.isTouchMove = false
-        else //左滑
-          v.isTouchMove = true
-      }
-    })
-    //更新数据
-    that.setData({
-      list: that.data.list
-    })
-  },
-  /**
-   * 计算滑动角度
-   * @param {Object} start 起点坐标
-   * @param {Object} end 终点坐标
-   */
-  angle: function (start, end) {
-    var _X = end.X - start.X,
-      _Y = end.Y - start.Y
-    //返回角度 /Math.atan()返回数字的反正切值
-    return 360 * Math.atan(_Y / _X) / (2 * Math.PI);
-  },
-
+  }
 
 
 })

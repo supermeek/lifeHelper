@@ -1,0 +1,17 @@
+<wxs module="Filter" src="../../utils/filter.wxs"></wxs>
+<block wx:for="{{list.records}}" wx:key="index">
+  <movable-area class='movable-area'>
+    <movable-view direction="horizontal" class='movable-view'>
+      <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove">
+        <view class="content">
+          <component-billItem wx:if="{{type == 'bill'}}" item="{{item}}"></component-billItem>
+          <component-blockItem wx:if="{{type == 'bmi'}}" item="{{item}}"></component-blockItem>
+        </view>
+        <view class="btn">
+          <text class="edit" id="{{item.id}}" data-index="{{index}}" bindtap="edit">编辑</text>
+          <text class="del" id="{{item.id}}" data-key="{{key}}" data-index="{{index}}" bindtap="del">删除</text>
+        </view>
+      </view>
+    </movable-view>
+  </movable-area>
+</block>

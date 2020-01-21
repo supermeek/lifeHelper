@@ -5,7 +5,8 @@
  */
 Component({
   properties: {
-    height: Number
+    height: Number,
+    title: String
   },
 
   /**

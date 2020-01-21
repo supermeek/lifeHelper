@@ -1,43 +1,19 @@
-<navigator class="item" url="{{url}}">
-
-    <view class="item__title _clearFloat">
-        <text class="name">{{name}}</text>
-
-        <!-- 标题旁边月份显示 -->
-        <text wx:if="{{month}}" class="time bg_cyan white">{{month}}</text>
-
-        <!-- 标题最右状态显示 -->
-        <text class="status {{statusText.color}}">{{statusText.text}}</text>
-    </view>
-
-    <!-- 内容数组 -->
-    <view class="item__content">
-        <view wx:for="{{content}}" wx:key="index">
-            <text>{{item.label}}</text>
-            <text>{{item.value}}</text>
-        </view>
-    </view>
-
-    <view class="item__bottom _clearFloat">
-
-        <!-- 左下角提交金额 -->
-        <text wx:if="{{numText}}" class="numText">{{numText.label}} <text class="orange">{{numText.value}}</text></text>
-
-        <!-- 右下角确认金额显示 -->
-        <view wx:if="{{confiemNumText}}" class="confirmNum">
-            {{confiemNumText.label}}
-            <image src="/images/goldbean.png"></image>
-            <text class="orange">{{confiemNumText.value}}</text>
-        </view>
-
-        <!-- 左下角编号灰色显示 -->
-        <text wx:if="{{cardNum}}" class="cardNum">{{cardNum}}</text>
-
-        <!-- 右下角不同状态按钮显示 -->
-        <text wx:if="{{statusBtn}}" class="btn cyan border_cyan">{{statusBtn}}</text>
-
-        <!-- 右下角拒绝原因 -->
-        <text wx:if="{{refuse}}" class="refuse red">{{refuse}}</text>
-
-    </view>
-</navigator>
+<wxs module="Filter" src="../../utils/filter.wxs"></wxs>
+<view class="weui-media-box weui-media-box_appmsg">
+  <view class="weui-media-box__hd_in-appmsg">
+    <image class="weui-media-box__thumb" src="../../images/day.png" mode="aspectFit" />
+  </view>
+  <view class="weui-media-box__bd_in-appmsg">
+    <view class="weui-media-box__desc">身高(cm)</view>
+    <view class="weui-media-box__title">{{item.height}}</view>
+  </view>
+  <view class="weui-media-box__bd_in-appmsg">
+    <view class="weui-media-box__desc">体重(kg)</view>
+    <view class="weui-media-box__title">{{item.weight}}</view>
+  </view>
+  <view class="weui-media-box__bd_in-appmsg">
+    <view class="weui-media-box__desc">bmi</view>
+    <view class="weui-media-box__title">{{item.bmi || '--'}}</view>
+  </view>
+  <view class="weui-cell__ft level">超胖</view>
+</view>

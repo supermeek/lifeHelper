@@ -1,96 +1,353 @@
+.container {
+  background: #f9f9f9;
+}
+
 .container>view {
   width: 100%;
   box-sizing: border-box;
 }
 
 /* 头部 */
-.fly{
-  position: absolute;
-  width: 100rpx;
-  height: 100rpx;
-  top: 60rpx;
-  left: 32%;
+
+.top_wrapper {
+  padding: 20rpx;
 }
-.top_wrapper{
-  padding: 30rpx;
-}
-.left{
-  width: 30%;
-  height: 100%;
+
+.left {
+  width: 32%;
+  height: 200rpx;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
+  /* background: red; */
 }
-.switch{
+
+.header {
   width: 80%;
+  margin: 0;
   text-align: center;
+  font-size: 0;
+  margin-bottom: 20rpx;
 }
-.switch>image{
+
+.header>image {
   width: 100rpx;
   height: 100rpx;
+  box-sizing: border-box;
   border: 1rpx solid #fff;
   border-radius: 50%;
 }
 
 .name {
+  /* background: red; */
+  font-size: 0;
   text-align: center;
   width: 100%;
   display: inline-block;
   height: 60rpx;
   line-height: 60rpx;
+  /* border-right: 2rpx solid #fff; */
 }
 
-.right{
+.right {
+  /* background: yellow; */
+  height: 200rpx;
+  width: 68%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center !important;
+}
+
+.switch {
+  width: 200rpx;
+  height: 60rpx;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 4rpx;
+  border-radius: 2px;
+  box-sizing: border-box;
+  margin-bottom: 20rpx;
+}
+
+.switch>text {
+  display: inline-block;
   width: 50%;
   height: 100%;
+  line-height: 56rpx;
+  text-align: center;
+  box-sizing: border-box;
+  vertical-align: top;
+}
+
+.checkedSwitch {
+  border-radius: 2px;
+  color: #fff;
+  font-weight: bold;
+  box-shadow: 0 0 5rpx #bbb;
+}
+
+.weight_wrapper {
+  width: 100%;
+  /* background: red; */
+  height: 100rpx;
   display: flex;
   align-items: center;
   flex-direction: row;
   justify-content: center;
 }
 
-.left_total, .right_total {
+.left_total, .right_total, .center_total {
   width: 50%;
   height: 100%;
   text-align: center;
   box-sizing: border-box;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   flex-direction: column;
   justify-content: center;
 }
-.right .text{
+
+.right .text {
   display: inline-block;
-  height: 90rpx;
-  line-height: 120rpx;
+  height: 50rpx;
+  line-height: 80rpx;
+  font-size: 26rpx;
+  margin-right: 20rpx;
+  color: #f2f2f2;
+  /* background: red; */
 }
+
 .total_count {
   font-weight: bold;
-  font-size: 34rpx;
+  font-size: 32rpx;
   height: 60rpx;
   line-height: 60rpx;
 }
 
-.line{
+.fly {
+  position: absolute;
+  width: 60rpx;
+  height: 60rpx;
+  top: 140rpx;
+  left: 32%;
+}
+
+
+
+
+/* 弹窗 */
+
+.weui-demo-dialog {
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+.weui-demo-dialog_show {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* 弹窗中间内容 */
+
+.weui-actionsheet__content {
+  padding: 40rpx 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400rpx;
+  background: #fff;
+}
+.weui-actionsheet__content view{
+  /* height: 200rpx; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.weui-actionsheet__content label{
+  /* background: yellow; */
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 15rpx;
+}
+
+.user_top input{
+  border-bottom: 1rpx solid #ededed;
+  width: 60%;
+  padding: 10rpx;
+  display: inline-block;
+}
+.user_bottom input{
+  border-bottom: 1rpx solid #ededed;
+  width: 60%;
+  padding: 10rpx;
+  display: inline-block;
+}
+.weui-actionsheet__content label>text{
+  display: inline-block;
+  width: 140rpx;
+  text-align: justify;
+  text-align-last:justify;
+  margin-right: 20rpx;
+}
+.user_top {
+  display: flex;
+  flex-direction: row !important;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.user_left {
+  flex: 1;
+  /* background: rgb(139, 241, 216); */
+}
+.user_right {
+  flex: 2;
+  /* background: rgb(29, 187, 250); */
+}
+.avatar{
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+  border: 1rpx solid #ededed;
+}
+.gander {
+  padding: 15rpx;
+  /* background: red; */
+  width: 60% !important;
+  flex-direction: row !important;
+}
+.gander>view {
+  display: inline-block;
+  width: 100rpx;
+  box-sizing: border-box;
+}
+/* 弹窗尾巴 */
+
+.weui-actionsheet__action {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.weui-actionsheet__action>view {
+  flex: 1;
+}
+
+/* 中间 */
+
+.line {
   height: 20rpx;
   background: #ededed;
   margin-bottom: 50rpx;
 }
 
+.info {
+  padding: 20rpx 30rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  background: #fff;
+  box-sizing: border-box;
+  box-shadow: 0 10px 10px #ddd;
+  /* z-index: 9; */
+}
+
+.tip {
+  width: 120rpx;
+  height: 120rpx;
+  margin-right: 30rpx;
+}
+
+.info>view {
+  font-size: 28rpx;
+  display: block;
+  letter-spacing: 1px;
+}
+
+.btn_wrapper {
+  font-size: 0;
+  border-bottom: 1rpx solid #ededed;
+}
+
+.btn_wrapper>button {
+  display: inline-block;
+  width: 50%;
+  border-radius: 0;
+  box-sizing: border-box;
+  padding: 10rpx;
+  margin: 0;
+  background: #fff;
+  font-size: 28rpx;
+}
+
+.list_btn {
+  border-right: 1rpx solid #ededed;
+}
+
+/* 列表 */
+
+.weui-loading__wrp {
+  text-align: center;
+}
+
+.list_wrapper {
+  padding: 20rpx;
+}
+
+.list_time {
+  display: block;
+  width: 100%;
+  margin-left: -20rpx;
+  padding: 10rpx 20rpx;
+  text-indent: 20rpx;
+  font-size: 28rpx;
+  margin-bottom: 20rpx;
+}
+
+.movable-area {
+  height: 160rpx !important;
+  margin-bottom: 30rpx;
+  border-radius: 20rpx;
+  background: #fff;
+  box-shadow: 0 3px 10px #eee;
+}
+
+.btn>text {
+  line-height: 160rpx !important;
+}
+
+.btn {
+  border-top-right-radius: 20rpx !important;
+  border-bottom-right-radius: 20rpx !important;
+}
+
 /* 统计图 */
-.title_wrapper{
+
+.title_wrapper {
   color: #666;
   font-size: 14px;
   font-weight: bold;
   text-indent: 3%;
 }
+
 ec-canvas {
   width: 100%;
   height: 640rpx;
   z-index: 0;
 }
-.bill_wrapper{
+
+.bill_wrapper {
   background: #fff;
   min-height: 200rpx;
   padding: 25rpx;

@@ -5,7 +5,7 @@
       <view class="weui-dialog__wrp" bindtap="closeDialog">
           <view class="weui-dialog" catchtap="stopEvent"  style="min-height:{{height + 220}}rpx">
             <view class="weui-dialog__hd">
-              <view class="weui-dialog__title">标题</view>
+              <view class="weui-dialog__title">{{title}}</view>
             </view>
             <view class="weui-dialog__bd" style="min-height:{{height}}rpx">
               <!-- 弹窗中间内容 -->

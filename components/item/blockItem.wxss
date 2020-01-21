@@ -1,86 +1,48 @@
 @import '../../app.wxss';
 
-.item {
-    background-color: #fff;
-    border-radius: 6px;
-    margin: 20rpx 30rpx;
-    padding: 10rpx 30rpx;
-    font-size: 26rpx;
+/* 列表 */
+
+.weui-media-box {
+  padding: 0;
+  height: 100%;
+  /* height: 160rpx; */
+}
+.weui-media-box:before{
+  border-top: none;
+} 
+
+.weui-media-box__hd_in-appmsg {
+  width: 80rpx;
+  height: 80rpx;
+  margin-right: 0;
+}
+.weui-media-box__bd_in-appmsg{
+  text-align: center;
+}
+.weui-media-box__title {
+  font-size: 28rpx;
+  margin-top: 20rpx;
+  font-weight: bold;
+}
+.weui-media-box__desc {
+  color: #999;
+  padding-top: 4px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  font-size: 24rpx;
 }
 
-.item__title {
-    padding: 20rpx 0;
+.weui-media-box:before {
+  border-top: none;
 }
 
-.name {
-    font-size: 30rpx;
-    font-weight: bold;
-    color: #333;
-}
-
-.time {
-    font-size: 22rpx;
-    margin-left: 20rpx;
-    border-radius: 100px;
-    padding: 5rpx 10rpx;
-}
-
-.status {
-    float: right;
-    font-size: 28rpx;
-}
-
-.item__content {
-    border-top: 1rpx dashed #ededed;
-    border-bottom: 1rpx dashed #ededed;
-    padding: 15rpx 0;
-    line-height: 50rpx;
-}
-
-.item__content>view>text:first-child {
-    display: inline-block;
-    color: #999;
-    width: 20%;
-}
-
-.item__bottom {
-    padding: 20rpx 0;
-    min-height: 30rpx;
-}
-
-.numText .orange, .confirmNum .orange {
-    font-size: 32rpx;
-}
-
-.confirmNum {
-    float: right;
-}
-
-.confirmNum>image {
-    width: 35rpx;
-    height: 35rpx;
-    vertical-align: top;
-    margin: 10rpx 10rpx 0 10rpx;
-}
-
-.cardNum {
-    color: #999;
-}
-
-.btn {
-    float: right;
-    padding: 5rpx 10rpx;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-.refuse {
-    display: block;
-    line-height: 50rpx;
-    float: right;
-    max-width: 48%;
-    text-align: right;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+.level{
+  background: red;
+  color: #fff;
+  font-size: 24rpx;
+  text-align: center;
+  min-width: 80rpx;
+  padding: 5rpx;
+  border-radius: 5px;
 }

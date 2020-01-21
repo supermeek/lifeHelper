@@ -1,45 +1,36 @@
 @import '../../app.wxss';
 
-.hover{
-    background: #eee !important;
+/* 列表 */
+
+.weui-media-box {
+  padding: 0;
+  height: 120rpx;
 }
-.bill_item {
-    background-color: #fff;
-    margin: 20rpx;
-    font-size: 28rpx;
-    padding: 10rpx 30rpx;
+
+.weui-media-box__hd_in-appmsg {
+  width: 80rpx;
+  height: 80rpx;
+  line-height: 80rpx;
 }
-.bill_top {
-    line-height: 80rpx;
-    height: 80rpx;
-    border-bottom: 1rpx solid #ededed;
+
+.weui-media-box__title {
+  font-size: 28rpx;
 }
-.bill_title {
-    font-weight: bold;
-    font-size: 30rpx;
+
+.weui-media-box__desc {
+  color: rgba(0, 0, 0, 0.5);
+  padding-top: 4px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  font-size: 24rpx;
 }
-.bill_tip{
-    float: right;
+
+.weui-cell__ft {
+  min-width: 100rpx;
+  font-size: 34rpx;
 }
-.bill_bottom{
-    line-height: 80rpx;
-    height: 80rpx;
-}
-.bill_bottom_left{
-    display: inline-block;
-}
-.bill_bottom_right{
-    float: right;
-}
-.bill_bottom_right image{
-    width: 36rpx;
-    height: 36rpx;
-    vertical-align: middle;
-}
-.bill_bottom_right text {
-    display: inline-block;
-    vertical-align: middle;
-    font-size: 34rpx;
-    font-weight: bold;
-    margin-left: 20rpx;
+
+.weui-media-box:before {
+  border-top: none;
 }

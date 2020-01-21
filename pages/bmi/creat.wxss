@@ -1,0 +1,155 @@
+.container>view {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.top_wrapper>image {
+  width: 100%;
+}
+
+.content_wrapper {
+  width: 100% !important;
+  min-height: 800rpx;
+  margin-top: -140rpx;
+  background: #fff;
+  border-top: 1rpx solid #666;
+  border-radius: 100px 100px 0 0;
+  padding: 100rpx 15% 20rpx 15%;
+}
+
+/* tab类型 */
+
+.tabs {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+}
+
+.tabs>text {
+  display: inline-block;
+  width: 180rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  text-align: center;
+  font-weight: bold;
+  border: 1rpx solid #f8f8f8;
+  border-bottom: none !important;
+}
+.tabs>text:first-child{
+  border-radius: 20px 0 0 0;
+}
+.tabs>text:last-child{
+  border-radius: 0 20px 0 0;
+}
+.borderNone{
+  border: none !important;
+}
+.contents {
+  border-top: 1rpx solid #f8f8f8;
+  border-bottom: 1rpx solid #f8f8f8;
+}
+
+.weui-cell {
+  padding: 0;
+  /* background: yellow; */
+}
+
+.weui-cell:before {
+  left: 0;
+  border-width: 1rpx !important;
+  border-color: #f8f8f8 !important;
+}
+
+.weui-label {
+  min-width: 180rpx;
+  color: #333;
+  font-weight: bold;
+}
+
+.weui-cell_select .weui-cell__bd:after {
+  right: 0;
+}
+
+.weui-select {
+  text-align: right;
+  padding: 0;
+  box-sizing: border-box;
+  padding-right: 30rpx !important;
+  height: 30px;
+  line-height: 30px;
+  margin: 8px;
+  min-width: 280rpx;
+  float: right;
+}
+
+.weui-select>image {
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 5rpx;
+  vertical-align: top;
+  margin-top: 2px;
+}
+
+.weui-input {
+  /* background: yellow; */
+  text-align: right !important;
+  height: 30px;
+  margin: 8px;
+  font-size: 32rpx;
+}
+
+.weui-area {
+  text-align: right !important;
+  display: inline-block;
+  width: 100%;
+  font-size: 28rpx;
+  box-sizing: border-box;
+  min-height: 16px;
+  margin-top: 16px;
+  margin-bottom: 12px;
+}
+
+
+/* 行内滚动 */
+
+.select_item {
+  height: 50px !important;
+  line-height: 50px;
+  color: #666;
+  text-align: center !important;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.line:after, .line:before {
+  border-top: none !important;
+}
+
+.select_item>image {
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 5rpx;
+}
+
+.label {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  color: #666;
+  border-bottom: 1rpx solid #f2f2f2;
+}
+
+.label>text {
+  display: inline-block;
+  width: 25%;
+  height: 50px;
+  line-height: 50px;
+}
+
+.weui-media-box{
+  padding: 20rpx 0;
+}
