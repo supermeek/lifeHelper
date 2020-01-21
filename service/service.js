@@ -214,6 +214,16 @@ class service {
     return this._request.getRequest(url, data, info, message).then(res => res.data)
   }
 
+  /**
+  * function: 创建对象
+  * method: POST
+  */
+  creatTarget(parame, info = null, message = null) {
+  var data = parame
+  let url = this._baseUrl + apis.CREAT_TARGET
+  return this._request.postRequest(url, data, info, message).then(res => res.data)
+}
+
 }
 
 const $service = new service()

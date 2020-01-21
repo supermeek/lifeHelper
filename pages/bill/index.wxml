@@ -28,7 +28,7 @@
     </view>
   </view>
 
-  <!-- 类型多选 -->
+  <!-- 类型 -->
   <checkbox-group class="type_wrapper" bindchange="checkboxChange">
     <label class="type_item {{item.checked ? 'border_bottom_'+theme.mainColor : ''}}" wx:for="{{typeList}}" wx:key="id" data-index="{{index}}" bindtap="selectType" style="border-width:2px">
       <checkbox class="weui-check" value="{{index}}" checked="{{item.checked}}" />

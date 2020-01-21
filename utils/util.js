@@ -32,7 +32,7 @@ const colors = [
   { color: '#C679F6', mainColor: 'purple', subColor: 'yellow', name: '紫色' }
 ]
 
-
+// 消费类型
 const typeList = [
   { id: 1, icon: 'icon-1.png', name: '餐饮', checked: false, value: 0, percent:'0', color: '#FFAFA9' },
   { id: 2, icon: 'icon-2.png', name: '萌宠', checked: false, value: 0, percent: '0', color: '#CACACA' },
@@ -59,10 +59,25 @@ const typeIndex = (name) => {
   return index
 }
 
+// 用户头像
+const avatarList = [
+  { id: 1, icon: 'user11.png', gander: 'female', checked: false },
+  { id: 2, icon: 'user12.png', gander: 'female', checked: false },
+  { id: 3, icon: 'user13.png', gander: 'female', checked: false },
+  { id: 4, icon: 'user14.png', gander: 'female', checked: false },
+  { id: 5, icon: 'user15.png', gander: 'female', checked: false },
+  { id: 6, icon: 'user16.png', gander: 'female', checked: false },
+  { id: 7, icon: 'user21.png', gander: 'male', checked: false },
+  { id: 8, icon: 'user22.png', gander: 'male', checked: false },
+  { id: 9, icon: 'user23.png', gander: 'male', checked: false },
+  { id: 10, icon: 'user24.png', gander: 'male', checked: false },
+  { id: 11, icon: 'user25.png', gander: 'male', checked: false },
+  { id: 12, icon: 'user26.png', gander: 'male', checked: false }
+]
+
 /**
  * toast提示
  */
-
 const showToast = (msg, icon, callback, scd) => {
   wx.showToast({
     title: msg,
@@ -206,5 +221,6 @@ module.exports = {
   add: add,
   sub: sub,
   mul: mul,
-  div: div
+  div: div,
+  avatarList:avatarList
 }
