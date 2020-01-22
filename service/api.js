@@ -18,6 +18,7 @@ const apis = {
   MODIFY_TARGET: '/api/fatwang/recordtargets/{id}/', //修改对象
   DELETE_TARGET: '/api/fatwang/recordtargets/{id}/', //删除对象
   GET_WEIGHT_LIST: '/api/fatwang/recordtargets/{target_pk}/records/search/', //查看体重列表
+  GET_WEIGHT_DETAIL: '/api/fatwang/recordtargets/{target_pk}/records/{id}/', //查看单个体重详情
   CREAT_WEIGHT_LIST: '/api/fatwang/recordtargets/{target_pk}/records/', //创建体重列表
   MODIFY_WEIGHT_LIST: '/api/fatwang/recordtargets/{target_pk}/records/{id}/', //修改体重列表
   DELETE_WEIGHT_LIST: '/api/fatwang/recordtargets/{target_pk}/records/{id}/', //删除体重列表

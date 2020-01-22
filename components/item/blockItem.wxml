@@ -15,5 +15,6 @@
     <view class="weui-media-box__desc">bmi</view>
     <view class="weui-media-box__title">{{item.bmi || '--'}}</view>
   </view>
-  <view class="weui-cell__ft level">超胖</view>
+  <view class="weui-cell__ft level oldBgGreen" wx:if="{{item.bmi_level == 2}}">{{item.bmi_level_display}}</view>
+  <view class="weui-cell__ft level oldBgRed" wx:if="{{item.bmi_level != 2}}">{{item.bmi_level_display}}</view>
 </view>

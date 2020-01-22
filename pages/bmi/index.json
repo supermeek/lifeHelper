@@ -1,4 +1,5 @@
 {
   "navigationBarTitleText": "体重",
+  "enablePullDownRefresh": true,
   "usingComponents": {}
 }

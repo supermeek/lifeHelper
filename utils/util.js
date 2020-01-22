@@ -6,6 +6,7 @@ const formatDate = (date, type) => {
   const hour = date.getHours()
   const minute = date.getMinutes()
   const second = date.getSeconds()
+  var weekDay = ["星期天", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"]
 
   switch (type) {
     case 'year': return year; break;
@@ -13,6 +14,7 @@ const formatDate = (date, type) => {
     case 'day': return [year, month, day].map(formatNumber).join('-'); break;
     case 'houer': return [year, month, day].map(formatNumber).join('-') + ' ' + [hour, minute, second].map(formatNumber).join(':'); break;
     case 'time': return [hour, minute, second].map(formatNumber).join(':'); break;
+    case 'week': return weekDay[date.getDay()]; break;
     default: return [year, month, day].map(formatNumber).join('-'); break;
   }
 }
@@ -45,7 +47,6 @@ const typeList = [
   { id: 9, icon: 'icon-9.png', name: '转账', checked: false, value: 0, percent: '0', color: '#A3D4FF' },
   { id: 10, icon: 'icon-10.png', name: '其他', checked: false, value: 0, percent: '0', color: '#FEF001' },
 ]
-
 const types = ['餐饮', '萌宠', '宝贝', '出行', '居家', '娱乐', '衣装', '社交', '转账', '其他']
 
 // 返回类型的index
@@ -75,6 +76,12 @@ const avatarList = [
   { id: 12, icon: 'user26.png', gander: 'male', checked: false }
 ]
 
+// 用户类别
+const raceList= [
+  { id: 1, name: '本人', value: 'me' },
+  { id: 2, name: '他人', value: 'other' },
+  { id: 3, name: '宠物', value: 'pet' },
+]
 /**
  * toast提示
  */
@@ -173,41 +180,7 @@ const sub = (num1, num2) => {
   return (Math.round(num1 * m - num2 * m) / m).toFixed(n);
 }
 
-/**
- * 正则表达式方法集合
- */
-const regExp = {
-  /* 手机号码 */
-  validatePhoneNumber: (str) => {
-    const reg = /^[1][3,4,5,6,7,8,9][0-9]{9}$/
-    return reg.test(str)
-  },
-  /* 手机号码和固定电话 */
-  validatePhTelNumber: (str) => {
-    const reg = /^((0\d{2,3}-\d{7,8})|(1[3456789]\d{9}))$/
-    return reg.test(str)
-  },
-  /* 固定电话 */
-  validateTelephone: (str) => {
-    const reg = /^(\(\d{3,4}\)|\d{3,4}-|\s)?\d{7,14}$/
-    return reg.test(str)
-  },
-  /* 电子邮箱 */
-  validateEmail: (str) => {
-    const reg = /^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/
-    return reg.test(str)
-  },
-  /* 身份证 */
-  validateIDCard: (str) => {
-    const reg = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/
-    return reg.test(str)
-  },
-  /* 银行卡号 15位或者16位或者19位 */
-  validateBank: (str) => {
-    const reg = /^([1-9]{1})(\d{14}|\d{18}|\d{15})$/
-    return reg.test(str)
-  }
-}
+
 
 module.exports = {
   formatDate: formatDate,
@@ -217,10 +190,10 @@ module.exports = {
   typeIndex: typeIndex,
   showToast: showToast,
   showModal: showModal,
-  regExp: regExp,
   add: add,
   sub: sub,
   mul: mul,
   div: div,
-  avatarList:avatarList
+  avatarList:avatarList,
+  raceList: raceList
 }

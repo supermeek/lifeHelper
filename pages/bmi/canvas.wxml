@@ -1,0 +1,47 @@
+<wxs module="Filter" src="../../utils/filter.wxs"></wxs>
+<view class="container">
+	<!-- 月份筛选 -->
+	<view class="top_wrapper white bg_{{theme.mainColor}}">
+		<view class="left">
+			<view class="switch" bindtap="switchTab">
+				<text class="{{groupType == 'month' ? 'checkedSwitch bg_'+theme.mainColor : 'gray'}}">年</text>
+				<text class="{{groupType == 'date' ? 'checkedSwitch bg_'+theme.mainColor : 'gray'}}">月</text>
+			</view>
+			<view class="month">
+				<picker mode="date" fields="{{groupType == 'date' ? 'month' : 'year'}}" value="{{date}}" start="2000-01-01" end="{{maxData}}" bindchange="getDateTime">
+					<view class="selectDate">
+						<text style="font-weight:bold">{{groupType == 'date' ? Filter.month(date) : date+'年'}}</text>
+						<text class="iconfont icon-xia"></text>
+					</view>
+				</picker>
+			</view>
+		</view>
+
+		<view class="right">
+			<view class="left_total">
+				<text class="text">总支出</text>
+				<text class="total_count">￥{{outcomeTotal}}</text>
+			</view>
+			<view class="right_total">
+				<text class="text">总收入</text>
+				<text class="total_count">￥{{incomeTotal}}</text>
+			</view>
+		</view>
+	</view>
+
+	<!-- 折线图 -->
+	<view style="width:100%;height:50rpx"></view>
+	<ec-canvas id="mychart-dom-line" canvas-id="mychart-line" ec="{{ ec }}"></ec-canvas>
+
+	<!-- 饼形图 -->
+	<view class="line"></view>
+	<ec-canvas id="mychart-dom-pie" canvas-id="mychart-pie" ec="{{ ec }}"></ec-canvas>
+
+	<!-- 进度条 -->
+	<view class="line"></view>
+  <view class="title_wrapper">{{groupType == 'date' ? Filter.month(date) : date+'年'}}消费排行</view>
+  <view class="bill_wrapper">
+    <component-progress list="{{typeList}}"></component-progress>
+  </view>
+
+</view><!-- container -->

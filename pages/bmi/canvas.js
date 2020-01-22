@@ -88,12 +88,6 @@ Page({
           type: 'line',
           smooth: true,
           symbol: 'none',
-          label: {
-            normal: {
-              show: true,
-              position: 'inside'
-            }
-          },
           areaStyle: {
             color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
               offset: 0,
@@ -136,7 +130,7 @@ Page({
       console.log(res)
       let colors = []
       let datax = []
-      if (res.data.outcome.length > 0){
+      if (res.data.outcome.length > 0) {
         for (let i in res.data.outcome) {
           let typeIndex = util.typeIndex(res.data.outcome[i].name)
           colors.push(util.typeList[typeIndex].color)
@@ -147,7 +141,7 @@ Page({
           pieColor: colors,
           pieDataX: datax
         })
-      }else{
+      } else {
         for (let i in util.typeList) {
           colors.push(util.typeList[i].color)
           datax.push(util.typeList[i].name)
@@ -158,7 +152,7 @@ Page({
         })
       }
 
-    
+
       that.echartsComponnetPie = that.selectComponent('#mychart-dom-pie');
       if (!pieChart) {
         that.init_pie_echarts(); //初始化图表

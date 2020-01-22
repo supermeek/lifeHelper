@@ -6,7 +6,7 @@ Page({
     test:'2020-02-03',
     month: util.formatDate(new Date(), 'month'),
     maxData: util.formatDate(new Date(), 'month'),
-    list:[],
+    list:{},
     typeList: util.typeList,
     noneList: 0, //0加载中 1加载成功 -1没有数据
     outcomeTotal: 0,
@@ -121,6 +121,7 @@ Page({
     let end = util.formatDate(new Date(arr[0], arr[1], '0'), 'day')
     let typeList = this.data.typeList
     let types = []
+    that.setData({ noneList: 0 })
     typeList.forEach(item => {
       if (item.checked) {
         types.push(item.name)
@@ -134,7 +135,6 @@ Page({
       let incomeTotal = 0
       let outcomeTime = 0
       let incomeTime = 0
-      var weekDay = ["星期天", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"]
   
       for (let i in res.data) {
         if(res.data[i].outcome){
@@ -145,13 +145,12 @@ Page({
           incomeTime = incomeTime + 1
         }
         let date = /\d{4}-\d{1,2}-\d{1,2}/g.exec(res.data[i].pay_datetime)
-        let newDate = new Date(date)
         
         if (!hash[date]) {
           hash[date] = {
             records: [],
             date: date,
-            weekDay: weekDay[newDate.getDay()]
+            weekDay: util.formatDate(new Date(date), 'week'),
           }
           hash[date].records.push(res.data[i])
           res.data[i]
@@ -222,8 +221,6 @@ Page({
         }else{
           that.setData({ noneList: -1 })
         }
-      }).catch(res => {
-        that.setData({ noneList: -1 })
       })
   },
 

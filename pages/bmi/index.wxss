@@ -1,6 +1,7 @@
-.container {
-  background: #f9f9f9;
+page{
+  /* background: #f9f9f9; */
 }
+
 
 .container>view {
   width: 100%;
@@ -109,7 +110,6 @@
   height: 50rpx;
   line-height: 80rpx;
   font-size: 26rpx;
-  margin-right: 20rpx;
   color: #f2f2f2;
 }
 
@@ -128,7 +128,12 @@
   left: 32%;
 }
 
-
+.overview{
+  display: inline-block;
+  color: rgb(21, 167, 252);
+  font-size: 28rpx;
+  margin-left: 20rpx;
+}
 
 
 /* 弹窗 */
@@ -294,8 +299,7 @@
   width: 100%;
   background: #fff;
   box-sizing: border-box;
-  box-shadow: 0 10px 10px #ddd;
-  /* z-index: 9; */
+  box-shadow: 0 5px 10px #ededed;
 }
 
 .tip {
@@ -332,6 +336,16 @@
 
 /* 列表 */
 
+.no-data__list{
+  background: #fff;
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+  border-radius: 20rpx;
+  background: #fff;
+  box-shadow: 0 3px 10px #eee;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
 .weui-loading__wrp {
   text-align: center;
 }
@@ -378,8 +392,9 @@
 
 ec-canvas {
   width: 100%;
-  height: 640rpx;
-  z-index: 0;
+  height: 560rpx;
+  z-index: 9;
+  background: #fff;
 }
 
 .bill_wrapper {

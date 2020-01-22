@@ -17,35 +17,8 @@
   padding: 100rpx 15% 20rpx 15%;
 }
 
-/* tab类型 */
 
-.tabs {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  color: #666;
-}
 
-.tabs>text {
-  display: inline-block;
-  width: 180rpx;
-  height: 70rpx;
-  line-height: 70rpx;
-  text-align: center;
-  font-weight: bold;
-  border: 1rpx solid #f8f8f8;
-  border-bottom: none !important;
-}
-.tabs>text:first-child{
-  border-radius: 20px 0 0 0;
-}
-.tabs>text:last-child{
-  border-radius: 0 20px 0 0;
-}
-.borderNone{
-  border: none !important;
-}
 .contents {
   border-top: 1rpx solid #f8f8f8;
   border-bottom: 1rpx solid #f8f8f8;
@@ -97,7 +70,7 @@
   text-align: right !important;
   height: 30px;
   margin: 8px;
-  font-size: 32rpx;
+  font-size: 30rpx;
 }
 
 .weui-area {

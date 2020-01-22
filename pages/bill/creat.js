@@ -134,9 +134,11 @@ Page(Object.assign({
       .then(res => {
         console.log(res)
         if (res.code == 0) {
-          wx.navigateBack({
-            delta: 1
-          })
+          setTimeout(() => {
+            wx.navigateBack({
+              delta: 1
+            })
+          }, 2000)
         } else {
           that.setData({ disabled: false })
         }

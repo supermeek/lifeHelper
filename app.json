@@ -10,7 +10,8 @@
     "pages/mine/index",
     "pages/creat/index",
     "pages/bill/creat",
-    "pages/bmi/creat"
+    "pages/bmi/creat",
+    "pages/bmi/canvas"
   ],
   "window": {
     "navigationBarTextStyle": "black",
@@ -29,6 +30,7 @@
   "usingComponents": {
     "component-dialog": "components/dialog/dialog",
     "component-add": "components/add/add",
+    "ec-canvas": "../../ec-canvas/ec-canvas",
     "component-picker": "/components/form/selectPicker",
     "component-progress": "/components/progress/progress",
     "component-billItem": "/components/item/billItem",

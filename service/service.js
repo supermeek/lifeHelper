@@ -136,8 +136,6 @@ class service {
   /**
    * function: 删除订单
    * method: DELETE
-   * request: {id}
-   * response: {}
    */
   deleteBill(id, info = null, message = null) {
     let data = {}
@@ -219,10 +217,61 @@ class service {
   * method: POST
   */
   creatTarget(parame, info = null, message = null) {
-  var data = parame
-  let url = this._baseUrl + apis.CREAT_TARGET
-  return this._request.postRequest(url, data, info, message).then(res => res.data)
-}
+    var data = parame
+    let url = this._baseUrl + apis.CREAT_TARGET
+    return this._request.postRequest(url, data, info, message).then(res => res.data)
+  }
+
+
+
+  /**
+  * function: 查询对象体重记录
+  * method: GET
+  */
+  getWeightList(target_pk, info = null, message = null) {
+    var data = {}
+    let url = this._baseUrl + apis.GET_WEIGHT_LIST.replace(/{target_pk}/, target_pk)
+    return this._request.getRequest(url, data, info, message).then(res => res.data)
+  }
+
+  /**
+  * function: 查询单条体重记录的详情
+  * method: GET
+  */
+  getWeightDetail(targetId, weightId, info = null, message = null) {
+    var data = {}
+    let url = this._baseUrl + apis.GET_WEIGHT_DETAIL.replace(/{target_pk}/, targetId).replace(/{id}/, weightId)
+    return this._request.getRequest(url, data, info, message).then(res => res.data)
+  }
+
+  /**
+   * function: 删除体重记录
+   * method: DELETE
+   */
+  deleteWeight(targetId, weightId, info = null, message = null) {
+    let data = {}
+    let url = this._baseUrl + apis.DELETE_WEIGHT_LIST.replace(/{target_pk}/, targetId).replace(/{id}/, weightId)
+    return this._request.deleteRequest(url, data, info, message).then(res => res.data)
+  }
+
+  /**
+  * function: 创建对象体重记录
+  * method: POST
+  */
+  creatWeightList(targetId, weightId, time, weight, height, info = null, message = null) {
+    let data = {
+      record_datetime: time,
+      weight: weight,
+      height: height
+    }
+    if (weightId == null) {
+      let url = this._baseUrl + apis.CREAT_WEIGHT_LIST.replace(/{target_pk}/, targetId)
+      return this._request.postRequest(url, data, info, message).then(res => res.data)
+    } else {
+      let url = this._baseUrl + apis.MODIFY_WEIGHT_LIST.replace(/{target_pk}/, targetId).replace(/{id}/, weightId)
+      return this._request.putRequest(url, data, info, message).then(res => res.data)
+    }
+  }
 
 }
 

@@ -22,19 +22,25 @@ var common = {
     if (month.length == 2) {
       return month[0] + '年' + month[1] + '月'
     } else if (month.length == 3){
-      // console.log("************")
-      // console.log(month[0] + '年' + month[1] + '月' + month[2] + '日')
-      // return month[0] + '年' + month[1] + '月' + month[2] + '日'
       return month.join("/")
     }else{
       return ''
     }
+  },
+
+
+  sub: function(num1, num2){
+    var r1, r2, m;
+    r1 = parseFloat(num1) || 0
+    r2 = parseFloat(num2) || 0
+    m = (r1 - r2).toFixed(2)
+    return m
   }
 
 }
 
 module.exports = {
   typeIcon: common.typeIcon,
-  month: common.month
-
+  month: common.month,
+  sub: common.sub
 }
