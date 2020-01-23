@@ -67,13 +67,13 @@ const avatarList = [
   { id: 3, icon: 'user13.png', gander: 'female', checked: false },
   { id: 4, icon: 'user14.png', gander: 'female', checked: false },
   { id: 5, icon: 'user15.png', gander: 'female', checked: false },
-  { id: 6, icon: 'user16.png', gander: 'female', checked: false },
+  { id: 6, icon: 'cat1.png', gander: 'female', checked: false },
   { id: 7, icon: 'user21.png', gander: 'male', checked: false },
   { id: 8, icon: 'user22.png', gander: 'male', checked: false },
   { id: 9, icon: 'user23.png', gander: 'male', checked: false },
   { id: 10, icon: 'user24.png', gander: 'male', checked: false },
   { id: 11, icon: 'user25.png', gander: 'male', checked: false },
-  { id: 12, icon: 'user26.png', gander: 'male', checked: false }
+  { id: 12, icon: 'dog1.png', gander: 'male', checked: false }
 ]
 
 // 用户类别

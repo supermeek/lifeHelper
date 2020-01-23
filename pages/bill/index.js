@@ -17,7 +17,7 @@ Page({
 
 
   onLoad: function (options) {
-    this.add = this.selectComponent("#add")
+    
   },
 
 
@@ -26,7 +26,7 @@ Page({
     this.setData({
       theme: app.globalData.theme
     })
-    this.add.updateData(app.globalData.theme)
+    this.selectComponent("#add").updateData(app.globalData.theme)
     // 加载默认
     this.getBill()
   },

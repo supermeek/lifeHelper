@@ -37,14 +37,13 @@ Page({
 
 
   onLoad: function (options) {
-    this.add = this.selectComponent("#add")
     this.getTarget()
   },
 
   onShow: function () {
     app.setThemeColor()
     this.setData({ theme: app.globalData.theme })
-    this.add.updateData(app.globalData.theme)
+    this.selectComponent("#add").updateData(app.globalData.theme)
     this.getTarget()
   },
 
@@ -83,6 +82,14 @@ Page({
       ['target.sex']: this.data.avatarList[index].gander,
     })
   },
+  // 切换性别
+  switchGander: function(e){
+    let gander = e.currentTarget.dataset.gander
+    console.log(e)
+    this.setData({
+      ['target.sex']: gander
+    })
+  },
 
   bindRaceChange: function (e) {
     console.log(e)
@@ -119,6 +126,18 @@ Page({
         if (res.code == 0) {
           that.closeDialog()
           that.getTarget(true)
+          that.setData({
+            target: {
+              icon: 'user11.png',
+              name: '',
+              age: null,
+              sex: 'female',
+              race: '',
+              height: null,
+              weight: null,
+              target_weight: null
+            }
+          })
         }
       }).catch(() => {
         that.closeDialog()
@@ -321,7 +340,7 @@ Page({
   getLineOption: function (name, dataX, colors) {
     let lineDataX = this.data.lineDataX
     let markLine = {}
-    if (name == '体重'){
+    if (name == '体重') {
       let targetWeight = this.data.targetList[this.data.targetIndex].target_weight
       markLine = {
         data: [{
@@ -339,7 +358,7 @@ Page({
         }]
       }
     }
-    
+
     var option = {
       color: colors,
       title: {

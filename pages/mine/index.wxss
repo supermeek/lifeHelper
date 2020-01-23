@@ -34,7 +34,7 @@
   border-radius: 2px;
   color: #fff;
   font-weight: bold;
-  box-shadow: 0 0 5rpx #bbb;
+  box-shadow: 0 0 5rpx #eee;
 }
 .month {
   display: inline-block;

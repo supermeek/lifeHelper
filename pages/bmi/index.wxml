@@ -115,10 +115,10 @@
                 <text class="oldRed">*</text>
                 <text style="width:100rpx">性别</text>
                 <view class="gander">
-                  <view>男
+                  <view bindtap="switchGander" data-gander="male">男
                     <icon wx:if="{{target.sex == 'male'}}" color="{{theme.color}}" type="success_no_circle" size="16"></icon>
                   </view>
-                  <view>女
+                  <view bindtap="switchGander" data-gander="female">女
                     <icon wx:if="{{target.sex == 'female'}}" color="{{theme.color}}" type="success_no_circle" size="16"></icon>
                   </view>
                 </view>
