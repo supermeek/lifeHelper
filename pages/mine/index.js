@@ -6,6 +6,7 @@ var pieChart = null
 
 Page({
   data: {
+    isLogin: false,
     theme: app.globalData.theme,
     lineColor: ["#04B404", "#ff0000"],
     pieColor: [],
@@ -25,12 +26,17 @@ Page({
 
 
   onLoad: function (options) {
-
+    
   },
 
   onShow: function () {
     app.setThemeColor()
     this.setData({ theme: app.globalData.theme })
+    if(wx.getStorageSync('token')){
+      this.setData({
+        isLogin: true
+      })
+    }
     this.getLine()
     this.getPie()
   },

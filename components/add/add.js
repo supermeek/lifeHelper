@@ -1,4 +1,5 @@
 var startPoint;
+import util from '../../utils/util.js'
 Component({
 
   properties: {
@@ -72,6 +73,13 @@ Component({
 
     clickAdd: function(e){
       console.log("点击")
+      if(!wx.getStorageSync('token')){
+        util.showModal('登陆','当前未登陆，要前往登陆吗?', ()=>{
+          wx.navigateTo({
+            url: '/pages/index/allow',
+          })
+        })
+      }
     },
 
     updateData: function(theme){

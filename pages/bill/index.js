@@ -3,6 +3,7 @@ import util from '../../utils/util.js'
 Page({
 
   data: {
+    isLogin: false,
     test:'2020-02-03',
     month: util.formatDate(new Date(), 'month'),
     maxData: util.formatDate(new Date(), 'month'),
@@ -28,6 +29,11 @@ Page({
     })
     this.selectComponent("#add").updateData(app.globalData.theme)
     // 加载默认
+    if(wx.getStorageSync('token')){
+      this.setData({
+        isLogin: true
+      })
+    }
     this.getBill()
   },
 
@@ -221,6 +227,8 @@ Page({
         }else{
           that.setData({ noneList: -1 })
         }
+      }).catch((res)=>{
+        that.setData({ noneList: -1 })
       })
   },
 

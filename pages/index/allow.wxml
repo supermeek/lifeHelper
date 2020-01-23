@@ -7,8 +7,8 @@
             <!-- 请确认一下操作授权 -->
         </text>
 		<button wx:if="{{canIUse}}" 
-			class="bg_{{theme.mainColor}}"
+			class="white bg_{{theme.mainColor}}"
 			open-type="getUserInfo" 
-			bindgetuserinfo="getUserInfo"> 授权登录 </button>
+			bindgetuserinfo="getUserInfo"> 微信登录 </button>
 	</view>
 </view>

@@ -4,8 +4,8 @@
   <view class="top_wrapper bg_{{theme.mainColor}}">
     <image class="girl" mode="aspectFit" src="/images/girl.gif"></image>
 
-    <image class="user_avatar" src="{{userInfo.avatarUrl}}"></image>
-    <text class="user_name">{{userInfo.nickName}}</text>
+    <image class="user_avatar" bindtap="clickAvatar" src="{{userInfo.avatarUrl || '/images/default.jpg'}}"></image>
+    <text class="user_name">{{userInfo.nickName || '暂未登陆'}}</text>
     <view class="skin_btn" bindtap="toggleTheme">
       <text class="skin_icon bg_{{theme.mainColor}}" style="box-shadow: 0 0 10px {{theme.color}};background: radial-gradient(circle at 15rpx 15rpx, #fff, {{theme.color}});"></text>
       <text class="dark skin_text">  </text>
@@ -34,14 +34,14 @@
     <view class="right_item">
       <view class="top_item">
         <view>
-          <text>待办事项 <text class="oldRed">0</text></text>
-          <text class="gray">请及时完成待办</text>
+          <text>其他功能 <text class="oldRed">--</text></text>
+          <text class="gray">等待完善中</text>
         </view>
         <image src="/images/book-on.png" mode="aspectFit"></image>
       </view>
       <view class="bottom_item">
         <view>
-          <text>当前BMI <text class="oldRed">0</text></text>
+          <text>当前BMI <text class="oldRed">--</text></text>
           <text class="gray">当前体型刚好哦</text>
         </view>
         <image src="/images/fat-on.png" mode="aspectFit"></image>
@@ -59,17 +59,6 @@
       <!-- <text>还没有数据哦 (๑• . •๑)</text> -->
     </view>
     <component-progress list="{{typeList}}"></component-progress>
-  </view>
-
-  <view class="title_wrapper">
-    <text class="tint">— </text> 备忘预览
-    <text class="tint"> —</text>
-  </view>
-  <view class="bill_wrapper">
-    <view class="no-data__list">
-      <image src="/images/none.png" mode="aspectFit"></image>
-      <!-- <text>还没有数据哦 (๑• . •๑)</text> -->
-    </view>
   </view>
 
   <view class="title_wrapper">

@@ -29,10 +29,11 @@ class service {
     console.log(res)
     var that = this;
     if (res.statusCode == 401) {
-      wx.redirectTo({
-        url: '/pages/index/loading',
-      })
+      // wx.redirectTo({
+      //   url: '/pages/index/allow',
+      // })
     } else {
+      console.log(res.statusCode)
       wx.stopPullDownRefresh()
       wx.hideNavigationBarLoading()
       wx.showToast({

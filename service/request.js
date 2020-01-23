@@ -113,7 +113,7 @@ class request {
               }
             }
             resolve(res)
-          } else { //其它错误，提示用户错误信息（统一异常处理）
+          }else { //其它错误，提示用户错误信息（统一异常处理）
             if (this._errorHandler != null) {
               this._errorHandler(res)
             }

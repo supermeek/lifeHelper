@@ -8,6 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    isLogin: false,
     targetList: [],
     targetIndex: 0,
     targetDetail: {},
@@ -44,6 +45,11 @@ Page({
     app.setThemeColor()
     this.setData({ theme: app.globalData.theme })
     this.selectComponent("#add").updateData(app.globalData.theme)
+    if(wx.getStorageSync('token')){
+      this.setData({
+        isLogin: true
+      })
+    }
     this.getTarget()
   },
 
@@ -56,9 +62,21 @@ Page({
 
   // 打开弹窗
   openDialog: function () {
-    this.setData({
-      istrue: true
-    })
+    if(!this.data.isLogin){
+      util.showModal('登陆','当前未登陆，要前往登陆吗?', ()=>{
+        wx.navigateTo({
+          url: '/pages/index/allow',
+        })
+      })
+    }else{
+      if(this.data.groupType == 'list'){
+          this.setData({
+            istrue: true
+          })
+      }else{
+        util.showToast('请先切换至列表状态')
+      }
+    }
   },
   closeDialog: function () {
     this.setData({
@@ -91,6 +109,7 @@ Page({
     })
   },
 
+  // 切换种族
   bindRaceChange: function (e) {
     console.log(e)
     let value = e.detail.value
@@ -183,6 +202,10 @@ Page({
           }
           that.getWeightList()
         }
+      }).catch(()=>{
+        that.setData({
+          noneList: -1
+        })
       })
   },
 
@@ -285,10 +308,15 @@ Page({
             })
           }
           that.selectComponent(".movable").updateData()
+          that.init_line_echarts(); //初始化图表
         } else {
           that.setData({ noneList: -1 })
         }
+      }).catch((res)=>{
+        that.setData({ noneList: -1 })
       })
+      console.log("888888888888888888")
+      console.log(this.data.noneList)
   },
 
 

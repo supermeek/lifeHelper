@@ -10,8 +10,7 @@
     "pages/mine/index",
     "pages/creat/index",
     "pages/bill/creat",
-    "pages/bmi/creat",
-    "pages/bmi/canvas"
+    "pages/bmi/creat"
   ],
   "window": {
     "navigationBarTextStyle": "black",
@@ -57,12 +56,6 @@
         "text": "统计",
         "iconPath": "images/diagram-off.png",
         "selectedIconPath": "images/diagram-on.png"
-      },
-      {
-        "pagePath": "pages/memo/index",
-        "text": "备忘",
-        "iconPath": "images/order-off.png",
-        "selectedIconPath": "images/order-on.png"
       },
       {
         "pagePath": "pages/bmi/index",

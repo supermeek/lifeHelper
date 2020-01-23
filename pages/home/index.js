@@ -3,6 +3,7 @@ import util from '../../utils/util.js'
 Page({
 
   data: {
+    isLogin: false,
     theme: app.globalData.theme,
     userInfo: app.globalData.userInfo,
     colors: util.colors,
@@ -12,12 +13,25 @@ Page({
     outcomeTotal: 0,
   },
 
-  onLoad: function (options) {
-    // 获取userInfo
-    this.setData({
-      userInfo: wx.getStorageSync('userInfo') || app.globalData.userInfo,
-    })
+  onShow: function () {
+    if(wx.getStorageSync('token')){
+      this.setData({
+        isLogin: true
+      })
+      this.setData({
+        userInfo: wx.getStorageSync('userInfo') || app.globalData.userInfo,
+      })
+    }
+    app.setThemeColor()
+    this.setData({ theme: app.globalData.theme })
+    console.log(app.globalData.theme)
+    this.onLoadBill()
+  },
 
+  onLoad: function (options) {
+
+  },
+  onLoadBill: function () {
     let that = this
     let month = util.formatDate(new Date(), 'month')
     let start = month + '-' + '01'
@@ -37,6 +51,15 @@ Page({
     })
   },
 
+  clickAvatar: function(){
+    if(!this.data.isLogin){
+      util.showModal('登陆','当前未登陆，要前往登陆吗?', ()=>{
+        wx.navigateTo({
+          url: '/pages/index/allow',
+        })
+      })
+    }
+  },
 
   toggleTheme: function () {
     this.setData({
@@ -73,11 +96,7 @@ Page({
       })
   },
 
-  onShow: function () {
-    app.setThemeColor()
-    this.setData({ theme: app.globalData.theme })
-    console.log(app.globalData.theme)
-  },
+  
 
   onShareAppMessage: function () {
 

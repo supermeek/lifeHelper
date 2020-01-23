@@ -14,9 +14,24 @@ Page({
 		console.log(e)
 		if (e.detail.errMsg == "getUserInfo:ok") {
 			app.globalData.userInfo = e.detail.userInfo
-			wx.switchTab({
-				url: '/pages/home/index',
-			})
+			this.login()
 		}
+	},
+
+	login: function(e){
+		let that = this
+    wx.login({
+      success: data => {
+        app.service.wxlogin(data.code).then(res => {
+          if(res.code == 0){
+            app.service.setHeader(res.data)
+            wx.setStorageSync('token', res)
+            wx.switchTab({
+							url: '/pages/home/index',
+						})
+          }
+        })
+      }
+    });
 	}
 })
