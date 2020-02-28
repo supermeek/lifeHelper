@@ -3,12 +3,12 @@
 	<view class="userinfo">
 		<image class="bgImg border_{{theme.mainColor}}" src="/images/loading4.gif" mode="aspectFit"></image>
 		<text class="text">
-            允许微信授权后，开启生活助手
+            记录生活账单，关注体重健康
             <!-- 请确认一下操作授权 -->
         </text>
 		<button wx:if="{{canIUse}}" 
-			class="bg_{{theme.mainColor}}"
+			class="bg_{{theme.mainColor}} white"
 			open-type="getUserInfo" 
-			bindgetuserinfo="getUserInfo"> 授权登录 </button>
+			bindgetuserinfo="getUserInfo"> 开启生活助手 </button>
 	</view>
 </view>

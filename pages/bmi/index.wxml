@@ -77,7 +77,7 @@
     </view>
     <view class="no-data__list" wx:if="{{noneList == -1}}" style='height:300rpx'>
       <image src="/images/none.png" mode="aspectFit"></image>
-      <text>先去添加哦 (๑• . •๑)</text>
+      <text>暂无数据哦 (๑• . •๑)</text>
     </view>
     <view wx:for="{{list}}" wx:for-item="timeItem" wx:for-index="key" wx:key="key">
       <text class="list_time gray">{{timeItem.date}} {{timeItem.weekDay}}</text>

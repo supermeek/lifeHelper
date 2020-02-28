@@ -15,7 +15,7 @@ Page({
       lazyLoad: true
     },
     lineDataX: [],
-    noneList: 0, //0加载中 1加载成功 -1没有数据
+    noneList: -1, //0加载中 1加载成功 -1没有数据
     groupType: 'list',
     raceList: util.raceList,
     raceIndex: 0,
@@ -170,7 +170,8 @@ Page({
         console.log(res)
         if (res.code == 0) {
           if (res.data.length == 0) {
-            that.setData({ raceIndex: 0 })
+            console.log("没有成员啊")
+            that.setData({ raceIndex: 0, noneList: -1 })
           } else {
             res.data.push({ name: '新增成员' })
             that.setData({
@@ -182,6 +183,8 @@ Page({
             that.setData({ targetIndex: res.data.length - 2 })
           }
           that.getWeightList()
+        }else{
+          that.setData({ noneList: -1 })
         }
       })
   },
@@ -231,7 +234,7 @@ Page({
           list: this.data.list
         })
         this.getTarget()
-        this.selectComponent(".movable").updateData()
+        // this.selectComponent(".movable").updateData()
       })
   },
 
@@ -239,6 +242,9 @@ Page({
   // 获取成员体重记录
   getWeightList: function () {
     let that = this
+    if (that.data.targetList.length == 0){
+      return
+    }
     that.setData({ noneList: 0 })
     let targetId = that.data.targetList[that.data.targetIndex].uid
     app.service.getWeightList(targetId)
@@ -284,7 +290,7 @@ Page({
               list: hash
             })
           }
-          that.selectComponent(".movable").updateData()
+          // that.selectComponent(".movable").updateData()
         } else {
           that.setData({ noneList: -1 })
         }
