@@ -173,7 +173,7 @@ Page({
         incomeTime: incomeTime,
       })
 
-      this.selectComponent(".movable").updateData()
+      // this.selectComponent(".movable").updateData()
       console.log(hash)
     })
   },
@@ -203,7 +203,7 @@ Page({
       this.setData({
         list: this.data.list
       })
-      this.selectComponent(".movable").updateData()
+      // this.selectComponent(".movable").updateData()
     })
   },
 
