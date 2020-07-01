@@ -313,10 +313,9 @@ Page({
           that.setData({ noneList: -1 })
         }
       }).catch((res)=>{
-        that.setData({ noneList: -1 })
+        console.log(res)
+        // that.setData({ noneList: -1 })
       })
-      console.log("888888888888888888")
-      console.log(this.data.noneList)
   },
 
 

@@ -60,7 +60,7 @@
 
 
 	<!-- 折线图 -->
-	<view style="height:560rpx;width:100%" hidden="{{groupType == 'list' || noneList == -1}}">
+	<view style="height:560rpx;width:100%" wx:if="{{groupType == 'canvas' && noneList != -1}}">
 		<view style="width:100%;height:50rpx"></view>
 		<ec-canvas id="mychart-weight-line" canvas-id="mychart-line" ec="{{ ec }}"></ec-canvas>
 		<view style="width:100%;height:50rpx"></view>
@@ -74,11 +74,11 @@
 
 	<view class="no-data__list" wx:if="{{noneList == -1}}" style='height:300rpx'>
 		<image src="/images/none.png" mode="aspectFit"></image>
-		<text>先去添加哦 (๑• . •๑)</text>
+		<text>先去添加哦{{noneList}} (๑• . •๑)</text>
 	</view>
 
 	<!-- 列表 -->
-	<view class="list_wrapper" hidden="{{groupType == 'canvas'}}">
+	<view class="list_wrapper" wx:if="{{groupType == 'list'}}">
 		<view class="weui-loading__wrp" wx:if="{{noneList == 0}}">
 			<view class="loading wx_dot_loading"></view>
 		</view>
