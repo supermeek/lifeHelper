@@ -28,11 +28,11 @@ Page({
         })
         this.selectComponent("#add").updateData(app.globalData.theme)
         // 加载默认
-        if (wx.getStorageSync('token')) {
-            this.setData({
-                isLogin: true
-            })
-        }
+        // if (wx.getStorageSync('token')) {
+        //     this.setData({
+        //         isLogin: true
+        //     })
+        // }
         this.getBill()
     },
 
@@ -202,14 +202,17 @@ Page({
         let id = e.detail.id
         let index = e.detail.index
         let key = e.detail.key
+        let list = this.data.list
         that.deleteBill(id, '删除成功', res => {
-            this.data.list[key].records.splice(index, 1)
-            if (this.data.list[key].records.length <= 0) {
-                delete this.data.list[key]
+            list[key].records.splice(index, 1)
+            if (list[key].records.length <= 0) {
+                delete list[key]
             }
             this.setData({
-                list: this.data.list
+                list: list
             })
+            this.getBill()
+            console.log(list)
         })
     },
 

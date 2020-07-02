@@ -14,7 +14,10 @@ Page({
 		console.log(e)
 		if (e.detail.errMsg == "getUserInfo:ok") {
 			app.globalData.userInfo = e.detail.userInfo
-			this.login()
+			wx.setStorageSync('userInfo', e.detail.userInfo)
+			wx.switchTab({
+				url: '/pages/home/index',
+			})
 		}
 	},
 

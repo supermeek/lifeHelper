@@ -31,18 +31,18 @@
 
 	<!-- 折线图 -->
 	<view style="width:100%;height:50rpx"></view>
-	<view hidden="{{!isLogin}}" style="width:100%;height:640rpx">
+	<view style="width:100%;height:640rpx">
 		<ec-canvas id="mychart-dom-line" canvas-id="mychart-line" ec="{{ ec }}"></ec-canvas>
 	</view>
 
 	<!-- 饼形图 -->
-	<view class="line" hidden="{{!isLogin}}"></view>
-	<view hidden="{{!isLogin}}" style="width:100%;height:640rpx">
+	<view class="line"></view>
+	<view style="width:100%;height:640rpx">
 		<ec-canvas id="mychart-dom-pie" canvas-id="mychart-pie" ec="{{ ec }}"></ec-canvas>
 	</view>
 
 
-	<view class="no-data__list" hidden="{{isLogin}}" style='height:300rpx'>
+	<view class="no-data__list" style='height:300rpx'>
 		<image src="/images/none.png" mode="aspectFit"></image>
 		<text>暂无数据哦 (๑• . •๑)</text>
 	</view>

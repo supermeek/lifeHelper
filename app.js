@@ -12,22 +12,22 @@ App({
 
   onLaunch: function () {
     let that = this
-    wx.getSetting({
-      success: res => {
-        if (res.authSetting['scope.userInfo']) { // 已经授权 使用oppenid直接登陆/跳转登陆页面
-          wx.getUserInfo({
-            success: res => {
-              // console.log(res) //用户微信信息
-              wx.setStorageSync('userInfo', res.userInfo)
-              // that.globalData.userInfo = res.userInfo
-              // if (that.userInfoReadyCallback) {  //回调
-              //   that.userInfoReadyCallback(res)
-              // }
-            }
-          })
-        }
-      }
-    })
+    // wx.getSetting({
+    //   success: res => {
+    //     if (res.authSetting['scope.userInfo']) { // 已经授权 使用oppenid直接登陆/跳转登陆页面
+    //       wx.getUserInfo({
+    //         success: res => {
+    //           // console.log(res) //用户微信信息
+    //           wx.setStorageSync('userInfo', res.userInfo)
+    //           that.globalData.userInfo = res.userInfo
+    //           if (that.userInfoReadyCallback) {  //回调
+    //             that.userInfoReadyCallback(res)
+    //           }
+    //         }
+    //       })
+    //     }
+    //   }
+    // })
   },
 
 

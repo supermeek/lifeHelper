@@ -14,16 +14,20 @@ Page({
   },
 
   onShow: function () {
-    if(wx.getStorageSync('token')){
-      this.setData({
-        isLogin: true
-      })
-      this.setData({
-        userInfo: wx.getStorageSync('userInfo') || app.globalData.userInfo,
-      })
-    }
+    // if(wx.getStorageSync('token')){
+    //   this.setData({
+    //     isLogin: true
+    //   })
+    //   this.setData({
+    //     userInfo: wx.getStorageSync('userInfo') || app.globalData.userInfo,
+    //   })
+    // }
+
     app.setThemeColor()
-    this.setData({ theme: app.globalData.theme })
+    this.setData({ 
+      userInfo: wx.getStorageSync('userInfo') || app.globalData.userInfo,
+      theme: app.globalData.theme 
+    })
     console.log(app.globalData.theme)
     this.onLoadBill()
   },

@@ -45,11 +45,11 @@ Page({
         app.setThemeColor()
         this.setData({ theme: app.globalData.theme })
         this.selectComponent("#add").updateData(app.globalData.theme)
-        if (wx.getStorageSync('token')) {
-            this.setData({
-                isLogin: true
-            })
-        }
+        // if (wx.getStorageSync('token')) {
+        //     this.setData({
+        //         isLogin: true
+        //     })
+        // }
         this.getTarget()
     },
 
@@ -62,24 +62,15 @@ Page({
 
     // 打开弹窗
     openDialog: function () {
-        if (!this.data.isLogin) {
-            util.showModal('登陆', '当前未登陆，要前往登陆吗?', () => {
-                wx.navigateTo({
-                    url: '/pages/index/allow',
-                })
+        if (this.data.groupType == 'list') {
+            this.setData({
+                istrue: true
             })
         } else {
-            if (this.data.groupType == 'list') {
-                this.setData({
-                    istrue: true
-                })
-            } else {
-                this.setData({
-                    groupType: 'list',
-                    istrue: true,
-                })
-                // util.showToast('请先切换至列表状态')
-            }
+            this.setData({
+                groupType: 'list',
+                istrue: true,
+            })
         }
     },
     closeDialog: function () {

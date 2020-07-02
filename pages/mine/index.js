@@ -32,11 +32,11 @@ Page({
     onShow: function () {
         app.setThemeColor()
         this.setData({ theme: app.globalData.theme })
-        if (wx.getStorageSync('token')) {
-            this.setData({
-                isLogin: true
-            })
-        }
+        // if (wx.getStorageSync('token')) {
+        //     this.setData({
+        //         isLogin: true
+        //     })
+        // }
         this.getLine()
         this.getPie()
     },

@@ -1,5 +1,4 @@
 <navigator url="{{url}}"
-  catchtap="clickAdd"
   open-type="navigate"
   catchtouchmove="buttonMove"
   bindtouchstart="buttonStart"
