@@ -4,7 +4,7 @@ import apis from './api.js'
 
 class service {
   constructor() {
-    this._baseUrl = 'https://yueyatianchong.cn'
+      this._baseUrl = 'http://49.233.210.113'
     this._defaultHeader = {
       'content-type': 'application/json; charset=UTF-8',
       'Authorization': "Token " + wx.getStorageSync('token').data
@@ -29,10 +29,12 @@ class service {
     console.log(res)
     var that = this;
     if (res.statusCode == 401) {
-      wx.redirectTo({
-        url: '/pages/index/loading',
-      })
+      // wx.redirectTo({
+      //   url: '/pages/index/allow',
+      // })
+      console.log("你还没有登陆")
     } else {
+      console.log(res.statusCode)
       wx.stopPullDownRefresh()
       wx.hideNavigationBarLoading()
       wx.showToast({

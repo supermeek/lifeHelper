@@ -27,9 +27,11 @@ Component({
 
   methods: {
     updateData: function () {
-      this.setData({
-        list: this.properties.listArr
-      })
+        console.log("这里是组件里面的")
+        console.log(this.properties.listArr)
+        this.setData({
+            list: this.properties.listArr
+        })
     },
 
     //编辑事件

@@ -36,7 +36,11 @@
       <text class="gray">{{item.name}}</text>
     </label>
   </checkbox-group>
-
+<!-- 
+  <view class="result_wrapper">
+    <view>平均每天消费12124元</view>
+    <view>更多账单统计</view>
+  </view> -->
 
   <view class="list_wrapper">
 
@@ -57,7 +61,7 @@
   </view>
 
   <!-- 添加按钮 -->
-  <component-add id="add" url="/pages/bill/creat"></component-add>
+  <component-add id="add" url="{{isLogin ? '/pages/bill/creat' : ''}}"></component-add>
 
 
 </view>
