@@ -6,5 +6,5 @@
     <view class="progress">
       <progress percent="{{item.percent}}" activeColor="{{Filter.typeIcon(item.name).color}}" stroke-width="8" border-radius="20" active backgroundColor="#f8f8f8" />
     </view>
-    <text class="percent dark">{{item.percent}}%</text>
+    <text class="percent dark">{{item.value}}</text>
   </view>

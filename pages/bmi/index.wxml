@@ -160,7 +160,7 @@
 						</view>
 						<view>
 							<label>
-								<text class="white">*</text>
+								<text class="oldRed">*</text>
 								<text>目标体重</text>
 								<input value="{{target.target_weight}}" name="target_weight" />
 							</label>
