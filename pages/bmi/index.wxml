@@ -177,6 +177,6 @@
 
 
 	<!-- 添加按钮 -->
-	<component-add id="add" hidden="{{groupType == 'canvas'}}" url="{{ isLogin ? '/pages/bmi/creat?targetId='+targetList[targetIndex].uid : ''}}"></component-add>
+	<component-add id="add" hidden="{{groupType == 'canvas'}}" url="{{'/pages/bmi/creat?targetId='+targetList[targetIndex].uid}}"></component-add>
 
 </view>

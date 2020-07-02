@@ -61,7 +61,7 @@
   </view>
 
   <!-- 添加按钮 -->
-  <component-add id="add" url="{{isLogin ? '/pages/bill/creat' : ''}}"></component-add>
+  <component-add id="add" url="{{'/pages/bill/creat'}}"></component-add>
 
 
 </view>
