@@ -103,6 +103,7 @@ Page(Object.assign({
 
   // 创建账单
   creatBill: function (type, outcome, money, time, desc, info){
+    let that = this
     app.service.creatBill(type, outcome, money, time, desc, info)
       .then(res => {
         console.log(res)

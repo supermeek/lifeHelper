@@ -44,6 +44,7 @@ Page(Object.assign({
                     that.setData({
                         amount: res.data.money,
                         desc: res.data.desc,
+                        outcome: res.data.outcome,
                         date: util.formatDate(new Date(res.data.pay_datetime), 'day'),
                         typeIndex: index
                     })
@@ -105,6 +106,7 @@ Page(Object.assign({
 
     // 确认提交
     submitConfirm: function (e) {
+        console.log("点击了保存啦")
         console.log(e.detail.value)
         let that = this
         let value = e.detail.value
@@ -130,6 +132,7 @@ Page(Object.assign({
     // 创建账单
     creatBill: function (type, outcome, money, time, desc, info) {
         let id = this.data.id
+        let that = this
         app.service.creatBill(id, type, outcome, money, time, desc, info)
             .then(res => {
                 console.log(res)

@@ -109,6 +109,9 @@
   min-height: 16px;
   margin-top: 16px;
   margin-bottom: 12px;
+
+  min-height: 80rpx;
+  /* background-color: red; */
 }
 
 

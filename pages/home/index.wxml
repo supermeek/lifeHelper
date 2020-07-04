@@ -3,9 +3,8 @@
 
   <view class="top_wrapper bg_{{theme.mainColor}}">
     <image class="girl" mode="aspectFit" src="/images/girl.gif"></image>
-
     <image class="user_avatar" bindtap="clickAvatar" src="{{userInfo.avatarUrl || '/images/default.jpg'}}"></image>
-    <text class="user_name">{{userInfo.nickName || '暂未登陆'}}</text>
+    <text class="user_name" bindtap="clickAvatar">{{userInfo.nickName || '点我登陆'}}</text>
     <view class="skin_btn" bindtap="toggleTheme">
       <text class="skin_icon bg_{{theme.mainColor}}" style="box-shadow: 0 0 10px {{theme.color}};background: radial-gradient(circle at 15rpx 15rpx, #fff, {{theme.color}});"></text>
       <text class="dark skin_text">  </text>

@@ -65,26 +65,29 @@ Page(Object.assign({
     let that = this
     let value = e.detail.value
     let time = value.date + " " + util.formatDate(new Date(), 'time')
-    let weight = value.weight
-    let height = value.height
+    if (!(value.weight && value.height)) {
+      util.showToast('请录入完整数据')
+      return
+    }
     that.setData({ disabled: true })
-    that.creatWeight(time, weight, height,'创建成功')
+    that.creatWeight(time, value.weight, value.height, '创建成功')
   },
 
 
-  // 创建账单
-  creatWeight: function ( time, weight, height, info ) {
+  // 创建体重
+  creatWeight: function (time, weight, height, info) {
     let targetId = this.data.targetId
-    let weightId = this.data.targeweightIdtId
+    let weightId = this.data.weightId
+    let that = this
     app.service.creatWeightList(targetId, weightId, time, weight, height, info)
       .then(res => {
         console.log(res)
         if (res.code == 0) {
-          setTimeout(()=>{
+          setTimeout(() => {
             wx.navigateBack({
               delta: 1
             })
-          },2000)
+          }, 2000)
         } else {
           that.setData({ disabled: false })
         }

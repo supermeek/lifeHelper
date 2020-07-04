@@ -60,6 +60,7 @@
           </view>
           <view class="weui-cell__bd">
             <textarea class="weui-area gray" value="{{desc}}" name="desc" auto-height maxlength="85" placeholder="......" show-confirm-bar="{{false}}" disable-default-padding="{{true}}" placeholder-style="color:#999" />
+            <!-- <input class="weui-area gray" value="{{desc}}" name="desc" maxlength="20" placeholder="......" placeholder-style="color:#999"></input> -->
           </view>
         </view>
       </view>

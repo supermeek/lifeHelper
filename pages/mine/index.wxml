@@ -42,7 +42,7 @@
 	</view>
 
 
-	<view class="no-data__list" style='height:300rpx'>
+	<view class="no-data__list" style='height:300rpx' wx:if="{{typeList.length <= 0}}">
 		<image src="/images/none.png" mode="aspectFit"></image>
 		<text>暂无数据哦 (๑• . •๑)</text>
 	</view>

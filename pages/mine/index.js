@@ -51,13 +51,13 @@ Page({
             this.setData({
                 groupType: 'month',
                 date: JSON.stringify(util.formatDate(new Date(currentDate + '-01'), 'year')),
-                maxData: util.formatDate(new Date(currentDate + '-01'), 'year'),
+                maxData: util.formatDate(new Date(), 'year'),
             })
         } else {
             this.setData({
                 groupType: 'date',
                 date: util.formatDate(new Date(currentDate + '-01' + '-01'), 'month'),
-                maxData: util.formatDate(new Date(currentDate + '-01' + '-01'), 'month'),
+                maxData: util.formatDate(new Date(), 'month'),
             })
         }
         this.getLine()
@@ -137,15 +137,16 @@ Page({
         let that = this
         if (this.data.groupType == 'date') {
             var start = this.data.date + '-' + '01'
+            var arr = start.split('-');
+            var end = util.formatDate(new Date(arr[0], arr[1], '0'), 'day')
         } else {
             var start = this.data.date + '-' + '01' + '-' + '01'
+            var end = util.formatDate(new Date(this.data.date, '12', '0'), 'day')
         }
-        let arr = start.split('-');
-        let end = util.formatDate(new Date(arr[0], arr[1], '0'), 'day')
+
         this.getBillPie(start, end, (res) => {
             let colors = []
             let datax = []
-            
             if (res.data.outcome.length > 0) {
                 for (let i in res.data.outcome) {
                     let typeIndex = util.typeIndex(res.data.outcome[i].name)

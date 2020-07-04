@@ -42,7 +42,6 @@ Page({
     let arr = start.split('-');
     let end = util.formatDate(new Date(arr[0], arr[1], '0'), 'day')
     this.getBillPie(start, end,(res)=>{
-      console.log(res)
       let outcomeTotal = 0
       for(let i in res.data.outcome){
         outcomeTotal = util.add(outcomeTotal,res.data.outcome[i].value) 
@@ -56,8 +55,9 @@ Page({
   },
 
   clickAvatar: function(){
-    if(!this.data.isLogin){
-      util.showModal('登陆','当前未登陆，要前往登陆吗?', ()=>{
+    console.log(wx.getStorageSync('token'))
+    if(!wx.getStorageSync('token')){
+      util.showModal('提示','当前未登陆，要前往登陆吗?', ()=>{
         wx.navigateTo({
           url: '/pages/index/allow',
         })
@@ -91,7 +91,6 @@ Page({
     let that = this
     app.service.getBillPie(start, end)
       .then(res => {
-        console.log(res)
         if (res.code == 0) {
           if (typeof (callback == 'function')) {
             callback(res)

@@ -3,7 +3,11 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    list: Array
+    list: Array,
+    showType:{
+      type: String,
+      value: 'number'  // number | percent
+    }
   },
 
   /**

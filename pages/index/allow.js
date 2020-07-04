@@ -10,17 +10,17 @@ Page({
     this.setData({ theme: app.globalData.theme })
 	},
 
+	// 获取用户权限
 	getUserInfo: function (e) {
 		console.log(e)
 		if (e.detail.errMsg == "getUserInfo:ok") {
 			app.globalData.userInfo = e.detail.userInfo
 			wx.setStorageSync('userInfo', e.detail.userInfo)
-			wx.switchTab({
-				url: '/pages/home/index',
-			})
+			this.login()
 		}
 	},
 
+	// 使用code登陆（后台自动根据code获取oppenid）
 	login: function(e){
 		let that = this
     wx.login({
