@@ -56,12 +56,12 @@
     <!-- 列表 -->
     <view wx:for="{{list}}" wx:for-item="timeItem" wx:for-index="key" wx:key="key">
       <text class="list_time bg_tint_{{theme.mainColor}} dark">{{timeItem.date}} {{timeItem.weekDay}}</text>
-      <component-movable class="movable" listArr="{{timeItem}}" type="bill" key="{{key}}" bind:edit="edit" bind:del="del"></component-movable>
+      <component-movable class="movable" dateObject="{{timeItem}}" type="bill" key="{{key}}" bind:edit="edit" bind:del="del"></component-movable>
     </view>
   </view>
 
   <!-- 添加按钮 -->
-  <component-add id="add" url="{{'/pages/bill/creat'}}"></component-add>
+  <component-add id="add" url="{{'/pages/bill/creat'}}" themeObj="{{theme}}"></component-add>
 
 
 </view>

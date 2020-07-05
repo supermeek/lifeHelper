@@ -44,12 +44,6 @@ Page({
     onShow: function () {
         app.setThemeColor()
         this.setData({ theme: app.globalData.theme })
-        this.selectComponent("#add").updateData(app.globalData.theme)
-        // if (wx.getStorageSync('token')) {
-        //     this.setData({
-        //         isLogin: true
-        //     })
-        // }
         this.getTarget()
     },
 
@@ -248,7 +242,6 @@ Page({
                 this.setData({
                     list: this.data.list
                 })
-                this.getTarget()
             })
     },
 
@@ -258,9 +251,6 @@ Page({
         let that = this
         that.setData({ noneList: 0 })
         let targetId = that.data.targetList[that.data.targetIndex].uid
-        this.setData({
-            list:[]
-        })
         app.service.getWeightList(targetId)
             .then(res => {
                 if (res.code == 0) {

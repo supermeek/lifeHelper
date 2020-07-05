@@ -3,7 +3,15 @@ import util from '../../utils/util.js'
 Component({
 
   properties: {
-    url: String
+    url: String,
+    themeObj: {
+      type: Object,
+      observer: function (newval, oldval) {
+        this.setData({
+          theme: newval
+        })
+      }
+    }
   },
 
   data: {
@@ -73,17 +81,6 @@ Component({
 
     clickAdd: function(e){
       console.log("点击")
-      // if(!wx.getStorageSync('token')){
-      //   util.showModal('登陆','当前未登陆，要前往登陆吗?', ()=>{
-      //     wx.navigateTo({
-      //       url: '/pages/index/allow',
-      //     })
-      //   })
-      // }
-    },
-
-    updateData: function(theme){
-      this.setData({ theme: theme })
     }
   }
 })

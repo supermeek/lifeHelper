@@ -1,9 +1,0 @@
-<navigator url="{{url}}" class="item shadow_bottom">
-    <image class="item-image" 
-        src="{{imageHttp ? imageHttp+src[0]+'&preview=true' : '/images/none.png'}}" 
-        lazy-load="true"
-        mode="aspectFill" />
-    <text class="title">{{title || '无'}}</text>
-    <text class="info gray">{{info || '暂无描述'}}</text>
-    <text wx:if="{{type}}" class="type tint">{{type}}</text>
-</navigator>

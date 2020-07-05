@@ -3,7 +3,14 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    list: Array,
+    list: {
+      type: Array,
+      observer: function (newval, oldval) {
+        this.setData({
+          list: newval
+        })
+      }
+    },
     showType:{
       type: String,
       value: 'number'  // number | percent

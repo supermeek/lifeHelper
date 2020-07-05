@@ -26,13 +26,6 @@ Page({
         this.setData({
             theme: app.globalData.theme
         })
-        this.selectComponent("#add").updateData(app.globalData.theme)
-        // 加载默认
-        // if (wx.getStorageSync('token')) {
-        //     this.setData({
-        //         isLogin: true
-        //     })
-        // }
         this.getBill()
     },
 
@@ -132,9 +125,6 @@ Page({
                 types.push(item.name)
             }
         })
-        this.setData({
-            list: []
-        })
 
         // 调取接口
         this.searchBill(start, end, types, res => {
@@ -143,9 +133,6 @@ Page({
             let incomeTotal = 0
             let outcomeTime = 0
             let incomeTime = 0
-            this.setData({
-                list: []
-            })
             for (let i in res.data) {
                 if (res.data[i].outcome) {
                     outcomeTotal = util.add(outcomeTotal, res.data[i].money)
@@ -211,8 +198,6 @@ Page({
             this.setData({
                 list: list
             })
-            this.getBill()
-            console.log(list)
         })
     },
 

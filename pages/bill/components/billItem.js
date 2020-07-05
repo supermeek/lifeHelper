@@ -1,6 +1,7 @@
 
 Component({
 
+    
     properties: {
         item: Object
     },

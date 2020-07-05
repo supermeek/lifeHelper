@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "component-billItem": "/pages/bill/components/billItem",
+    "component-blockItem": "/pages/bmi/components/blockItem"
+  }
+}

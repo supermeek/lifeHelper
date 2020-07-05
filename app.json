@@ -1,14 +1,11 @@
 {
   "pages": [
-    "pages/index/loading",
-    "pages/index/allow",
+    "pages/login/loading",
+    "pages/login/allow",
     "pages/home/index",
     "pages/bill/index",
-    "pages/memo/index",
-    "pages/memo/detail",
     "pages/bmi/index",
-    "pages/mine/index",
-    "pages/creat/index",
+    "pages/total/index",
     "pages/bill/creat",
     "pages/bmi/creat"
   ],
@@ -27,14 +24,10 @@
     "downloadFile": 10000
   },
   "usingComponents": {
-    "component-dialog": "components/dialog/dialog",
     "component-add": "components/add/add",
     "ec-canvas": "../../ec-canvas/ec-canvas",
-    "component-picker": "/components/form/selectPicker",
     "component-progress": "/components/progress/progress",
-    "component-billItem": "/components/item/billItem",
-    "component-blockItem": "/components/item/blockItem",
-    "component-movable": "/components/item/movable"
+    "component-movable": "/components/movable/movable"
   },
   "tabBar": {
     "selectedColor": "#8DC53E",
@@ -52,7 +45,7 @@
         "selectedIconPath": "images/cartoon-on.png"
       },
       {
-        "pagePath": "pages/mine/index",
+        "pagePath": "pages/total/index",
         "text": "统计",
         "iconPath": "images/diagram-off.png",
         "selectedIconPath": "images/diagram-on.png"

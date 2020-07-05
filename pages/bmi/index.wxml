@@ -84,11 +84,9 @@
 		</view>
 		<view wx:for="{{list}}" wx:for-item="timeItem" wx:for-index="key" wx:key="key">
 			<text class="list_time gray">{{timeItem.date}} {{timeItem.weekDay}}</text>
-			<component-movable class="movable" listArr="{{timeItem}}" type="bmi" key="{{key}}" bind:edit="edit" bind:del="del"></component-movable>
+			<component-movable class="movable" dateObject="{{timeItem}}" type="bmi" key="{{key}}" bind:edit="edit" bind:del="del"></component-movable>
 		</view>
 	</view>
-
-
 
 
 	<!-- 模拟弹窗 -->
@@ -178,7 +176,7 @@
 
 	<!-- 添加按钮 图标页和没有成员时候不能添加 -->
 	<view hidden="{{groupType == 'canvas' || targetList.length == 0}}">
-			<component-add id="add" url="{{'/pages/bmi/creat?targetId='+targetList[targetIndex].uid}}"></component-add>
+		<component-add id="add" url="{{'/pages/bmi/creat?targetId='+targetList[targetIndex].uid}}" themeObj="{{theme}}"></component-add>
 	</view>
 
 </view>

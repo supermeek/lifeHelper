@@ -1,4 +1,0 @@
-<view class="container">
-  <image class="bg" src="/images/waiting.gif"></image>
-  <text class='text'>努力研发中 敬请期待...</text>
-</view>

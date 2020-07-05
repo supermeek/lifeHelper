@@ -2,7 +2,14 @@ const app = getApp()
 import util from '../../utils/util.js'
 Component({
   properties: {
-    listArr: Object,
+    dateObject: {
+      type: Object,
+      observer: function (newval, oldval) {
+        this.setData({
+          list: newval
+        })
+      }
+    },
     key: String,
     type: String //bill 使用药品item组件  bmi使用体重item组件
   },
@@ -10,7 +17,7 @@ Component({
   /*** 启用插槽 */
   options: {
     multipleSlots: true,
-     styleIsolation: 'apply-shared'
+    styleIsolation: 'apply-shared'
   },
 
   data: {
@@ -19,20 +26,7 @@ Component({
     list: []
   },
 
-  ready: function () {
-    this.setData({
-      list: this.properties.listArr
-    })
-  },
-
   methods: {
-    updateData: function () {
-        console.log("这里是组件里面的")
-        console.log(this.properties.listArr)
-        this.setData({
-            list: this.properties.listArr
-        })
-    },
 
     //编辑事件
     edit: function (e) {
@@ -47,7 +41,7 @@ Component({
       let index = e.currentTarget.dataset.index
       let id = e.currentTarget.id
       util.showModal('确定删除该选项吗？', '', () => {
-        that.triggerEvent('del', {id: id, index: index, key: key })
+        that.triggerEvent('del', { id: id, index: index, key: key })
       })
     },
 
@@ -77,9 +71,9 @@ Component({
           X: startX,
           Y: startY
         }, {
-            X: touchMoveX,
-            Y: touchMoveY
-          });
+          X: touchMoveX,
+          Y: touchMoveY
+        });
 
       that.data.list.records.forEach(function (v, i) {
         v.isTouchMove = false
