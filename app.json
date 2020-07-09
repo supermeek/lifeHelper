@@ -4,9 +4,9 @@
     "pages/login/allow",
     "pages/home/index",
     "pages/bill/index",
-    "pages/bmi/index",
-    "pages/total/index",
     "pages/bill/creat",
+    "pages/total/index",
+    "pages/bmi/index",
     "pages/bmi/creat"
   ],
   "window": {

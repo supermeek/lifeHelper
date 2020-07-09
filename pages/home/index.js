@@ -59,7 +59,7 @@ Page({
     if(!wx.getStorageSync('token')){
       util.showModal('提示','当前未登陆，要前往登陆吗?', ()=>{
         wx.navigateTo({
-          url: '/pages/index/allow',
+          url: '/pages/login/allow',
         })
       })
     }

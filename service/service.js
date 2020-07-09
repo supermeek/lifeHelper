@@ -34,7 +34,7 @@ class service {
         icon: 'none'
       })
       // wx.redirectTo({
-      //   url: '/pages/index/allow',
+      //   url: '/pages/login/allow',
       // })
     } else {
       console.log(res.statusCode)

@@ -29,7 +29,7 @@ Page({
           })
         } else {
           //TODO 跳转授权页面 授权后使用oppenid登陆然后跳转home页面
-          wx.redirectTo({ url: '/pages/index/allow' })
+            wx.redirectTo({ url: '/pages/login/allow' })
         }
       }
     })

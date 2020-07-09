@@ -5,11 +5,11 @@ var common = {
     switch (name) {
       case '餐饮': return { icon: 'icon-1.png', color: '#FFAFA9' }; break;
       case '萌宠': return { icon: 'icon-2.png', color: '#CACACA' }; break;
-      case '宝贝': return { icon: 'icon-3.png', color: '#937773' }; break;
+      case '家人': return { icon: 'icon-3.png', color: '#937773' }; break;
       case '出行': return { icon: 'icon-4.png', color: '#FA746A' }; break;
       case '居家': return { icon: 'icon-5.png', color: '#87C05A' }; break;
       case '娱乐': return { icon: 'icon-6.png', color: '#49B7EA' }; break;
-      case '衣装': return { icon: 'icon-7.png', color: '#A3D9BD' }; break;
+      case '衣妆': return { icon: 'icon-7.png', color: '#A3D9BD' }; break;
       case '社交': return { icon: 'icon-8.png', color: '#FF5252' }; break;
       case '转账': return { icon: 'icon-9.png', color: '#A3D4FF' }; break;
       case '其他': return { icon: 'icon-10.png', color: '#FEF001' }; break;
