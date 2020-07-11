@@ -1,0 +1,82 @@
+<!-- 模拟弹窗 -->
+<view class="weui-demo-dialog weui-demo-dialog_show">
+	<form bindsubmit="submitConfirm">
+		<view class="weui-mask" bindtap="closeDialog"></view>
+		<view class="weui-actionsheet weui-actionsheet_toggle">
+			<view class="weui-actionsheet__title">
+				<view class="weui-actionsheet__title-text">创建成员</view>
+			</view>
+			<view class="avatar_wrapper" wx:if="{{showAvatar}}">
+				<image wx:for="{{avatarList}}" wx:key="index" data-index="{{index}}" class="{{index == avatarIndex ? 'border_'+theme.mainColor : ''}}" src="/images/{{item.icon}}" bindtap="confirmAvatar"></image>
+			</view>
+			<view class="weui-actionsheet__content">
+				<view class="user_top">
+					<view class="user_left">
+						<image class="avatar border_{{theme.mainColor}}" src="/images/{{target.icon}}" bindtap="switchAvatar"></image>
+					</view>
+					<view class="user_right">
+						<label>
+							<text class="oldRed">*</text>
+							<text style="width:100rpx">姓名</text>
+							<input value="{{target.name}}" name="name" />
+						</label>
+						<label>
+							<text class="oldRed">*</text>
+							<text style="width:100rpx">性别</text>
+							<view class="gander">
+								<view bindtap="switchGander" data-gander="male">男
+									<icon wx:if="{{target.sex == 'male'}}" color="{{theme.color}}" type="success_no_circle" size="16"></icon>
+								</view>
+								<view bindtap="switchGander" data-gander="female">女
+									<icon wx:if="{{target.sex == 'female'}}" color="{{theme.color}}" type="success_no_circle" size="16"></icon>
+								</view>
+							</view>
+						</label>
+					</view>
+				</view>
+				<view class="user_bottom">
+					<view>
+						<label>
+							<text class="oldRed">*</text>
+							<text>关系</text>
+							<picker class="picker" bindchange="bindRaceChange" name="race" value="{{raceIndex}}" range="{{raceList}}" range-key="name">
+								<view class="picker_wrapper _clearFloat">
+									<text type="default" style="margin:0 15rpx">{{raceList[raceIndex].name}}</text>
+									<text class="iconfont icon-xia" style="position:absolute;right:80rpx"></text>
+								</view>
+							</picker>
+						</label>
+						<label>
+							<text class="white">*</text>
+							<text>年龄</text>
+							<input type="number" value="{{target.age}}" name="age" />
+						</label>
+					</view>
+					<view>
+						<label>
+							<text class="oldRed">*</text>
+							<text>身高(cm)</text>
+							<input type="digit" value="{{target.height}}" name="height" />
+						</label>
+						<label>
+							<text class="oldRed">*</text>
+							<text>体重(kg)</text>
+							<input type="digit" value="{{target.weight}}" name="weight" />
+						</label>
+					</view>
+					<view>
+						<label>
+							<text class="oldRed">*</text>
+							<text>目标体重</text>
+							<input value="{{target.target_weight}}" name="target_weight" />
+						</label>
+					</view>
+				</view>
+			</view>
+			<view class="weui-actionsheet__action">
+				<button class="" bindtap="closeDialog">取消</button>
+				<button style="width:50%" class="{{theme.mainColor}}" formType="submit">确定</button>
+			</view>
+		</view>
+	</form>
+</view>

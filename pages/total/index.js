@@ -10,12 +10,10 @@ Page({
         theme: app.globalData.theme,
         lineColor: ["#04B404", "#ff0000"],
         pieColor: [],
-        ec: {
-            lazyLoad: true
-        },
-        groupType: 'date',
-        date: util.formatDate(new Date(), 'month'),
-        maxData: util.formatDate(new Date(), 'month'),
+        ec: { lazyLoad: true },
+        groupType: 'month',
+        date: util.formatDate(new Date(), 'year'),
+        maxData: util.formatDate(new Date(), 'year'),
         typeList: util.typeList,
         outcomeTotal: 0,
         incomeTotal: 0,

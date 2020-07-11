@@ -41,7 +41,7 @@ page{
 }
 
 .name {
-  font-size: 0;
+  /* font-size: 0; */
   text-align: center;
   width: 100%;
   display: inline-block;
