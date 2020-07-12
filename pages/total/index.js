@@ -44,7 +44,7 @@ Page({
         let currentDate = this.data.date
         console.log(this.data.groupType)
         console.log(this.data.date)
-        
+
         if (this.data.groupType == 'date') {
             this.setData({
                 groupType: 'month',
@@ -101,6 +101,11 @@ Page({
                             position: 'inside'
                         }
                     },
+                    // markLine : {
+                    // 　　data : [
+                    // 　　　　{type : 'average', name: '平均值'}
+                    // 　　]
+                    // },
                     areaStyle: {
                         color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
                             offset: 0,
@@ -119,7 +124,7 @@ Page({
                 seriesData: seriesData,
                 lineDataX: res.data.dates
             })
-            
+
             // **** 初始化图表 ****
             that.echartsComponnetLine = that.selectComponent('#mychart-dom-line');
             if (!lineChart) {

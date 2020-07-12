@@ -88,9 +88,9 @@
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "统计页面",
-					"pathName": "pages/mine/index",
+					"id": 6,
+					"name": "pages/total/index",
+					"pathName": "pages/total/index",
 					"query": "",
 					"scene": null
 				},
