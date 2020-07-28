@@ -25,9 +25,9 @@
   },
   "usingComponents": {
     "component-add": "components/add/add",
-    "ec-canvas": "../../ec-canvas/ec-canvas",
-    "component-progress": "/components/progress/progress",
-    "component-movable": "/components/movable/movable"
+    "ec-canvas": "ec-canvas/ec-canvas",
+    "component-progress": "components/progress/progress",
+    "component-movable": "components/movable/movable"
   },
   "tabBar": {
     "selectedColor": "#8DC53E",
