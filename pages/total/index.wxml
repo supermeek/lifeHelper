@@ -19,12 +19,12 @@
 
 		<view class="right">
 			<view class="left_total">
-				<text class="text">总支出</text>
-				<text class="total_count">￥{{outcomeTotal}}</text>
-			</view>
-			<view class="right_total">
 				<text class="text">总收入</text>
 				<text class="total_count">￥{{incomeTotal}}</text>
+			</view>
+			<view class="right_total">
+				<text class="text">总支出</text>
+				<text class="total_count">￥{{outcomeTotal}}</text>
 			</view>
 		</view>
 	</view>

@@ -4,7 +4,8 @@ import apis from './api.js'
 
 class service {
   constructor() {
-    this._baseUrl = 'http://49.233.210.113'
+    // this._baseUrl = 'http://49.233.210.113' 
+    this._baseUrl = 'https://fatwang.yueyawochong.cn'
     this._defaultHeader = {
       'content-type': 'application/json; charset=UTF-8',
       'Authorization': "Token " + wx.getStorageSync('token').data
