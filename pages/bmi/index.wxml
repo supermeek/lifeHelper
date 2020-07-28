@@ -74,7 +74,7 @@
 
 	<view class="no-data__list" wx:if="{{noneList == -1}}" style='height:300rpx'>
 		<image src="/images/none.png" mode="aspectFit"></image>
-		<text>先去添加哦{{noneList}} (๑• . •๑)</text>
+		<text>先去添加哦 (๑• . •๑)</text>
 	</view>
 
 	<!-- 列表 -->
