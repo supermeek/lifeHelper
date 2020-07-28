@@ -93,11 +93,11 @@ Page(Object.assign({
     // 金额输入
     bindInputAmount: function (e) {
         let value = e.detail.value
-        value = value.replace(/[^\d.]/g, "")
-        value = value.replace(/^\./g, "")
-        value = value.replace(/\.{2,}/g, ".")
-        value = value.replace(".", "$#$").replace(/\./g, "").replace("$#$", ".");
-        value = value.replace(/^(\-)*(\d+)\.(\d\d).*$/, '$1$2.$3');
+        value = value.replace(/[^\d.]/g, "") // 删除除了数字和点的字符
+        value = value.replace(/^\./g, "")  //  删除起始位置的1个点
+        value = value.replace(/\.{2,}/g, ".") // 将连续2个以及2个以上的点替换为1个点
+        value = value.replace(".", "$#$").replace(/\./g, "").replace("$#$", "."); // 只保留第一个点，其他的点删除
+        value = value.replace(/^(\-)*(\d+)\.(\d\d).*$/, '$1$2.$3');  // 约等于保留2位小数，带正负号的。
         this.setData({
             amount: value
         })
