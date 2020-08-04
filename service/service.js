@@ -188,17 +188,19 @@ class service {
      end: date, 开始时间
    * response: {}
    */
-  getBillLine(start, end, type, year, info = null, message = null) {
+  getBillLine(start, end, type, year, dimension = 'inout', info = null, message = null) {
     console.log(type)
     if (type == 'date') {
       var data = {
         start: start,
         end: end,
+        dimension: dimension,
         group_by: type
       }
     } else {
       var data = {
         year: year,
+        dimension: dimension,
         group_by: type
       }
     }

@@ -105,6 +105,12 @@
 					"pathName": "pages/bmi/index",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "统计",
+					"pathName": "pages/total/index",
+					"scene": null
 				}
 			]
 		}
