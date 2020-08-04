@@ -142,16 +142,21 @@ Page({
                     incomeTime = incomeTime + 1
                 }
                 let date = /\d{4}-\d{1,2}-\d{1,2}/g.exec(res.data[i].pay_datetime)
-
+        
                 if (!hash[date]) {
                     hash[date] = {
-                        records: [],
+                        records: [res.data[i]],
                         date: date,
+                        weekTotal: res.data[i].outcome ? -parseFloat(res.data[i].money).toFixed(2) : parseFloat(res.data[i].money).toFixed(2),
                         weekDay: util.formatDate(new Date(date), 'week'),
                     }
-                    hash[date].records.push(res.data[i])
-                    res.data[i]
                 } else {
+                    if(res.data[i].outcome){
+                        hash[date].weekTotal = parseFloat(hash[date].weekTotal) - parseFloat(res.data[i].money)
+                    }else{
+                        hash[date].weekTotal = parseFloat(hash[date].weekTotal) + parseFloat(res.data[i].money)
+                    }
+                    hash[date].weekTotal = parseFloat(hash[date].weekTotal).toFixed(2)
                     hash[date].records.push(res.data[i])
                 }
             }

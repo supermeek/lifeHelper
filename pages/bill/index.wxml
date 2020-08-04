@@ -55,7 +55,7 @@
 
     <!-- 列表 -->
     <view wx:for="{{list}}" wx:for-item="timeItem" wx:for-index="key" wx:key="key">
-      <text class="list_time bg_tint_{{theme.mainColor}} dark">{{timeItem.date}} {{timeItem.weekDay}}</text>
+      <text class="list_time bg_tint_{{theme.mainColor}} dark"> {{timeItem.date}} {{timeItem.weekDay}} <text class="right gray" style="padding-right:20rpx">{{timeItem.weekTotal > 0 ? '+' : ''}}{{timeItem.weekTotal }}</text></text>
       <component-movable class="movable" dateObject="{{timeItem}}" type="bill" key="{{key}}" bind:edit="edit" bind:del="del"></component-movable>
     </view>
   </view>
