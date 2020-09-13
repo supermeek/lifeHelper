@@ -17,7 +17,7 @@
             <view class="weui-label">记录日期：<text class="oldRed">*</text></view>
           </view>
           <view class="weui-cell__bd">
-            <picker mode="date" name="date" value="{{date}}" start="2000-01-01" end="{{maxDate}}" bindchange="bindDateChange">
+            <picker mode="date" name="date" value="{{date}}" end="{{maxDate}}" bindchange="bindDateChange">
               <view class="weui-select gray">{{date}}</view>
             </picker>
           </view>
