@@ -15,8 +15,8 @@ Component({
   },
 
   data: {
-    buttonTop: '0',
-    buttonLeft: '0',
+    buttonTop: '1000',
+    buttonLeft: '700',
     windowHeight: '',
     windowWidth: ''
   },
